@@ -1,5 +1,6 @@
 <?php include "php/db.php"?>
 <?php include "php/user-logout.php"?>
+<?php include "php/admin.php"?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
     </form>
     <table>
         <?php
-            $query = "SELECT * FROM `users` WHERE user_type = 'client'";
+            $query = "SELECT * FROM `users` WHERE user_type = 'client' AND deleted_at IS NULL";
             $users = mysqli_query($conn, $query);
             while($row = mysqli_fetch_assoc($users)){
                 echo '<form action="" method="post">';
