@@ -19,7 +19,7 @@
         }
         
         if(mysqli_num_rows($user_found) == 0){
-            echo "<h3>Wrong Username or Password!</h3>";
+            echo "<h3 class='error-message'>Wrong Username or Password!</h3>";
             return;
         }
 

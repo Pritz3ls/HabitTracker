@@ -49,6 +49,7 @@
         <?php
             // Retrieve the current User ID that logged in
             $user_id = $_SESSION['currentUserID'];
+            echo $user_id;
             $query = "SELECT * FROM habits WHERE user_id = {$user_id}";
             $view_habits = mysqli_query($conn, $query);
             
