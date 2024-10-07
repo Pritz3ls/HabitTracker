@@ -9,7 +9,7 @@
     <title>Test Forgot Password</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="" method="post" autocomplete="off">
         <div>
             <label for="username" method="post">Username</label>
             <input type="text" name="username" placeholder="Enter Username"required>
