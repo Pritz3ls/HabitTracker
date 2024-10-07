@@ -4,6 +4,8 @@ CREATE TABLE users (
     password VARCHAR(250) NOT NULL,
     phone_number VARCHAR(250) NOT NULL,
     user_type ENUM('client','admin') DEFAULT 'client',
+    -- Log for users
+    deleted_at DATETIME,
     account_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -15,6 +17,8 @@ CREATE TABLE habits (
     custom_interval_value INT DEFAULT NULL,  -- For custom repetition only
     -- Dates for habits
     last_completion DATE DEFAULT '1990-1-1',
+    -- Log for habits
+    deleted_at DATETIME,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     	FOREIGN KEY (user_id) REFERENCES users(id)
 );
