@@ -1,0 +1,30 @@
+User Data{
+    user_id PRIMARY KEY
+    user_name
+    password
+    phone_number
+    earned_points
+    user_type
+}
+Habit Data{
+    habit_id PRIMARY KEY
+    user_id -> User Data
+    habit_name
+    repitition_type
+    custom_repitition_value
+    start_date
+        user_id FOREIGN KEY
+}
+Habit Log{
+    log_id int PRIMARY KEY
+    habit_id int -> Habit Data
+    status enum ('skipped','complete')
+    compl_date date current
+        habit_id FOREIGN KEY
+}
+Activity Logs{
+    log_id int PRIMARY KEY
+    admin_id int -> User Data
+    log_date date current
+        admin_id FOREIGN KEY
+}

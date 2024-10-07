@@ -1,0 +1,29 @@
+.habit-container{
+    /* Size */
+    max-height: 800px;
+    
+    /* Look */
+    gap: 20px;
+    
+    /* Flex */
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+.habit{
+    min-width: 100px;
+    min-height: 100px;
+    
+    /* Look */
+    border: 2px black dotted;
+    
+    /* Margins \ Padding */
+    padding: 5px;
+    
+    /* Look */
+    line-height: 1px;
+}
+.start_habit{
+    position: absolute;
+    transform: translateX(70px) translateY(-15px);
+}
