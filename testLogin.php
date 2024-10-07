@@ -17,7 +17,7 @@
         </div>
         <div>
             <label for="password" method="post">Password</label>
-            <input type="text" name="password" placeholder="Enter Password" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
         </div>
         <div class="captcha">
             <label for="captchaInput">Enter Captcha</label><br>
