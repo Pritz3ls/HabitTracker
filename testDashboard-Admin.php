@@ -35,7 +35,7 @@
 
                         echo '<input type="submit" name="edit" value="edit">';
                         echo '<input type="submit" name="delete" value="delete">';
-                        echo '<input type="hidden" name="selected-userID" value='.$user_id.'>';
+                        echo '<input type="hidden" name="selectedUserID" value='.$user_id.'>';
                     echo "</tr>";
                 echo "</form>";
             }
