@@ -12,11 +12,11 @@
         // If phone number is used, throw an error
         $phone_validation_query = "SELECT COUNT(*) phone_valid FROM `users` WHERE phone_number = '{$phonenumber}'";
         $user_valid = mysqli_query($conn, $phone_validation_query);
-        while($row = mysqli_fetch_assoc($user_valid)){
-            if($row['phone_valid'] == 1){
-                echo "Phone number is already used.";
-                return;
-            }
+        
+        $row = mysqli_fetch_assoc($user_valid);
+        if($row['phone_valid'] == 1){
+            echo "Phone number is already used.";
+            return;
         }        
 
 
@@ -32,7 +32,10 @@
         }
 
         // Save the current User ID
-        $_SESSION['currentUserID'] = $row['id'];
+        $fetch_id_query = "SELECT * FROM `users` WHERE phone_number = '{$phonenumber}'";
+        $fetch_id = mysqli_query($conn, $fetch_id_query);
+        $fetch = mysqli_fetch_assoc($fetch_id);
+        $_SESSION['currentUserID'] = $fetch['id'];
         
         if($user_type == 'client'){
             Header('Location: testHabit.php');  

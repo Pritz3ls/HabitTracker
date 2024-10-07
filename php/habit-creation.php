@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    echo "Welcome back {$_SESSION['currentUserID']} <br>";
+    echo "Welcome back ".$_SESSION['currentUserID'];
     if(isset ($_POST['create'])){
         // Retrieve the current user ID that logged in
         $user_id = $_SESSION['currentUserID'];
