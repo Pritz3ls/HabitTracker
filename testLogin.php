@@ -10,14 +10,14 @@
     <title>Test Login</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="" method="post" autocomplete="off">
         <div>
             <label for="username" method="post">Username</label>
             <input type="text" name="username" placeholder="Enter Username" required>
         </div>
         <div>
             <label for="password" method="post">Password</label>
-            <input type="password" name="password" placeholder="Enter Password" required>
+            <input type="text" name="password" placeholder="Enter Password" required>
         </div>
         <div class="captcha">
             <label for="captchaInput">Enter Captcha</label><br>
