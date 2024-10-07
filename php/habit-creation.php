@@ -1,6 +1,10 @@
 <?php 
     session_start();
-    echo "Welcome back ".$_SESSION['currentUserID'];
+    // Redirect user to login page if the current session ID is empty or null
+    if(empty($_SESSION['currentUserID'])){
+        Header("Location: testLogin.php");
+        exit;
+    }
     if(isset ($_POST['create'])){
         // Retrieve the current user ID that logged in
         $user_id = $_SESSION['currentUserID'];

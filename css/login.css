@@ -52,6 +52,7 @@ input[type="submit"]:hover {
     transition: all 0.3s;
 }
 
+/* Hyperlinks */
 a{
     color: #007bff;
     text-decoration: none;
@@ -63,6 +64,22 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Captcha */
+#captcha{
+    background-color: gainsboro;
+    color: #2d3d30;
+    
+    padding: 25px;
+    margin: 5px 0;
+
+    text-align: center;
+    border-radius: 2px;
+    font-size: 25px;
+    
+    user-select: none;
+}
+
+/* Error Message Popup */
 .error-message{
     color: #ff4c4c; 
     background-color: #ffe6e6; 

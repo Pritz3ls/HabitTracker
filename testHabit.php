@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habit Tracker</title>
-    <script defer src="app.js"></script>
+    <script defer src="js/habit-dropdown.js"></script>
     <link rel="stylesheet" href="css/habit.css">
 </head>
 <body>
@@ -49,20 +49,19 @@
         <?php
             // Retrieve the current User ID that logged in
             $user_id = $_SESSION['currentUserID'];
-            echo $user_id;
             $query = "SELECT * FROM habits WHERE user_id = {$user_id}";
             $view_habits = mysqli_query($conn, $query);
             
             // Control
             if(!$view_habits){return;}
             while($row = mysqli_fetch_assoc($view_habits)){
+                // Habit Div Open
                 echo '<div class = "habit">';
                     echo '<form action="" method="post">';
                         $habit_id = $row['id'];
                         $habit_name = $row['habit_name'];
                         $repetition_type = $row['repetition_type'];
                         $custom_interval_value = $row['custom_interval_value'];
-                        // Habit Div Open
 
                         // Start Button
                             echo '<input type="submit" name = "start_habit" value="start">';
