@@ -34,12 +34,11 @@
         // Save the current User ID
         $_SESSION['currentUserID'] = $row['id'];
         
-        if($row['user_type'] == 'client'){
+        if($user_type == 'client'){
             Header('Location: testHabit.php');  
             exit;
         }else{ /* Admin */
             Header('Location: testDashboard-Admin.php');  
-
             exit;
         }
     }
