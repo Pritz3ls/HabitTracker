@@ -10,7 +10,7 @@
     <title>Test SignUp</title>
 </head>
 <body>
-    <form action="" method="post" autocomplete="off">
+    <form action="" method="post">
         <div>
             <label for="username" method="post">Username</label>
             <input type="text" name="username" placeholder="Enter Username" required>
