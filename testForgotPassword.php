@@ -5,21 +5,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ForgotPassword.css">
     <title>Test Forgot Password</title>
 </head>
 <body>
     <form action="" method="post">
         <div>
             <label for="username" method="post">Username</label>
-            <input type="text" name="username" required>
+            <input type="text" name="username" placeholder="Enter Username"required>
         </div>
         <div>
             <label for="new_password" method="post">New Password</label>
-            <input type="text" name="new_password" required>
+            <input type="text" name="new_password" placeholder="Enter New Password"required>
         </div>
         <div>
             <label for="confirm_password" method="post">Confirm Password</label>
-            <input type="text" name="confirm_password" required>
+            <input type="text" name="confirm_password" placeholder="Enter Confirm Password"required>
         </div>
         <div>
             <input type="submit" value="Continue" name="forgotPass">
