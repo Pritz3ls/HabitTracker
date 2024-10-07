@@ -10,11 +10,11 @@
 </head>
 <body>
     <form action="" method="post">
-        <div class="form-group">
+        <div>
             <label for="username" method="post">Username</label>
             <input type="text" name="username" required>
         </div>
-        <div class="form-group">
+        <div>
             <label for="password" method="post">Password</label>
             <input type="text" name="password" required>
         </div>
@@ -25,16 +25,20 @@
             <button type="button" onclick="generateCaptcha()">Refresh</button>
             <input type="hidden" id="hiddenCaptcha" name="hiddenCaptcha">
         </div>
-
         <div>
             <a href="testForgotPassword.php">Forgot password</a>
         </div>
-        <div class="form-group">
+        <div>
+            <a href="testSignUp.php">Don't have an account?</a>
+        </div>
+        <div>
             <input type="submit" value="Login" name="login">
         </div>
         
     </form>
+    <!-- This is temporary for captcha authentication -->
     <script>
+        // Generate captcha function
         function generateCaptcha() {
             let captchaText = "";
             const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -44,9 +48,8 @@
             document.getElementById("captcha").innerText = captchaText;
             document.getElementById("hiddenCaptcha").value = captchaText; 
         }
+        // Call the function
         generateCaptcha();
     </script>
-
-
 </body>
 </html>

@@ -30,7 +30,9 @@
             <button type="button" onclick="generateCaptcha()">Refresh</button>
             <input type="hidden" id="hiddenCaptcha" name="hiddenCaptcha">
         </div>
-
+        <div>
+            <a href="testLogin.php">Already have an account?</a>
+        </div>
         <div>
             <select name="user_type" id="" method="post">
                 <option value="client">Client</option>
@@ -41,7 +43,9 @@
             <input type="submit" value="SignUp" name="create">
         </div>
     </form>
+    <!-- This is temporary for captcha authentication -->
     <script>
+        // Generate captcha function
         function generateCaptcha() {
             let captchaText = "";
             const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -51,8 +55,8 @@
             document.getElementById("captcha").innerText = captchaText;
             document.getElementById("hiddenCaptcha").value = captchaText; 
         }
+        // Call the function
         generateCaptcha();
     </script>
-
 </body>
 </html>

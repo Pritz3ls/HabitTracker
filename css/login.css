@@ -20,7 +20,7 @@ form {
     gap: 15px;
 }
 
-form div {
+form div{
     display: flex;
     flex-direction: column;
 }
@@ -49,6 +49,18 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #2d3d30;
+    transition: all 0.3s;
+}
+
+a{
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .error-message{
