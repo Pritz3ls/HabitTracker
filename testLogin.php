@@ -18,9 +18,6 @@
             <label for="password" method="post">Password</label>
             <input type="text" name="password" required>
         </div>
-<<<<<<< HEAD
-        <div class="form-group">
-=======
         <div class="captcha">
             <label for="captchaInput">Enter Captcha:</label><br>
             <span id="captcha"></span><br>
@@ -30,7 +27,6 @@
         </div>
 
         <div>
->>>>>>> 3dc27d63061e1dd63a6d4eca20b6d64bb0122f1e
             <a href="testForgotPassword.php">Forgot password</a>
         </div>
         <div class="form-group">
@@ -38,8 +34,6 @@
         </div>
         
     </form>
-<<<<<<< HEAD
-=======
     <script>
         function generateCaptcha() {
             let captchaText = "";
@@ -54,6 +48,5 @@
     </script>
 
 
->>>>>>> 3dc27d63061e1dd63a6d4eca20b6d64bb0122f1e
 </body>
 </html>

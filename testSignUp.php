@@ -23,8 +23,6 @@
             <label for="password" method="post">Password</label>
             <input type="text" name="password" required>
         </div>
-<<<<<<< HEAD
-=======
         <div class="captcha">
             <label for="captchaInput">Enter Captcha:</label><br>
             <span id="captcha"></span><br>
@@ -33,7 +31,6 @@
             <input type="hidden" id="hiddenCaptcha" name="hiddenCaptcha">
         </div>
 
->>>>>>> 3dc27d63061e1dd63a6d4eca20b6d64bb0122f1e
         <div>
             <select name="user_type" id="" method="post">
                 <option value="client">Client</option>
@@ -44,8 +41,6 @@
             <input type="submit" value="SignUp" name="create">
         </div>
     </form>
-<<<<<<< HEAD
-=======
     <script>
         function generateCaptcha() {
             let captchaText = "";
@@ -59,6 +54,5 @@
         generateCaptcha();
     </script>
 
->>>>>>> 3dc27d63061e1dd63a6d4eca20b6d64bb0122f1e
 </body>
 </html>
