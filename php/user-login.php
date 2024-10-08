@@ -1,5 +1,20 @@
 <?php
     session_start();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Fetch CAPTCHA input from the user and the generated CAPTCHA value
+        $enteredCaptcha = $_POST['captchaInput'];
+        $generatedCaptcha = $_POST['hiddenCaptcha'];
+    
+        // Check if CAPTCHA matches
+        if ($enteredCaptcha === $generatedCaptcha) {
+            // CAPTCHA is correct, proceed with login logic
+
+
+
+
+
+
+
     // Handles User Creation
     if(isset($_POST['login'])){
         // Fetch all required information
@@ -39,4 +54,9 @@
             exit;
         }
     }
+} else {
+    // CAPTCHA is incorrect, show an error message
+    echo "Incorrect CAPTCHA!";
+}
+}
 ?>
