@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habit Tracker</title>
     <script defer src="js/habit-dropdown.js"></script>
-    <link rel="stylesheet" href="css/habit.css">
+    <link rel="stylesheet" href="css/testhabit.css">
 </head>
 <body>
     <!-- Form Container -->
     <form action="testHabit.php" method="post">
         <div>
-            <input type="submit" name = "logout" value="logout">
+            <input type="submit" name = "logout" value="Logout">
         </div>
         
         <div>
@@ -39,7 +39,7 @@
         </div>
         
         <div>
-            <input type="submit" name = "create" value="submit">
+            <input type="submit" name = "create" value="Submit">
         </div>
     </form>
 
