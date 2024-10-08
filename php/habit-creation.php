@@ -5,6 +5,7 @@
         Header("Location: testLogin.php");
         exit;
     }
+
     if(isset ($_POST['create'])){
         // Retrieve the current user ID that logged in
         $user_id = $_SESSION['currentUserID'];
