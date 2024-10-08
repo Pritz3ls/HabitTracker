@@ -2,6 +2,7 @@
 <?php include "php/habit-creation.php"?>
 <?php include "php/user-logout.php"?>
 <?php include "php/start-habit.php"?>
+<?php include "php/delete-habit.php"?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +11,11 @@
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/habit-dropdown.js"></script>
     <script defer src="js/navbar.js"></script>
+    <script defer src="js/notification.js"></script>
     <link rel="stylesheet" href="css/habit.css?v=<?php echo time(); ?>">
     <title>habere | Main</title>
 </head>
+<!-- save this for later onload="notif()" -->
 <body>
     <!-- Form Container -->
     <form action="testHabit.php" method="post">
@@ -63,7 +66,7 @@
         <?php
             // Retrieve the current User ID that logged in
             $user_id = $_SESSION['currentUserID'];
-            $query = "SELECT * FROM habits WHERE user_id = {$user_id}";
+            $query = "SELECT * FROM habits WHERE user_id = {$user_id} AND deleted_at IS NULL";
             $view_habits = mysqli_query($conn, $query);
             
             // Control
@@ -79,8 +82,8 @@
 
                         // Start Button
                             echo '<input type="submit" name = "start_habit" value="start">';
+                            echo '<input type="submit" name = "delete_habit" value="delete">';
                             echo '<input type="hidden" name = "habit_id" value='.$habit_id.'>';
-
                             echo "<p><b>{$habit_name}</b></p>";
                             echo "<p>{$repetition_type}</p>";
                             if($repetition_type == 'custom'){
