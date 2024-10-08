@@ -10,7 +10,7 @@
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/habit-dropdown.js"></script>
     <script defer src="js/navbar.js"></script>
-    <link rel="stylesheet" href="css/habit.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/testhabit.css?v=<?php echo time(); ?>">
     <title>habere | Main</title>
 </head>
 <body>
