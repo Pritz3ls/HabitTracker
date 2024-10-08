@@ -5,10 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="habere-high-resolution-logo__3_-removebg-preview.png" type="image/png">
+    <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/captcha.js"></script>
     <link rel="stylesheet" href="css/login.css">
-    <title>habere</title>
+    <title>habere | Login</title>
 </head>
 <body>
 
