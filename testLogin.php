@@ -5,11 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/captcha.js"></script>
     <link rel="stylesheet" href="css/login.css">
-    <title>Test Login</title>
+    <title>habere | Login</title>
 </head>
 <body>
+
     <form action="" method="post" autocomplete="off">
         <div>
             <label for="username" method="post">Username</label>

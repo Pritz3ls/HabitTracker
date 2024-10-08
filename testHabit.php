@@ -7,15 +7,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habit Tracker</title>
+    <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/habit-dropdown.js"></script>
-    <link rel="stylesheet" href="css/testhabit.css">
+    <script defer src="js/navbar.js"></script>
+    <link rel="stylesheet" href="css/habit.css?v=<?php echo time(); ?>">
+    <title>habere | Main</title>
 </head>
 <body>
     <!-- Form Container -->
     <form action="testHabit.php" method="post">
         <div>
-            <input type="submit" name = "logout" value="Logout">
+            <button type="button" onclick="burgir()">burgir menu</button>
+        </div>
+        <div class="navbar" id="navbar">
+            <div class="navbar_logo"></div>
+            <div class="navbar_items">
+                <!-- Test Items -->
+                <a href="">Main</a><br>
+                <a href="">Dashboard</a><br>
+                <a href="">Account Settings</a><br>
+                <div>
+                    <input type="submit" name = "logout" value="logout">
+                </div>
+            </div>
         </div>
         
         <div>

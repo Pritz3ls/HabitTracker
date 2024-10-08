@@ -6,8 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="css/Admindashboard.css"> 
+    <link rel="icon" href="resource/application-icon.png" type="image/png">
+    <link rel="stylesheet" href="css/dashboard-admin.css"> 
+    <title>habere | Admin Dashboard</title>
 </head>
 <body>
     <h1>Admin Dashboard</h1>
