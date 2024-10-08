@@ -1,0 +1,167 @@
+.habit-container{
+    /* Size */
+    max-height: 800px;
+    
+    /* Look */
+    gap: 20px;
+    
+    /* Flex */
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+.habit{
+    min-width: 100px;
+    min-height: 100px;
+    
+    /* Look */
+    border: 2px black dotted;
+    
+    /* Margins \ Padding */
+    padding: 5px;
+    
+    /* Look */
+    line-height: 1px;
+}
+.start_habit{
+    position: absolute;
+    transform: translateX(70px) translateY(-15px);
+}
+ 
+/* Heading */
+h1 {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Form Styling */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 300px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #04fc19;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, select:focus {
+    border-color: #f6d365;
+}
+
+input[type="submit"] {
+    background-color: #36f507;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #4bee0a;
+}
+
+/* Habit List Styling */
+.habit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.habit {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.habit:hover {
+    transform: scale(1.05);
+    background-color: #f6d365;
+}
+
+.habit p {
+    font-size: 16px;
+    color: #333;
+}
+
+.habit form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.habit input[type="submit"] {
+    background-color: #fda085;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.habit input[type="submit"]:hover {
+    background-color: #f6d365;
+}
+
+/* Navigation Menu */
+.navbar{
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    background-color: slategrey;
+    transform: translateX(-50vh);
+    transition: all .5s;
+}
+/* Show navigation bar with animation */
+.navbar-show{
+    transform: translateX(0);
+    transition: all .5s;
+}
