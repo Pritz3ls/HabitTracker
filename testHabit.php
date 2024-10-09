@@ -12,16 +12,16 @@
     <script defer src="js/habit-dropdown.js"></script>
     <script defer src="js/navbar.js"></script>
     <script defer src="js/notification.js"></script>
-    <link rel="stylesheet" href="css/testhabit.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/habit.css?v=<?php echo time(); ?>">
     <title>habere | Main</title>
 </head>
 <!-- save this for later onload="notif()" -->
 <body>
-    <!-- Form Container -->
+    <div>
+        <button type="button" onclick="burgir()">Burgir Menu</button>
+    </div>
+    <!-- Habit Form Container -->
     <form action="testHabit.php" method="post">
-        <div>
-            <button type="button" onclick="burgir()">Burgir Menu</button>
-        </div>
         <div class="navbar" id="navbar">
             <div class="navbar_logo"></div>
             <div class="navbar_items">
@@ -37,7 +37,7 @@
         
         <div>
             <label for="name" method="post">Name</label>
-            <input type="text" name="name">
+            <input type="text" name="name" placeholder="Habit name" required>
         </div>
                 
         <div>
@@ -66,7 +66,7 @@
                 <option value="wednesday">Wednesday</option>
                 <option value="thursday">Thursday</option>
                 <option value="friday">Friday</option>
-                <option value="satuday">Saturday</option>
+                <option value="saturday">Saturday</option>
             </select>  
         </div>
         
@@ -94,6 +94,7 @@
                         $habit_name = $row['habit_name'];
                         $repetition_type = $row['repetition_type'];
                         $custom_interval_value = $row['custom_interval_value'];
+                        $dayofweek = $row['dayofweek'];
 
                         // Start Button
                             echo '<input type="submit" name = "start_habit" value="start">';
@@ -102,7 +103,9 @@
                             echo "<p><b>{$habit_name}</b></p>";
                             echo "<p>{$repetition_type}</p>";
                             if($repetition_type == 'custom'){
-                                echo "<p>{$custom_interval_value} times</p>";
+                                echo "<p>Every {$custom_interval_value} days</p>";
+                            }else if($repetition_type == 'weekly'){
+                                echo "<p>{$dayofweek}</p>";
                             }
                     echo "</form>";
                 echo "</div>";

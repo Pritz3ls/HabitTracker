@@ -1,5 +1,5 @@
 // Will use this for reminders after reworking the habits table
-function notif(){
+function reminder(){
     Notification.requestPermission().then(perm => {
         if(perm === "granted" && !isNaN(habitName)){
             new Notification("habere",{
@@ -9,4 +9,4 @@ function notif(){
         }
     });
 }
-notif();
+reminder();

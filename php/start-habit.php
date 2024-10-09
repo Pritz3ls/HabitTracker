@@ -17,31 +17,28 @@
         $last_completion = $row['last_completion'];
         $repetition_type = $row['repetition_type'];
         $custom_interval = $row['custom_interval_value'];
+        $weekday = getWeekIndex($row['dayofweek']);
         
         $correctInterval = getRepetitionInterval($repetition_type, $last_completion, $custom_interval)->format('Y-m-d');
-        $currentDate = date('Y-m-d');
+        if(!isCompleteValid($repetition_type, $correctInterval, $weekday)) return;
 
-        if($currentDate < $correctInterval){
-            echo "Too soon";
-            return;
+        $update_query = "UPDATE habits SET last_completion = CURRENT_DATE WHERE id = {$habit_id}";
+        $update = mysqli_query($conn, $update_query);
+        
+        if(!$update){
+            echo "Update unsuccesful!";
         }
 
-        // $update_query = "UPDATE habits SET last_completion = CURRENT_DATE WHERE id = {$habit_id}";
-        // $update = mysqli_query($conn, $update_query);
-        
-        // if(!$update){
-        //     echo "Update unsuccesful!";
-        // }
+        $log_habit_query = "INSERT INTO habit_logs(habit_id, habit_status)
+        VALUES('{$habit_id}','complete')";
+        $log_habit = mysqli_query($conn, $log_habit_query);
 
-        // $log_habit_query = "INSERT INTO habit_logs(habit_id, habit_status)
-        // VALUES('{$habit_id}','complete')";
-        // $log_habit = mysqli_query($conn, $log_habit_query);
-
-        // echo "Habit Started!";
+        // Change this to something different
+        echo '<script>alert("Habit Started")</script>';
     }
-    function getRepetitionInterval($repitition_type, $lastCompletion, $custom_interval){
+    function getRepetitionInterval($repetition_type, $lastCompletion, $custom_interval){
         $interval = date_create($lastCompletion);
-        switch ($repitition_type) {
+        switch ($repetition_type) {
             case 'daily':
                 date_modify($interval,"+1 day");
                 break;
@@ -57,21 +54,54 @@
         }
         return $interval;
     }
-    function getWeekString($week){
+    function isCompleteValid($repetition_type, $correctInterval, $weekday){
+        $currentDate = date('Y-m-d');
+        switch ($repetition_type) {
+            case 'daily':
+                # Daily format
+                if($currentDate < $correctInterval){
+                    echo "Try again tomorrow";
+                    return false;
+                }
+            break;
+            case 'weekly':
+                # Weekly format
+                if($currentDate > $correctInterval){
+                    $currentDay = (int)date('w');
+                    if($currentDay < $weekday){
+                        echo "Try again on '.$weekday.'.";
+                        return false;
+                    }
+                }else{
+                    echo "Try again next week";
+                    return false;
+                }
+            break;
+            default:
+                # Monthly, and Custom
+                if($currentDate < $correctInterval){
+                    echo "Try again some time";
+                    return false;
+                }
+            break;
+        }
+        return true;
+    }
+    function getWeekIndex($week){
         switch ($week) {
-            case 0:return 'sunday'; break;
-            case 1:return 'monday'; break;
-            case 2:return 'tuesday'; break;
-            case 3:return 'wednesday'; break;
-            case 4:return 'thursday'; break;
-            case 5:return 'sunday'; break;
-            case 6:return 'sunday'; break;
+            case 'sunday':return 0; break;
+            case 'monday':return 1; break;
+            case 'tuesday':return 2; break;
+            case 'wednesday':return 3; break;
+            case 'thursday':return 4; break;
+            case 'friday':return 5; break;
+            case 'saturday':return 6; break;
         }
     }
     // Check for habits that are near the current date
     // $habit_query = "SELECT * FROM habits 
     // WHERE user_id = {$user_id} 
-    // ORDER BY repitition_type";
+    // ORDER BY repetition_type";
     // $habits = mysqli_query($conn, $habit_query);
     
     // if(mysqli_num_rows($habits) != 0){
