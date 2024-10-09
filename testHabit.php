@@ -37,7 +37,7 @@
         
         <div>
             <label for="name" method="post">Name</label>
-            <input type="text" name="name" placeholder="Habit name" required>
+            <input type="text" name="name" placeholder="Habit name">
         </div>
                 
         <div>

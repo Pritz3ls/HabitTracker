@@ -6,6 +6,6 @@
     function user_logout(){
         session_start();
         session_destroy();
-        Header("Location: testLogin.php");
+        Header("Location: testLanding.php");
     }
 ?>
