@@ -12,7 +12,7 @@
     <script defer src="js/habit-dropdown.js"></script>
     <script defer src="js/navbar.js"></script>
     <script defer src="js/notification.js"></script>
-    <link rel="stylesheet" href="css/habit.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/testhabit.css?v=<?php echo time(); ?>">
     <title>habere | Main</title>
 </head>
 <!-- save this for later onload="notif()" -->
@@ -20,7 +20,7 @@
     <!-- Form Container -->
     <form action="testHabit.php" method="post">
         <div>
-            <button type="button" onclick="burgir()">burgir menu</button>
+            <button type="button" onclick="burgir()">Burgir Menu</button>
         </div>
         <div class="navbar" id="navbar">
             <div class="navbar_logo"></div>
@@ -51,8 +51,8 @@
         </div>
         
         <div id="custom_repitition_value" style="display:none;">
-            <label for="custom_interval_value" method="post">Custom Interval Value</label>
-            <input type="number" name="custom_interval_value">
+            <label for="custom_interval_value">Custom Interval Value</label>
+            <input type="number" name="custom_interval_value" min="1">
         </div>
         
         <div>

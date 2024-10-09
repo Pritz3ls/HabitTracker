@@ -1,56 +1,91 @@
-.habit-container{
-    /* Size */
-    max-height: 800px;
-    
-    /* Look */
-    gap: 20px;
-    
-    /* Flex */
-    display: flex;
-    justify-content: start;
-    flex-wrap: wrap;
-}
-.habit{
-    min-width: 100px;
-    min-height: 100px;
-    
-    /* Look */
-    border: 2px black dotted;
-    
-    /* Margins \ Padding */
-    padding: 5px;
-    
-    /* Look */
-    line-height: 1px;
-}
-.start_habit{
-    position: absolute;
-    transform: translateX(70px) translateY(-15px);
-}
- 
-/* Heading */
-h1 {
-    font-size: 32px;
-    color: #fff;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
     font-family: 'Arial', sans-serif;
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #f4f4f4;
+    padding-left: 260px; /* Offset for the navbar width */
+}
+
+/* Burgir Button */
+button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #36f507;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 1000;
+}
+
+button:hover {
+    background-color: #4bee0a;
+}
+
+/* Navbar Styling */
+.navbar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: slategrey;
+    padding-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    transition: transform 0.5s ease;
+    z-index: 999;
+}
+
+.navbar-show {
+    transform: translateX(250px); /* Slide in the navbar */
+}
+
+/* Navbar Items */
+.navbar_items a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    margin: 15px 0;
+    transition: color 0.3s ease;
+}
+
+.navbar_items a:hover {
+    color: #04fc19;
+}
+
+input[type="submit"] {
+    margin-top: 15px;
+    background-color: #fda085;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 90%;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #f6d365;
 }
 
 /* Form Styling */
@@ -61,6 +96,7 @@ form {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     width: 300px;
+    margin-top: 50px; /* Center form vertically */
 }
 
 form div {
@@ -87,33 +123,26 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus {
     border-color: #f6d365;
 }
 
-input[type="submit"] {
-    background-color: #36f507;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-input[type="submit"]:hover {
-    background-color: #4bee0a;
-}
-
 /* Habit List Styling */
 .habit-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
     align-items: center;
+    max-height: 800px;
+    padding: 120px;
+    margin-top: 150px; /* Space between heading and container */
+    margin-bottom: 20px; /* Space at the bottom */
 }
 
 .habit {
     background-color: #fff;
     padding: 15px;
-    margin-bottom: 15px;
+    border: 2px dotted black;
     border-radius: 12px;
+    min-width: 100px;
+    min-height: 100px;
     width: 300px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, background-color 0.3s ease;
@@ -127,41 +156,17 @@ input[type="submit"]:hover {
 .habit p {
     font-size: 16px;
     color: #333;
+    margin: 5px 0;
 }
 
-.habit form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.habit input[type="submit"] {
-    background-color: #fda085;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 14px;
-    cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
-}
-
-.habit input[type="submit"]:hover {
-    background-color: #f6d365;
-}
-
-/* Navigation Menu */
-.navbar{
-    width: 15%;
-    height: 100vh;
+/* Heading */
+h1 {
     position: absolute;
-    background-color: slategrey;
-    transform: translateX(-50vh);
-    transition: all .5s;
-}
-/* Show navigation bar with animation */
-.navbar-show{
-    transform: translateX(0);
-    transition: all .5s;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 100px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
