@@ -26,18 +26,18 @@
             return;
         }
 
-        $update_query = "UPDATE habits SET last_completion = CURRENT_DATE WHERE id = {$habit_id}";
-        $update = mysqli_query($conn, $update_query);
+        // $update_query = "UPDATE habits SET last_completion = CURRENT_DATE WHERE id = {$habit_id}";
+        // $update = mysqli_query($conn, $update_query);
         
-        if(!$update){
-            echo "Update unsuccesful!";
-        }
+        // if(!$update){
+        //     echo "Update unsuccesful!";
+        // }
 
-        $log_habit_query = "INSERT INTO habit_logs(habit_id, habit_status)
-        VALUES('{$habit_id}','complete')";
-        $log_habit = mysqli_query($conn, $log_habit_query);
+        // $log_habit_query = "INSERT INTO habit_logs(habit_id, habit_status)
+        // VALUES('{$habit_id}','complete')";
+        // $log_habit = mysqli_query($conn, $log_habit_query);
 
-        echo "Habit Started!";
+        // echo "Habit Started!";
     }
     function getRepetitionInterval($repitition_type, $lastCompletion, $custom_interval){
         $interval = date_create($lastCompletion);
@@ -56,6 +56,17 @@
             break;
         }
         return $interval;
+    }
+    function getWeekString($week){
+        switch ($week) {
+            case 0:return 'sunday'; break;
+            case 1:return 'monday'; break;
+            case 2:return 'tuesday'; break;
+            case 3:return 'wednesday'; break;
+            case 4:return 'thursday'; break;
+            case 5:return 'sunday'; break;
+            case 6:return 'sunday'; break;
+        }
     }
     // Check for habits that are near the current date
     // $habit_query = "SELECT * FROM habits 

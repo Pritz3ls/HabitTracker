@@ -33,13 +33,12 @@ body{
 
 /* Navigation Menu */
 .navbar{
-    display: none;
     width: 15%;
     height: 100vh;
     position: absolute;
     background-color: slategrey;
     transform: translateX(-50vh);
-    /* transition: all .5s; */
+    transition: all .5s;
 }
 /* Show navigation bar with animation */
 .navbar-show{

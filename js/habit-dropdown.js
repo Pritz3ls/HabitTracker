@@ -11,5 +11,19 @@ function HandleCustomRepitition(){
         }
     });
 }
+// Handles update from the weekly format
+// Update the page if the dropdown is change
+function HandleWeekDay(){
+    document.getElementById('repitition_type').addEventListener('change', function() {
+        const selectValue = this.value;
+        const customField = document.getElementById('dayofweek');
+        if(selectValue == 'weekly'){
+            customField.style.display = 'block';
+        }else{
+            customField.style.display = 'none';
+        }
+    });
+}
 
 HandleCustomRepitition();
+HandleWeekDay();

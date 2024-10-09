@@ -50,9 +50,24 @@
             </select>  
         </div>
         
+        <!-- Custom Format -->
         <div id="custom_repitition_value" style="display:none;">
-            <label for="custom_interval_value" method="post">Custom Interval Value</label>
-            <input type="number" name="custom_interval_value">
+            <label for="custom_interval_value" method="post">Every</label>
+            <input type="number" name="custom_interval_value"> Days
+        </div>
+
+        <!-- Weekly Format -->
+        <div id="dayofweek" style="display:none;">
+            <label for="dayofweek" method="post">Weekday</label>
+            <select name="dayofweek">
+                <option value="sunday" selected>Sunday</option>
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+                <option value="satuday">Saturday</option>
+            </select>  
         </div>
         
         <div>

@@ -16,6 +16,7 @@ CREATE TABLE habits (
     repetition_type ENUM('daily', 'weekly', 'monthly', 'custom') NOT NULL,
     custom_interval_value INT DEFAULT NULL,  -- For custom repetition only
     -- Dates for habits
+    dayofweek ENUM('sunday','monday','tuesday','wednesday','thursday','friday','saturday') DEFAULT NULL,
     last_completion DATE DEFAULT '1990-1-1',
     -- Log for habits
     deleted_at DATETIME,

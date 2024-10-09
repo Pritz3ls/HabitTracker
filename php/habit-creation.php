@@ -14,6 +14,7 @@
         $name = $_POST['name'];
         $repitition_type = $_POST['repitition_type'];
         $custom_interval_value = $_POST['custom_interval_value'];
+        $dayofweek = $_POST['dayofweek'];
 
         if(empty($name)){
             echo "Invalid inputs, Try again.";
@@ -25,14 +26,25 @@
             Check if the dropdown value is custom, if not
             then proceed with non-custom habit
         */
-        if($repitition_type != 'custom'){
-            $query = 
-            "INSERT INTO habits(user_id, habit_name, repetition_type)
-            VALUES ('{$user_id}','{$name}','{$repitition_type}')";
-        }else{
-            $query = 
-            "INSERT INTO habits(user_id, habit_name, repetition_type, custom_interval_value)
-            VALUES ('{$user_id}','{$name}','{$repitition_type}','{$custom_interval_value}')";
+        switch ($repitition_type) {
+            case 'weekly':
+                # code...
+                $query = 
+                "INSERT INTO habits(user_id, habit_name, repetition_type, dayofweek)
+                VALUES ('{$user_id}','{$name}','{$repitition_type}','{$dayofweek}')";
+                break;
+            case 'custom':
+                # code...
+                $query = 
+                "INSERT INTO habits(user_id, habit_name, repetition_type, custom_interval_value)
+                VALUES ('{$user_id}','{$name}','{$repitition_type}','{$custom_interval_value}')";
+                break;
+            default:
+                # code...
+                $query = 
+                "INSERT INTO habits(user_id, habit_name, repetition_type)
+                VALUES ('{$user_id}','{$name}','{$repitition_type}')";
+                break;
         }
 
         // Execute the sql to the database
