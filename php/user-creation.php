@@ -4,11 +4,19 @@
         // Fetch CAPTCHA input from the user and the generated CAPTCHA value
         $enteredCaptcha = $_POST['captchaInput'];
         $generatedCaptcha = $_POST['hiddenCaptcha'];
+        $password_strength = (int)$_POST['strIndex'];
         
         // Check if CAPTCHA matches
         // CAPTCHA is incorrect, show an error message and return
         if ($enteredCaptcha != $generatedCaptcha) {
-            echo "Incorrect CAPTCHA!";
+            echo "<script>alert('Incorrect CAPTCHA!');</script>";
+            return;
+        }
+
+        // Password too weak
+        // Alert the user that the password it too weak
+        if($password_strength < 1){
+            echo "<script>alert('Password too weak!');</script>";
             return;
         }
 
@@ -28,7 +36,7 @@
         if($row['phone_valid'] == 1){
             echo "Phone number is already used.";
             return;
-        }        
+        }
 
         $query = "INSERT INTO users(user_name, phone_number, user_type, password)
         VALUES('{$username}','{$phonenumber}', '{$user_type}','{$password}')";

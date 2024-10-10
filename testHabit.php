@@ -41,6 +41,7 @@
                 <!-- Test Items -->
                 <a href="">Main</a><br>
                 <a href="">Dashboard</a><br>
+                <a href="">Leaderboard</a><br>
                 <a href="">Account Settings</a><br>
                 <div>
                     <input type="submit" name = "logout" value="logout">

@@ -7,11 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/captcha.js"></script>
+    <script defer src="js/passwordstrength.js"></script>
     <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/pass-strength.css?v=<?php echo time(); ?>">
     <title>habere | Signup</title>
 </head>
 <body>
-    <form  method="post" action="password_check.php" autocomplete="off">
+    <form  method="post" action="" autocomplete="off">
         <div>
             <label for="username" method="post">Username</label>
             
@@ -23,8 +25,9 @@
         </div>
         <div>
             <label for="password" method="post">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter Password" required>
-            <p id="strength">Strength: </p>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required onchange="checkPasswordStrength()">
+            <input type="hidden" name="strIndex" id="strIndex" value=0>
+            <p id="strength">Very Weak</p>
         </div>
         <div class="captcha">
             <label for="captchaInput">Enter Captcha</label>

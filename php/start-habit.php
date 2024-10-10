@@ -31,7 +31,7 @@
         
         // If it's unsuccessful
         if(!$update){
-            echo "Update unsuccesful!";
+            echo "Update unsuccessful!";
         }
 
         // Record the User completing the habit
