@@ -35,7 +35,8 @@ label {
     margin-bottom: 0.5rem;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
@@ -46,11 +47,14 @@ input[type="text"] {
     transition: all 0.3s ease;
 }
 
-input[type="text"]:focus {
+/* Submit button styles */
+input[type="text"]:focus,
+input[type="password"]:focus {
     border-color: #6c63ff;
     outline: none;
     background-color: #fff;
 }
+
 
 input[type="submit"] {
     width: 100%;
@@ -64,16 +68,19 @@ input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
+/* Hover effect for submit button */
 input[type="submit"]:hover {
     background-color: #12e424;
 }
 
+/* Media queries for small screens */
 @media (max-width: 500px) {
     form {
         padding: 1.5rem;
     }
 
     input[type="text"],
+    input[type="password"],
     input[type="submit"] {
         font-size: 0.9rem;
     }
@@ -87,9 +94,7 @@ input[type="submit"]:hover {
     color: #e90b0b;
     font-family: Arial, sans-serif;
     font-weight: bold;
-    /* margin: 10px auto; */
     position: absolute;
-    /* width: 50%; */
     transform: translateY(-200px);
 }
 
