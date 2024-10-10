@@ -94,6 +94,10 @@ a:hover {
     left: 50%;
     transform: translateX(50%);
 }
+.error-message{
+    transition: all 1s;
+    opacity: 0;
+}
   
 .error-message h3 {
     margin: 0;

@@ -75,7 +75,7 @@
     if(isset($_POST['delete'])){
         $userID = $_POST['selectedUserID'];
         // Put the user on temporary deletion
-        $delete_query = "UPDATE `users` SET deleted_at = CURRENT_DATE WHERE id = {$userID}";
+        $delete_query = "UPDATE `users` SET deleted_at = CURRENT_TIMESTAMP WHERE id = {$userID}";
         $delete = mysqli_query($conn, $delete_query);
         
         // Log activity

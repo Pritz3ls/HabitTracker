@@ -21,7 +21,7 @@
         // Fetch if the user exists
         // If the user doesn't exist, throw an error
         $user_login_query = "SELECT * FROM `users` 
-        WHERE user_name = '{$username}' AND password = '{$password}'";
+        WHERE user_name = '{$username}' AND password = '{$password}' AND deleted_at IS NULL";
         $user_found = mysqli_query($conn, $user_login_query);
         
         // Check if the sql execution is successful

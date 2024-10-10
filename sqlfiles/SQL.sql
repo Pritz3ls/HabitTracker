@@ -37,7 +37,7 @@ CREATE TABLE activity_logs(
 	activity_log_id INT AUTO_INCREMENT PRIMARY KEY,
     admin_id INT NOT NULL,
     operation VARCHAR(250) NOT NULL,
-    log_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    log_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     	FOREIGN KEY (admin_id) REFERENCES users(id)
 );
 
