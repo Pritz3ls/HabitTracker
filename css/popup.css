@@ -1,0 +1,20 @@
+.popup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 300px;
+    background-color: burlywood;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    /* TODO
+        Change container position to center
+        Align the input fields
+        Overlay the container from the screen
+    */
+}
+.popup div{
+    margin: 10px;
+}
