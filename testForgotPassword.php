@@ -13,18 +13,19 @@
     <form action="" method="post" autocomplete="off">
         <div>
             <label for="username" method="post">Username</label>
-            <input type="text" name="username" placeholder="Enter Username"required>
+            <input type="text" name="username" placeholder="Enter Username" required>
         </div>
         <div>
             <label for="new_password" method="post">New Password</label>
-            <input type="password" name="new_password" placeholder="Enter New Password"required>
+            <input type="password" name="new_password" placeholder="Enter New Password" required>
         </div>
         <div>
             <label for="confirm_password" method="post">Confirm Password</label>
-            <input type="password" name="confirm_password" placeholder="Enter Confirm Password"required>
+            <input type="password" name="confirm_password" placeholder="Enter Confirm Password" required>
         </div>
-        <div>
+        <div class="button-container">
             <input type="submit" value="Continue" name="forgotPass">
+            <a href="testLogin.php" class="back-button">Back</a>
         </div>
     </form>
 </body>

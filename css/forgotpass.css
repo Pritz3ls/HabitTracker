@@ -1,5 +1,3 @@
-/* Css for the testForgotPassword  */
-
 * {
     margin: 0;
     padding: 0;
@@ -47,14 +45,12 @@ input[type="password"] {
     transition: all 0.3s ease;
 }
 
-/* Submit button styles */
 input[type="text"]:focus,
 input[type="password"]:focus {
     border-color: #6c63ff;
     outline: none;
     background-color: #fff;
 }
-
 
 input[type="submit"] {
     width: 100%;
@@ -68,12 +64,32 @@ input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-/* Hover effect for submit button */
 input[type="submit"]:hover {
     background-color: #12e424;
 }
 
-/* Media queries for small screens */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.back-button {
+    text-align: center;
+    padding: 0.75rem;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #e0e0e0;
+}
+
 @media (max-width: 500px) {
     form {
         padding: 1.5rem;
@@ -85,6 +101,7 @@ input[type="submit"]:hover {
         font-size: 0.9rem;
     }
 }
+
 .password-error {
     background-color: #ffe6e6; 
     border: 1px solid #ff4c4c; 
