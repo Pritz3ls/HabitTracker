@@ -54,5 +54,14 @@
             Header('Location: testDashboard-Admin.php');  
             exit;
         }
+       
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $password = $_POST['password'];
+            if (preg_match('/.{8}/', $password) && preg_match('/[A-Z]/', $password) && preg_match('/[0-9]/', $password)) {
+                echo "Password is strong!";
+            } else {
+                echo "Password is weak.";
+            }
+        }
     }
 ?>
