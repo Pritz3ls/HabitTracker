@@ -20,6 +20,19 @@
     <div>
         <button type="button" onclick="burgir()">Burgir Menu</button>
     </div>
+    <!-- XP Counter -->
+    <div>
+        <?php
+            $user_query = "SELECT * FROM users WHERE id = {$_SESSION['currentUserID']}";
+            $user = mysqli_query($conn, $user_query);
+            $rows = mysqli_fetch_assoc($user);
+
+            echo '<div class="profile-container">';
+                echo "<h3>Username: ".$rows['user_name']."</h3>";
+                echo "<h4>XP: ".$rows['user_xp']."</h4>";
+            echo "</div>";
+        ?>
+    </div>
     <!-- Habit Form Container -->
     <form action="testHabit.php" method="post">
         <div class="navbar" id="navbar">

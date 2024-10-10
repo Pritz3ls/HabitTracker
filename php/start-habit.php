@@ -20,22 +20,34 @@
         $weekday = getWeekIndex($row['dayofweek']);
         
         $correctInterval = getRepetitionInterval($repetition_type, $last_completion, $custom_interval)->format('Y-m-d');
+        
+        // Check if the user can complete the habit
+        // If not, then return the block
         if(!isCompleteValid($repetition_type, $correctInterval, $weekday)) return;
 
+        // Update the habit last completion to current date
         $update_query = "UPDATE habits SET last_completion = CURRENT_DATE WHERE id = {$habit_id}";
         $update = mysqli_query($conn, $update_query);
         
+        // If it's unsuccessful
         if(!$update){
             echo "Update unsuccesful!";
         }
 
+        // Record the User completing the habit
         $log_habit_query = "INSERT INTO habit_logs(habit_id, habit_status)
         VALUES('{$habit_id}','complete')";
         $log_habit = mysqli_query($conn, $log_habit_query);
 
-        // Change this to something different
-        echo '<script>alert("Habit Started")</script>';
+        // Reward the user with XP
+        $correctXP = getRewardXP($repetition_type, $custom_interval);
+        $xp_query = "UPDATE users SET user_xp = {$correctXP} WHERE id = {$user_id}";
+        $xp = mysqli_query($conn, $xp_query); 
+
+        echo "Habit Started";
     }
+
+    // Get modified date using the repetition type
     function getRepetitionInterval($repetition_type, $lastCompletion, $custom_interval){
         $interval = date_create($lastCompletion);
         switch ($repetition_type) {
@@ -54,6 +66,8 @@
         }
         return $interval;
     }
+
+    // Check if the habit is valid to complete in todays date
     function isCompleteValid($repetition_type, $correctInterval, $weekday){
         $currentDate = date('Y-m-d');
         switch ($repetition_type) {
@@ -87,6 +101,8 @@
         }
         return true;
     }
+
+    // Return the weekday index
     function getWeekIndex($week){
         switch ($week) {
             case 'sunday':return 0; break;
@@ -96,6 +112,28 @@
             case 'thursday':return 4; break;
             case 'friday':return 5; break;
             case 'saturday':return 6; break;
+        }
+    }
+
+    // Reward userd with valid XP
+    function getRewardXP($repetition_type, $custom_interval = 0){
+        switch ($repetition_type) {
+            case 'daily':
+                # Daily XP Reward: 10 
+                return 10;
+                break;
+            case 'weekly':
+                # Weekly XP Reward: 75
+                return 75;
+                break;
+            case 'monthly':
+                # Monthly XP Reward: 285
+                return 285;
+                break;
+            case 'custom':
+                # Custom XP Reward: 10
+                return $custom_interval * 10;
+                break;
         }
     }
     // Check for habits that are near the current date

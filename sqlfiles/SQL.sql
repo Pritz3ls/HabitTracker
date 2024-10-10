@@ -6,6 +6,7 @@ CREATE TABLE users (
     user_type ENUM('client','admin') DEFAULT 'client',
     -- Log for users
     deleted_at DATETIME,
+    user_xp INT DEFAULT 0,
     account_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
