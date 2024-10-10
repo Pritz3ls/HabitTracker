@@ -10,10 +10,10 @@
 
         // Check if the two passwords are matched
         if($new_password != $confirm_password){
-            echo "Passwords are not matched.";
+            echo "<div class='password-error'><h3>Passwords are not matched.</h3></div>";
             return;
         }
-
+        
         $user_query = "SELECT * FROM `users` WHERE user_name = '{$username}'";
         $user = mysqli_query($conn, $user_query);
 

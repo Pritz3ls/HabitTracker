@@ -78,3 +78,23 @@ input[type="submit"]:hover {
         font-size: 0.9rem;
     }
 }
+.password-error {
+    background-color: #ffe6e6; 
+    border: 1px solid #ff4c4c; 
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    color: #e90b0b;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    /* margin: 10px auto; */
+    position: absolute;
+    /* width: 50%; */
+    transform: translateY(-200px);
+}
+
+.password-error h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
