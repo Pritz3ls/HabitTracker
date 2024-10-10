@@ -11,9 +11,10 @@
     <title>habere | Signup</title>
 </head>
 <body>
-    <form action="" method="post" autocomplete="off">
+    <form  method="post" action="password_check.php" autocomplete="off">
         <div>
             <label for="username" method="post">Username</label>
+            
             <input type="text" name="username" placeholder="Enter Username" required>
         </div>
         <div>
@@ -22,7 +23,8 @@
         </div>
         <div>
             <label for="password" method="post">Password</label>
-            <input type="password" name="password" placeholder="Enter Password" required>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            <p id="strength">Strength: </p>
         </div>
         <div class="captcha">
             <label for="captchaInput">Enter Captcha</label>

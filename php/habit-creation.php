@@ -56,5 +56,8 @@
         }else{
             echo "Habit Data added";
         }
+
+        
     } 
+    
 ?>

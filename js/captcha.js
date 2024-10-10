@@ -31,5 +31,10 @@ window.onload = function() {
     generateCaptcha();
 };
 
+//strength passwords
 
-
+const password = document.getElementById('password'), strength = document.getElementById('strength');
+        password.addEventListener('input', () => {
+            const score = [/.{5}/, /[A-Z]/, /[0-9]/, /[\W]/].reduce((a, t) => a + t.test(password.value), 0);
+            strength.textContent = ['Weak', 'Fair', 'Good', 'Strong'][score - 1] || 'Very Weak';
+        });
