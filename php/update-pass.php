@@ -7,6 +7,14 @@
         $username = $_POST['username'];
         $new_password = $_POST['new_password'];
         $confirm_password = $_POST['confirm_password'];
+        $password_strength = (int)$_POST['strIndex'];
+
+        // Password too weak
+        // Alert the user that the password it too weak
+        if($password_strength < 1){
+            echo "<script>alert('Password too weak!');</script>";
+            return;
+        }
 
         // Check if the two passwords are matched
         if($new_password != $confirm_password){

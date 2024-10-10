@@ -6,7 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
+    <script defer src="js/passwordstrength.js"></script>
     <link rel="stylesheet" href="css/forgotpass.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/pass-strength.css">
     <title>habere | Change Password</title>
 </head>
 <body>
@@ -17,7 +19,9 @@
         </div>
         <div>
             <label for="new_password" method="post">New Password</label>
-            <input type="password" name="new_password" placeholder="Enter New Password" required>
+            <input type="password" name="new_password" id="password" placeholder="Enter New Password" required onchange="checkPasswordStrength()">
+            <input type="hidden" name="strIndex" id="strIndex" value=0>
+            <p id="strength">Very Weak</p>
         </div>
         <div>
             <label for="confirm_password" method="post">Confirm Password</label>
