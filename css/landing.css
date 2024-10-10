@@ -14,15 +14,24 @@ nav {
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
+    background-color: #2e7d32; 
+    color: white; 
+    border: none; 
+    padding: 12px 30px; 
+    border-radius: 25px; 
+    cursor: pointer; /* Pointer cursor to indicate it's clickable */
+    font-weight: bold; 
+    font-size: 1.1rem; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px; 
+    
 }
 
 nav a:hover {
-    color: #ddd;
+    background-color: #388e3c; 
+    transform: translateY(-2px); 
 }
+
 
 /* Welcome Section styling */
 .container {
