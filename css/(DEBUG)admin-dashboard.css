@@ -1,14 +1,32 @@
-/* Navigation Menu */
-.navbar{
-    width: 15%;
+/* Navigation Bar */
+.navbar {
+    width: 250px;
     height: 100vh;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: -250px;
     background-color: slategrey;
-    transform: translateX(-50vh);
-    transition: all .5s;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.5s ease;
+    z-index: 999;
 }
-/* Show navigation bar with animation */
-.navbar-show{
-    transform: translateX(0);
-    transition: all .5s;
+
+.navbar-show {
+    transform: translateX(250px); /* Slide in the navbar */
+}
+
+/* Navbar Items */
+.navbar_items a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    margin: 15px 0;
+    transition: color 0.3s ease;
+}
+
+.navbar_items a:hover {
+    color: #04fc19;
 }

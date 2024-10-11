@@ -25,7 +25,9 @@
         <div class="navbar" id="navbar">
             <div class="navbar_logo"></div>
             <div class="navbar_items">
-                <!-- Test Items -->
+                <div>
+                    <button type="button" onclick="burgir()">Close Menu</button>
+                </div>
                 <a href="">Dashboard</a><br>
                 <a href="">Activity Logs</a><br>
                 <a href="">Account Settings</a><br>

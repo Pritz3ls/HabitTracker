@@ -1,3 +1,59 @@
 To reference the current session user ID, the variable name is "currentUserID"
 without the quotation marks, also to call it in any of the pages, you must start
 a session first, session_start(); with this you can refer it with $_SESSION['currentUserID'];
+
+Sample Pseudocode
+DATABASE CONNECTION
+hostname = 'localhost'
+user = 'root'
+password = none
+database_name = 'habit-db'
+
+# Connect to the database
+connection = mysqli_connect(hostname, user, password, database_name)
+
+# If the connection fails, output an error
+if(!connection)
+    die("Error, connection failed with 'database_name'" + mysqli_connect_error())
+
+CREATE
+habit_name = input['habit_name']
+repetition_type = input['repetition_type']
+custom_interval = input['custom_interval']
+week_day = input['week_day']
+
+switch(repetition_type)
+	case weekly:
+		modified weekly habit query
+	case custom:
+		modified custom habit query
+	default:
+		default habit query
+# Execute the sql to the database
+execute = mysqli_query(connection, habit_query)
+
+READ
+# Collect all client type users and exclude those whose accounts are deleted
+user_query = "SELECT ALL FROM users WHERE type = 'client' AND deleted_at IS NULL"
+users = mysqli_query(connection, user_query)
+# Iterate every rows found in the executed query
+while(users = mysqli_fetch_assoc)
+    echo table tag
+        echo table data users['username']
+        echo table data users['password']
+        echo table data users['phonenumber']
+    echo table closing tag
+
+UPDATE
+# Run through some checks before continuing, return if one check fails
+if (password strength < weak) return
+if (new password != confirm password) return
+
+# Create a query and execute it
+update_query = "UPDATE users SET password = new password WHERE username = input_username"
+update = mysqli_query(connection, update_query)
+
+DELETE
+# Set the habit deleted at todays current timestamp
+delete_query = "UPDATE habits SET deleted_at = CURRENT_TIMESTAMP WHERE id = selected_habit_id"
+delete = mysqli_query(connection, delete_query)
