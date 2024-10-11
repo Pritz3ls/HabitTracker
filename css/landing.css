@@ -6,28 +6,36 @@ body {
 }
 
 /* Navbar styling */
-nav {
+nav{
+    display: flex;
+    
     background-color: #25ad03;
-    color: white;
-    padding: 15px;
     text-align: right;
+    color: white;
+    /* padding: 15px; */
+    align-items: center;
+    justify-content: flex-end;
 }
 
-nav a {
+nav a, button{
     background-color: #2e7d32; 
-    color: white; 
-    border: none; 
-    padding: 12px 30px; 
-    border-radius: 25px; 
-    cursor: pointer; /* Pointer cursor to indicate it's clickable */
     font-weight: bold; 
     font-size: 1.1rem; 
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 20px; 
+    color: white; 
+    border: none; 
     
+    margin: 5px;
+    padding: 10px 30px; 
+    border-radius: 25px; 
+    
+    
+    cursor: pointer; /* Pointer cursor to indicate it's clickable */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
 }
 
-nav a:hover {
+/* Hover effect */
+nav a:hover, button:hover {
     background-color: #388e3c; 
     transform: translateY(-2px); 
 }
@@ -35,14 +43,16 @@ nav a:hover {
 
 /* Welcome Section styling */
 .container {
-    height: 90vh;
     display: flex;
     flex-direction: column; 
     justify-content: center;
     align-items: center;
+    
+    height: 90vh;
+    margin: 20px;
+    
     background-color: #fff;
     border-radius: 10px;
-    margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -57,42 +67,11 @@ nav a:hover {
     margin-top: 0px;
     text-align: center;
 }
-/* design for get started button*/
-button {
-    background-color: #2e7d32; 
-    color: white; 
-    border: none; 
-    padding: 12px 30px; 
-    border-radius: 25px; 
-    cursor: pointer; /* Pointer cursor to indicate it's clickable */
-    font-weight: bold; 
-    font-size: 1.1rem; 
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 20px; 
-}
-/* Hover effect */
-button:hover {
-    background-color: #388e3c; 
-    transform: translateY(-2px); 
-}
 
 .content {
     height: 1500px; /* Make the content  scrollable  */
 }
 /* CREATOR DESIGN*/
-.creators-section {
-    background-color: #fff;
-    padding: 60px 0;
-    text-align: center;
-}
-
-.creators-section h1 {
-    font-size: 36px;
-    margin-bottom: 40px;
-    color: #333;
-    font-weight: bold;
-}
-
 .creators {
     display: flex;
     justify-content: center;
@@ -128,7 +107,7 @@ button:hover {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .creators {
+    .creators{
         flex-direction: column;
         gap: 20px;
     }

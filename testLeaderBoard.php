@@ -7,14 +7,18 @@
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/navbar.js"></script>
     <script defer src="js/logout.js"></script>
+    
+    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/leaderboard.css?v=<?php echo time(); ?>"> 
     <title>habere | Leaderboard</title>
 </head>
 <body>
+    <!-- Burger button -->
     <div>
         <button type="button" onclick="burgir()">Burgir Menu</button>
     </div>
-    <h1><b>LEARDERBOARD</b></h1>
+    
+    <!-- Navigation Menu -->
     <div class="navbar" id="navbar">
         <div class="navbar_logo"></div>
         <div class="navbar_items">
@@ -25,13 +29,16 @@
             <a href="testHabit.php">Main</a><br>
             <a href="">Dashboard</a><br>
             <a href="testLeaderBoard.php">Leaderboard</a><br>
-            <a href="">Account Settings</a><br>
+            <a href="testAccountSettings.php">Account Settings</a><br>
             <div>
                 <input type="button" value="logout" onclick="logout();">
             </div>
         </div>
     </div>
-   <table>
+    
+    <!-- Leaderboard table -->
+    <h1><b>LEARDERBOARD</b></h1>
+    <table>
         <thead>
             <th>Rank</th>
             <th>Username</th>
