@@ -15,24 +15,22 @@
         <button type="button" onclick="burgir()">Burgir Menu</button>
     </div>
     <h1><b>LEARDERBOARD</b></h1>
-    <form action="" method="post">
-        <div class="navbar" id="navbar">
-            <div class="navbar_logo"></div>
-            <div class="navbar_items">
-                <div>
-                    <button type="button" onclick="burgir()">Close Menu</button>
-                </div>
-                <!-- Test Items -->
-                <a href="testHabit.php">Main</a><br>
-                <a href="">Dashboard</a><br>
-                <a href="testLeaderBoard.php">Leaderboard</a><br>
-                <a href="">Account Settings</a><br>
-                <div>
-                    <input type="button" value="logout" onclick="logout();">
-                </div>
+    <div class="navbar" id="navbar">
+        <div class="navbar_logo"></div>
+        <div class="navbar_items">
+            <div>
+                <button type="button" onclick="burgir()">Close Menu</button>
+            </div>
+            <!-- Test Items -->
+            <a href="testHabit.php">Main</a><br>
+            <a href="">Dashboard</a><br>
+            <a href="testLeaderBoard.php">Leaderboard</a><br>
+            <a href="">Account Settings</a><br>
+            <div>
+                <input type="button" value="logout" onclick="logout();">
             </div>
         </div>
-    </form>
+    </div>
    <table>
         <thead>
             <th>Rank</th>
@@ -43,7 +41,7 @@
             <?php
                 $leaderboard_query = "SELECT user_name, user_xp FROM users
                 WHERE user_type = 'client' AND deleted_at IS NULL
-                ORDER BY user_xp DESC";
+                ORDER BY user_xp DESC LIMIT 10";
                 $leaderboard = mysqli_query($conn, $leaderboard_query);
                 $rank = 1;
                 while ($item = mysqli_fetch_assoc($leaderboard)) {
