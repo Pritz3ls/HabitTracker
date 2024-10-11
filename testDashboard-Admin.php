@@ -94,12 +94,12 @@
             </table>
         </div>
         
-        <h2>Logs</h2>
+        <h2>Activity Logs</h2>
         
         <!-- Search for activity logs table -->
         <form action="" method="post">
             <div>
-                <label for="search_logs">Search Logs</label>
+                <label for="search_log">Search Logs</label>
                 <input type="date" name="search_log" id="">
                 <input type="submit" name="log_search" value="Search">
             </div>
@@ -117,7 +117,7 @@
                 <tbody>
                     <?php
                         if(!empty($_POST['search_log'])){
-                            $activity_logs_query = "SELECT * FROM activity_logs WHERE DATE(log_date) = '{$_POST['search_log']}' ORDER BY log_date DESC LIMIT 2  0";
+                            $activity_logs_query = "SELECT * FROM activity_logs WHERE DATE(log_date) = '{$_POST['search_log']}' ORDER BY log_date DESC LIMIT 20";
                         }else{
                             $activity_logs_query = "SELECT * FROM activity_logs ORDER BY log_date DESC LIMIT 20";
                         }
