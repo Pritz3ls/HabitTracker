@@ -5,7 +5,6 @@
         Header("Location: testLanding.php");
         exit;
     }
-    
     // Edit Function
     // Check what button are picked or clicked
     if(isset($_POST['edit'])){

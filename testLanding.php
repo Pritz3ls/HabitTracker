@@ -23,8 +23,6 @@
         
     </div>
 
-
-    
     <div class="container">
         <h1>😎 MEET THE TEAM 😎</h1>
         <div class="creators">
@@ -44,12 +42,8 @@
                 <img src="resource/cont-ian-profile.jpg" alt="ian" class="creator-image">
                 <h2>Hi, this is ian carlo:)</h2>
                 <p> (Backend Developer)</p>
-                
+            </div>
         </div>
     </div>
-
-
-
-
 </body>
 </html>

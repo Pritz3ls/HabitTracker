@@ -1,6 +1,5 @@
 <?php include "php/db.php"?>
 <?php include "php/habit-creation.php"?>
-<?php include "php/user-logout.php"?>
 <?php include "php/start-habit.php"?>
 <?php include "php/delete-habit.php"?>
 <!DOCTYPE html>
@@ -11,7 +10,11 @@
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/habit-dropdown.js"></script>
     <script defer src="js/navbar.js"></script>
-    <script defer src="js/notification.js"></script>
+    <script defer src="js/logout.js"></script>
+
+    <!-- Disconnect notification js for now -->
+    <!-- <script defer src="js/notification.js"></script> -->
+    
     <link rel="stylesheet" href="css/habit.css?v=<?php echo time(); ?>">
     <title>habere | Main</title>
 </head>
@@ -38,13 +41,15 @@
         <div class="navbar" id="navbar">
             <div class="navbar_logo"></div>
             <div class="navbar_items">
-                <!-- Test Items -->
-                <a href="">Main</a><br>
+                <div>
+                    <button type="button" onclick="burgir()">Close Menu</button>
+                </div>
+                <a href="testHabit.php">Main</a><br>
                 <a href="">Dashboard</a><br>
-                <a href="">Leaderboard</a><br>
+                <a href="testLeaderBoard.php">Leaderboard</a><br>
                 <a href="">Account Settings</a><br>
                 <div>
-                    <input type="submit" name = "logout" value="logout">
+                    <input type="button" value="logout" onclick="logout();">
                 </div>
             </div>
         </div>

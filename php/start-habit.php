@@ -41,7 +41,7 @@
 
         // Reward the user with XP
         $correctXP = getRewardXP($repetition_type, $custom_interval);
-        $xp_query = "UPDATE users SET user_xp = {$correctXP} WHERE id = {$user_id}";
+        $xp_query = "UPDATE users SET user_xp = user_xp + {$correctXP} WHERE id = {$user_id}";
         $xp = mysqli_query($conn, $xp_query); 
 
         echo "Habit Started";
@@ -136,6 +136,7 @@
                 break;
         }
     }
+
     // Check for habits that are near the current date
     // $habit_query = "SELECT * FROM habits 
     // WHERE user_id = {$user_id} 

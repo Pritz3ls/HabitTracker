@@ -1,5 +1,4 @@
 <?php include "php/db.php"?>
-<?php include "php/user-logout.php"?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/navbar.js"></script>
+    <script defer src="js/logout.js"></script>
     <link rel="stylesheet" href="css/leaderboard.css?v=<?php echo time(); ?>"> 
     <title>habere | Leaderboard</title>
 </head>
 <body>
-    <h1><b>LEARDERBOARD</b></h1>
     <div>
         <button type="button" onclick="burgir()">Burgir Menu</button>
     </div>
+    <h1><b>LEARDERBOARD</b></h1>
     <form action="" method="post">
         <div class="navbar" id="navbar">
             <div class="navbar_logo"></div>
@@ -23,12 +23,12 @@
                     <button type="button" onclick="burgir()">Close Menu</button>
                 </div>
                 <!-- Test Items -->
-                <a href="">Main</a><br>
+                <a href="testHabit.php">Main</a><br>
                 <a href="">Dashboard</a><br>
-                <a href="">Leaderboard</a><br>
+                <a href="testLeaderBoard.php">Leaderboard</a><br>
                 <a href="">Account Settings</a><br>
                 <div>
-                    <input type="submit" name="logout" value="logout">
+                    <input type="button" value="logout" onclick="logout();">
                 </div>
             </div>
         </div>
