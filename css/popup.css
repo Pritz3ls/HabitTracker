@@ -1,8 +1,23 @@
-.popup{
+.popup-container{
+    position: absolute;
+    z-index: 5;
+    
+    width: 100%;
+    height: 100%;
+    
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
-
+    
+    background-color: rgba(0,0,0,0.5);
+}
+.popup{
+    height: fit-content;
     width: 300px;
     background-color: burlywood;
     flex-direction: column;
@@ -14,6 +29,18 @@
         Align the input fields
         Overlay the container from the screen
     */
+}
+.popup input[type="text"]{
+    width: 100%;
+}
+.form_btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.form_btns input[type="submit"]{
+    width: 75px;
 }
 .popup div{
     margin: 10px;

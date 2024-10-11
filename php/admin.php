@@ -13,31 +13,35 @@
         $fetch_user = mysqli_query($conn, $fetch_user_query);
         $rows = mysqli_fetch_assoc($fetch_user);
         // Create a popup
-        echo '<form action="" method="post" class=popup>';
-            // Include the selected userID
-            echo '<input type="hidden" name="selectedUserID" value='.$userID.'>';
-            // Inputs for admin
-            // Username
-            echo '<div>';
-                echo '<label for="edit_username">Username</label>';
-                echo '<input type="text" name="edit_username" value='.$rows['user_name'].'>';
-            echo '</div>';
-            
-            // Password
-            echo '<div>';
-                echo '<label for="edit_password">Password</label>';
-                echo '<input type="text" name="edit_password" value='.$rows['password'].'>';
-            echo '</div>';
-            
-            // Phonenumber
-            echo '<div>';
-                echo '<label for="edit_phonenumber">Phonenumber</label>';
-                echo '<input type="text" name="edit_phonenumber" value='.$rows['phone_number'].'>';
-            echo '</div>';
-            
-            echo '<input type="submit" name="edit_done" value="done">';
-            echo '<input type="submit" name="edit_cancel" value="cancel">';
-        echo '</form>';
+        echo '<div class="popup-container">';
+            echo '<form action="" method="post" class=popup>';
+                // Include the selected userID
+                echo '<input type="hidden" name="selectedUserID" value='.$userID.'>';
+                // Inputs for admin
+                // Username
+                echo '<div>';
+                    echo '<label for="edit_username">Username</label>';
+                    echo '<input type="text" name="edit_username" value='.$rows['user_name'].'>';
+                echo '</div>';
+                
+                // Password
+                echo '<div>';
+                    echo '<label for="edit_password">Password</label>';
+                    echo '<input type="text" name="edit_password" value='.$rows['password'].'>';
+                echo '</div>';
+                
+                // Phonenumber
+                echo '<div>';
+                    echo '<label for="edit_phonenumber">Phonenumber</label>';
+                    echo '<input type="text" name="edit_phonenumber" value='.$rows['phone_number'].'>';
+                echo '</div>';
+                
+                echo '<div class="form_btns">';
+                    echo '<input type="submit" name="edit_cancel" value="cancel">';
+                    echo '<input type="submit" name="edit_done" value="done">';
+                echo '</div>';
+            echo '</form>';
+        echo '</div>';
     }
         
     // Popup edit function
