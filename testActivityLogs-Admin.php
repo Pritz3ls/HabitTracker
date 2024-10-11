@@ -14,6 +14,23 @@
     <title>habere | Admin Activity Logs</title>
 </head>
 <body>
-    
+    <div>
+        <button type="button" onclick="burgir()">Burgir Menu</button>
+    </div>
+    <h1>Admin Activity Logs</h1>
+    <div class="navbar" id="navbar">
+        <div class="navbar_logo"></div>
+        <div class="navbar_items">
+            <div>
+                <button type="button" onclick="burgir()">Close Menu</button>
+            </div>
+            <a href="testDashboard-Admin.php">Dashboard</a><br>
+            <a href="testActivityLogs-Admin.php">Activity Logs</a><br>
+            <a href="">Account Settings</a><br>
+            <div>
+                <input type="button" value="logout" onclick="logout();">
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -28,8 +28,8 @@
                 <div>
                     <button type="button" onclick="burgir()">Close Menu</button>
                 </div>
-                <a href="">Dashboard</a><br>
-                <a href="">Activity Logs</a><br>
+                <a href="testDashboard-Admin.php">Dashboard</a><br>
+                <a href="testActivityLogs-Admin.php">Activity Logs</a><br>
                 <a href="">Account Settings</a><br>
                 <div>
                     <input type="button" value="logout" onclick="logout();">
