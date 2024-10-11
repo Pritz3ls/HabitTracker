@@ -9,14 +9,14 @@
         // Check if CAPTCHA matches
         // CAPTCHA is incorrect, show an error message and return
         if ($enteredCaptcha != $generatedCaptcha) {
-            echo "<script>alert('Incorrect CAPTCHA!');</script>";
+            echo "Incorrect CAPTCHA!";
             return;
         }
 
         // Password too weak
         // Alert the user that the password it too weak
         if($password_strength < 1){
-            echo "<script>alert('Password too weak!');</script>";
+            echo "Password too weak";
             return;
         }
 
