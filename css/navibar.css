@@ -1,4 +1,5 @@
 /* Header */
+/*ADMIN*/
 .header{
     display: flex;
     justify-content: space-between;
@@ -84,4 +85,62 @@ input[type='button']:hover{
 .navbar_items a:hover {
     background-color: #04fc19;
     transition: all 0.5s ease;
+}
+/* Settings Form Enhancements */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form container styling */
+form {
+    background: #f0f4f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+/* Individual form input styling */
+form div {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Optional background gradient */
+body {
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
 }
