@@ -33,7 +33,7 @@
             <a href="testDashboard-Admin.php">Dashboard</a><br>
             <a href="testAccountSettings-Admin.php">Account Settings</a><br>
             <div>
-                <input type="button" value="logout" onclick="logout();">
+                <input type="button" value="Logout" onclick="logout();">
             </div>
         </div>
     </div>

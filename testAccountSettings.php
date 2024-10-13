@@ -30,7 +30,7 @@
                 <a href="testLeaderBoard.php">Leaderboard</a><br>
                 <a href="testAccountSettings.php">Account Settings</a><br>
                 <div>
-                    <input type="button" value="logout" onclick="logout();">
+                    <input type="button" value="Logout" onclick="logout();">
                 </div>
             </div>
         </div>
