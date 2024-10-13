@@ -45,8 +45,11 @@
                 <option value="admin">Admin</option>
             </select>
         </div>
-        <div>
+        <div class="button-container">
             <input type="submit" value="SignUp" name="create">
+        </div>
+        <div class="button-container">
+        <a href="testLanding.php" class="back-button">Back</a>
         </div>
     </form>
 </body>

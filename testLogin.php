@@ -28,14 +28,17 @@
             <button type="button" onclick="generateCaptcha()">Refresh</button>
             <input type="hidden" id="hiddenCaptcha" name="hiddenCaptcha">
         </div>
-        <div>
-            <a href="testForgotPassword.php">Forgot password</a>
+        <div class="auth-link-container">
+            <a href="testForgotPassword.php" class="auth-link">Forgot password</a>
         </div>
-        <div>
-            <a href="testSignUp.php">Don't have an account?</a>
+        <div class="auth-link-container">
+            <a href="testSignUp.php" class="auth-link">Don't have an account?</a>
         </div>
         <div>
             <input type="submit" value="Login" name="login">
+        </div>
+         <div class="button-container">
+        <a href="testLanding.php" class="back-button">Back</a>
         </div>
         </form>
 </body>
