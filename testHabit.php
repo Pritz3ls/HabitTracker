@@ -15,6 +15,7 @@
     <!-- Disconnect notification js for now -->
     <!-- <script defer src="js/notification.js"></script> -->
     
+    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/habit.css?v=<?php echo time(); ?>">
     <title>habere | Main</title>
 </head>
@@ -23,6 +24,24 @@
     <div>
         <button type="button" onclick="burgir()">Burgir Menu</button>
     </div>
+    
+    <!-- Navigation Bar -->
+    <div class="navbar" id="navbar">
+        <div class="navbar_logo"></div>
+        <div class="navbar_items">
+            <div>
+                <button type="button" onclick="burgir()">Close Menu</button>
+            </div>
+            <a href="testHabit.php">Main</a><br>
+            <a href="">Dashboard</a><br>
+            <a href="testLeaderBoard.php">Leaderboard</a><br>
+            <a href="testAccountSettings.php">Account Settings</a><br>
+            <div>
+                <input type="button" value="logout" onclick="logout();">
+            </div>
+        </div>
+    </div>
+
     <!-- XP Counter -->
     <div>
         <?php
@@ -36,24 +55,9 @@
             echo "</div>";
         ?>
     </div>
+
     <!-- Habit Form Container -->
     <form action="testHabit.php" method="post">
-        <div class="navbar" id="navbar">
-            <div class="navbar_logo"></div>
-            <div class="navbar_items">
-                <div>
-                    <button type="button" onclick="burgir()">Close Menu</button>
-                </div>
-                <a href="testHabit.php">Main</a><br>
-                <a href="">Dashboard</a><br>
-                <a href="testLeaderBoard.php">Leaderboard</a><br>
-                <a href="">Account Settings</a><br>
-                <div>
-                    <input type="button" value="logout" onclick="logout();">
-                </div>
-            </div>
-        </div>
-        
         <div>
             <label for="name" method="post">Name</label>
             <input type="text" name="name" placeholder="Habit name">

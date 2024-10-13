@@ -17,8 +17,11 @@
     <title>habere | Admin Dashboard</title>
 </head>
 <body>
-    <h1>Admin Dashboard</h1>
+    <!-- Burger Button -->
     <div><button type="button" onclick="burgir()">Burgir Menu</button></div>
+    
+    <h1>Admin Dashboard</h1>
+    
     <!-- Navigation Bar -->
     <div class="navbar" id="navbar">
         <div class="navbar_logo"></div>
@@ -27,12 +30,13 @@
                 <button type="button" onclick="burgir()">Close Menu</button>
             </div>
             <a href="testDashboard-Admin.php">Dashboard</a><br>
-            <a href="">Account Settings</a><br>
+            <a href="testAccountSettings.php">Account Settings</a><br>
             <div>
                 <input type="button" value="logout" onclick="logout();">
             </div>
         </div>
     </div>
+
     <!-- Tables -->
     <div class="table-wrapper">
         <h2>Users</h2>

@@ -41,6 +41,15 @@ CREATE TABLE activity_logs(
     	FOREIGN KEY (admin_id) REFERENCES users(id)
 );
 
+-- Bug Encountered
+CREATE TABLE bug_report{
+    bug_id AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    report_title VARCHAR(255) NOT NULL,
+    report_content TEXT NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+}
+
 /*
 This SQL is for clients only,
 we can create one for admin, so we can include user_type

@@ -70,7 +70,7 @@
         VALUES({$admin_id}, '{$operation_message}', CURRENT_TIMESTAMP)";
         $log = mysqli_query($conn, $log_query);
 
-        echo $operation_message;
+        echo '<script>alert('.$operation_message.');</script>';
     }
 
     // Delete function
@@ -90,7 +90,7 @@
         VALUES({$admin_id}, '{$operation_message}', CURRENT_TIMESTAMP)";
         $log = mysqli_query($conn, $log_query);
 
-        echo $operation_message;
+        echo '<script>alert('.$operation_message.');</script>';
     }
 
     function LOG_ACTIVITY($index, $userID){

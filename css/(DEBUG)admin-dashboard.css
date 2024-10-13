@@ -25,6 +25,18 @@ h1 {
 
 .table-scroll {
     height: 150px;
+}
+/* Table */
+h2{
+    line-height: 0px;
+}
+.table-wrapper{
+    border: 1px black solid;
+    position: relative;
+}
+.table-scroll{
+    border: 1px black dotted;
+    height: 200px;
     overflow-y: auto;
     margin-top: 10px;
     border-radius: 5px;

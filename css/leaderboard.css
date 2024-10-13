@@ -142,81 +142,77 @@ td {
 }
 
 /* Responsive Design */
-
 /* Mobile Devices (max-width: 480px) */
-
 @media only screen and (max-width: 480px) {
-    table {
-      width: 90%;
-    }
-    th, td {
-      padding: 5px;
-      font-size: 14px;
-    }
-    .flame {
-      width: 8px; 
-      height: 16px; 
-    }
-    .flame::before {
-      top: -12px; 
-      width: 5px; 
-      height: 12px; 
-    }
-    .flame::after {
-      top: -20px; 
-      width: 3px; 
-      height: 8px; 
-    }
+  table {
+    width: 90%;
   }
-  
-  /* Tablet Devices (max-width: 768px) */
-  
-  @media only screen and (max-width: 768px) {
-    table {
-      width: 85%;
-    }
-    th, td {
-      padding: 7px;
-      font-size: 16px;
-    }
-    .flame {
-      width: 9px; 
-      height: 18px; 
-    }
-    .flame::before {
-      top: -13px; 
-      width: 6px; 
-      height: 14px; 
-    }
-    .flame::after {
-      top: -22px; 
-      width: 3.5px; 
-      height: 10px; 
-    }
+  th, td {
+    padding: 5px;
+    font-size: 14px;
   }
-  
-  /* Desktop Devices (min-width: 1024px) */
-  
-  @media only screen and (min-width: 1024px) {
-    table {
-      width: 70%;
-    }
-    th, td {
-      padding: 10px;
-      font-size: 18px;
-    }
-    .flame {
-      width: 10px; 
-      height: 20px; 
-    }
-    .flame::before {
-      top: -15px; 
-      width: 7px; 
-      height: 15px; 
-    }
-    .flame::after {
-      top: -25px; 
-      width: 4px; 
-      height: 10px; 
-    }
+  .flame {
+    width: 8px; 
+    height: 16px; 
   }
+  .flame::before {
+    top: -12px; 
+    width: 5px; 
+    height: 12px; 
+  }
+  .flame::after {
+    top: -20px; 
+    width: 3px; 
+    height: 8px; 
+  }
+}
+  
+/* Tablet Devices (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+  table {
+    width: 85%;
+  }
+  th, td {
+    padding: 7px;
+    font-size: 16px;
+  }
+  .flame {
+    width: 9px; 
+    height: 18px; 
+  }
+  .flame::before {
+    top: -13px; 
+    width: 6px; 
+    height: 14px; 
+  }
+  .flame::after {
+    top: -22px; 
+    width: 3.5px; 
+    height: 10px; 
+  }
+}
+  
+/* Desktop Devices (min-width: 1024px) */
+@media only screen and (min-width: 1024px) {
+  table {
+    width: 70%;
+  }
+  th, td {
+    padding: 10px;
+    font-size: 18px;
+  }
+  .flame {
+    width: 10px; 
+    height: 20px; 
+  }
+  .flame::before {
+    top: -15px; 
+    width: 7px; 
+    height: 15px; 
+  }
+  .flame::after {
+    top: -25px; 
+    width: 4px; 
+    height: 10px; 
+  }
+}
