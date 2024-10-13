@@ -10,7 +10,7 @@
     <script defer src="js/logout.js"></script>
     <script defer src="js/passwordstrength.js"></script>
     
-    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/navibar.css?v=<?php echo time(); ?>"> 
     <title>habere | Account Settings</title>
 </head>
 <body>
