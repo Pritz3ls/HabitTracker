@@ -9,7 +9,7 @@
         // Check if CAPTCHA matches
         // CAPTCHA is incorrect, show an error message and return
         if ($enteredCaptcha != $generatedCaptcha) {
-            echo "Incorrect CAPTCHA!";
+            echo "<div class='error-message'><h3>Incorrect CAPTCHA!!</h3></div>";
             return;
         }
         
