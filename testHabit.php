@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/habit-dropdown.js"></script>
-    <script defer src="js/navbar.js"></script>
     <script defer src="js/logout.js"></script>
+    <script defer src="js/navbar.js"></script>
 
     <!-- Disconnect notification js for now -->
     <!-- <script defer src="js/notification.js"></script> -->
@@ -23,7 +23,7 @@
 <body>
     <div class="header">
         <!-- Burger Button -->
-        <button type="button" onclick="burgir()" class="burgir">=</button>
+        <button type="button" onclick="burgir();" class="burgir">=</button>
         <!-- Profile Container -->
         <?php
             $user_query = "SELECT user_name, user_xp FROM users WHERE id = {$_SESSION['currentUserID']}";

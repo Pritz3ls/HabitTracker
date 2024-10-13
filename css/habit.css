@@ -26,6 +26,7 @@ body{
     background: green;
     color: white;
     border: none;
+    cursor: pointer;
 }
 
 .profile-container{    
