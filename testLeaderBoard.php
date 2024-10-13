@@ -48,12 +48,17 @@
                 $rank = 1;
                 while ($item = mysqli_fetch_assoc($leaderboard)) {
                     echo '<tr>';
-                        echo '<td>'.$rank.'</td>';
-                        echo '<td>'.$item['user_name'].'</td>';
-                        echo '<td>'.$item['user_xp'].'</td>';
-                        $rank += 1;
-                    echo '</tr>';
-                }
+                      echo '<td>'.$rank.'</td>';
+                      echo '<td>';
+                    // Add flame effect for rank 1
+                        if ($rank == 1) {
+                    echo '<div class="flame"></div>';
+                 }
+                    echo $item['user_name'].'</td>';
+                    echo '<td>'.$item['user_xp'].'</td>';
+                    $rank += 1;
+                echo '</tr>';
+               }
             ?>
         </tbody>
    </table>

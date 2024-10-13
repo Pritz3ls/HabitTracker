@@ -120,3 +120,56 @@ input[type="submit"]:hover {
     padding: 0;
     font-size: 16px;
 }
+
+/* Responsive Design */
+
+/* Mobile Devices (max-width: 480px) */
+
+@media only screen and (max-width: 480px) {
+    .forgot-pass-form {
+        width: 90%;
+    }
+    input[type="email"], input[type="password"] {
+        font-size: 12px;
+    }
+    input[type="submit"] {
+        font-size: 14px;
+    }
+    .back-button {
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablet Devices (max-width: 768px) */
+
+@media only screen and (max-width: 768px) {
+    .forgot-pass-form {
+        width: 80%;
+    }
+    input[type="email"], input[type="password"] {
+        font-size: 13px;
+    }
+    input[type="submit"] {
+        font-size: 15px;
+    }
+    .back-button {
+        font-size: 1rem;
+    }
+}
+
+/* Desktop Devices (min-width: 1024px) */
+
+@media only screen and (min-width: 1024px) {
+    .forgot-pass-form {
+        width: 50%;
+    }
+    input[type="email"], input[type="password"] {
+        font-size: 16px;
+    }
+    input[type="submit"] {
+        font-size: 18px;
+    }
+    .back-button {
+        font-size: 1.1rem;
+    }
+}
