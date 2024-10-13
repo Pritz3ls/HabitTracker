@@ -9,14 +9,14 @@
         // Check if CAPTCHA matches
         // CAPTCHA is incorrect, show an error message and return
         if ($enteredCaptcha != $generatedCaptcha) {
-            echo "Incorrect CAPTCHA!";
+            echo "<div class='error-message'><h3>Incorrect CAPTCHA!</h3></div>";
             return;
         }
-
+        
         // Password too weak
         // Alert the user that the password it too weak
         if($password_strength < 1){
-            echo "Password too weak";
+            echo "<div class='error-message'><h3>Password too weak!</h3></div>";
             return;
         }
 
@@ -25,7 +25,9 @@
         $username = $_POST['username'];
         $phonenumber = $_POST['phonenumber'];
         $password = $_POST['password'];
-        $user_type = $_POST['user_type'];
+
+        // For debugging purpose
+        // $user_type = $_POST['user_type'];
         
         // Validation of Phone Number
         // If phone number is used, throw an error
@@ -34,12 +36,12 @@
         
         $row = mysqli_fetch_assoc($user_valid);
         if($row['phone_valid'] == 1){
-            echo "Phone number is already used.";
+            echo "<div class='error-message'><h3>Phone number is already used.</h3></div>";
             return;
         }
 
-        $query = "INSERT INTO users(user_name, phone_number, user_type, password)
-        VALUES('{$username}','{$phonenumber}', '{$user_type}','{$password}')";
+        $query = "INSERT INTO users(user_name, phone_number, password)
+        VALUES('{$username}','{$phonenumber}','{$password}')";
 
         $add_data = mysqli_query($conn, $query);
 
@@ -61,15 +63,6 @@
         }else{ /* Admin */
             Header('Location: testDashboard-Admin.php');  
             exit;
-        }
-       
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $password = $_POST['password'];
-            if (preg_match('/.{8}/', $password) && preg_match('/[A-Z]/', $password) && preg_match('/[0-9]/', $password)) {
-                echo "Password is strong!";
-            } else {
-                echo "Password is weak.";
-            }
         }
     }
 ?>

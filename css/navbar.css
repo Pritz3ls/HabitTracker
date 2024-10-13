@@ -1,32 +1,64 @@
 /* Navigation Bar */
-.navbar {
+.navbar{
     width: 250px;
     height: 100vh;
+    
     position: fixed;
     top: 0;
     left: -250px;
-    background-color: slategrey;
     padding-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    
+    background-color: green;
+
     transition: transform 0.5s ease;
     z-index: 999;
 }
 
-.navbar-show {
-    transform: translateX(250px); /* Slide in the navbar */
+.navbar:has(svg){
+    pointer-events: none;
 }
 
+.show{
+    /* display: block; */
+    transform: translateX(250px); /* Slide in the navbar */
+}
 /* Navbar Items */
-.navbar_items a {
+.navbar_items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 5px;
+    padding-left: 10px;
+}
+.navbar_items a{
+    font-size: 18px;
+    border-radius: 5px;
+    margin: px 0;
+    text-decoration: none;
+    color: white;
+    
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+input[type='button']{
+    align-items: space-between;
+    background-color: #e74c3c;
+    padding: 5px 20px;
+    border-radius: 5px;
+    
+    font-family: 'Poppins';
     font-size: 18px;
     color: white;
-    text-decoration: none;
-    margin: 15px 0;
-    transition: color 0.3s ease;
+    cursor: pointer;
+
+    border: none;
+}
+input[type='button']:hover{
+    background-color: #9b1f1f;
 }
 
 .navbar_items a:hover {
-    color: #04fc19;
+    background-color: #04fc19;
+    transition: all 0.5s ease;
 }

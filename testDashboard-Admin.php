@@ -30,7 +30,7 @@
                 <button type="button" onclick="burgir()">Close Menu</button>
             </div>
             <a href="testDashboard-Admin.php">Dashboard</a><br>
-            <a href="testAccountSettings.php">Account Settings</a><br>
+            <a href="testAccountSettings-Admin.php">Account Settings</a><br>
             <div>
                 <input type="button" value="logout" onclick="logout();">
             </div>

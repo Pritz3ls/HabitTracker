@@ -9,7 +9,7 @@
         
         // Check if the SQL execution were sucessful
         if(!$fetch_habit){
-            echo "Something went wrong";
+            echo '<script>alert("Something went wrong")</script>';
         }
 
         $row = mysqli_fetch_assoc($fetch_habit);
@@ -31,7 +31,7 @@
         
         // If it's unsuccessful
         if(!$update){
-            echo "Update unsuccessful!";
+            echo '<script>alert("Update unsuccessful!")</script>';
         }
 
         // Record the User completing the habit
@@ -44,7 +44,7 @@
         $xp_query = "UPDATE users SET user_xp = user_xp + {$correctXP} WHERE id = {$user_id}";
         $xp = mysqli_query($conn, $xp_query); 
 
-        echo "Habit Started";
+        echo '<script>alert("Habit Started")</script>';
     }
 
     // Get modified date using the repetition type
@@ -74,7 +74,7 @@
             case 'daily':
                 # Daily format
                 if($currentDate < $correctInterval){
-                    echo "Try again tomorrow";
+                    echo '<script>alert("Try again tomorrow")</script>';
                     return false;
                 }
             break;
@@ -83,18 +83,18 @@
                 if($currentDate > $correctInterval){
                     $currentDay = (int)date('w');
                     if($currentDay < $weekday){
-                        echo "Try again on '.$weekday.'.";
+                        echo '<script>alert("Try again on '.$weekday.'.")</script>';
                         return false;
                     }
                 }else{
-                    echo "Try again next week";
+                    echo '<script>alert("Try again next week")</script>';
                     return false;
                 }
             break;
             default:
                 # Monthly, and Custom
                 if($currentDate < $correctInterval){
-                    echo "Try again some time";
+                    echo '<script>alert("Try again some time")</script>';
                     return false;
                 }
             break;

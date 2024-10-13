@@ -1,11 +1,18 @@
 // Handles burger menu button
 // Horizontal Navigation Bar
 // Will delete later if design suggests
+const navbar = document.getElementById("navbar");
 function burgir(){
-    var navBar = document.getElementById("navbar");
-    if(navBar.classList.contains("navbar-show")){
-        navBar.classList.remove("navbar-show");
-    }else{
-        navBar.classList.add("navbar-show");
+    navbar.classList.toggle("show");
+}
+
+window.onclick = (event) =>{
+    if(!event.target.matches('.burgir')){
+        if(navbar.classList.contains("show")){
+            // alert(navbar.classList.contains("show") ? "Contain" : "None");
+            navbar.classList.remove("show");
+        }
     }
 }
+
+navbar.addEventListener('click', event => event.stopPropagation());

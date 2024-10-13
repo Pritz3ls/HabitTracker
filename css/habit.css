@@ -1,9 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body{
-    overflow-y: hidden;
+    overflow: hidden;
+    margin: 0;
+    font-family: 'Poppins';
+    background-color: rgba(0, 0, 0, 0.05);
 }
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header button{
+    width: 50px;
+    height: 50px;
+    
+    margin-left: 5px;
+    border-radius: 5px;
+    
+    font-family: 'Poppins';
+    font-weight: bolder;
+    font-size: 25px;
+    
+    background: green;
+    color: white;
+    border: none;
+}
+
+.profile-container{    
+    text-align: right;
+    background-color: green;
+    color: white;
+    
+    border-radius: 0 0 0 50px;
+    line-height: 0px;
+    padding: 0 50px;
+}
+
+/* Make Habit */
+.habit-maker{
+    background-color: lightgray;
+    margin: 5px;
+    padding: 5px;
+    
+    width: 300px;
+    align-items: start;
+    border-radius: 5px;
+}
+.habit-maker input, select{
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins';
+    font-size: 15px;
+}
+.habit-maker input[type="text"]{
+    width: 80%;
+}
+.habit-maker select{
+    margin-top: 5px;
+}
+
+/* View Habit */
 .habit-container{
     /* Size */
     max-height: 800px;
+    margin: 5px;
+    /* overflow-y:scroll; */
     
     /* Look */
     gap: 20px;
@@ -11,26 +74,51 @@ body{
     /* Flex */
     display: flex;
     justify-content: start;
+    align-items: center;
     flex-wrap: wrap;
 }
 .habit{
-    min-width: 100px;
-    min-height: 100px;
+    width: 300px;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
     
     /* Look */
-    border: 2px black dotted;
+    border: 2px black solid;
+    backdrop-filter: blur(5px);
+    border-radius: 5px ;
+    color: black;
+    user-select: none;
     
     /* Margins \ Padding */
     padding: 5px;
     
     /* Look */
     line-height: 1px;
+
+    transition: .2s all;
+    background-color: none;
 }
-.start_habit{
+/* Animation */
+.habit:hover{
+    transition: .5s all;
+    color: white;
+    background-color: green;
+}
+.habit .control{
+    display: flex;
+    align-items:end;
+    gap: 5px;
+}
+.control input{
+    border: none;
+    height: 25px;
+    width: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins';
+}
+/* .start_habit{
     position: absolute;
     transform: translateX(70px) translateY(-15px);
-}
-
-.profile-container{
-    line-height: 0px;
-}
+} */

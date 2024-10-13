@@ -17,7 +17,7 @@
         $dayofweek = $_POST['dayofweek'];
 
         if(empty($name)){
-            echo "Invalid inputs, Try again.";
+            echo '<script>alert("Invalid inputs, Try again.")</script>';
             return;
         }
 
@@ -52,9 +52,9 @@
         
         // Check if the sql execution is successful
         if(!$add_data){
-            echo "Something went wrong!" . mysqli_connect_error($conn);
+            echo '<script>alert("Something went wrong!'.mysqli_connect_error($conn).'")</script>';
         }else{
-            echo "Habit Data added";
+            echo '<script>alert("Habit Data added")</script>';
         }
 
         

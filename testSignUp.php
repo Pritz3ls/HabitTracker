@@ -39,12 +39,13 @@
         <div>
             <a href="testLogin.php">Already have an account?</a>
         </div>
-        <div>
+        <!-- For Debugging purpose -->
+        <!-- <div>
             <select name="user_type" id="" method="post">
                 <option value="client">Client</option>
                 <option value="admin">Admin</option>
             </select>
-        </div>
+        </div> -->
         <div class="button-container">
             <input type="submit" value="SignUp" name="create">
         </div>

@@ -13,9 +13,11 @@
     <title>habere | Leaderboard</title>
 </head>
 <body>
-    <!-- Burger button -->
-    <div>
-        <button type="button" onclick="burgir()">Burgir Menu</button>
+    <div class="header">
+        <!-- Burger Button -->
+        <button type="button" onclick="burgir()">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+        </button>
     </div>
     
     <!-- Navigation Menu -->
@@ -37,7 +39,7 @@
     </div>
     
     <!-- Leaderboard table -->
-    <h1><b>LEARDERBOARD</b></h1>
+    <h1 class="leaderboard-tag"><b>LEARDERBOARD</b></h1>
     <table>
         <thead>
             <th>Rank</th>
@@ -53,17 +55,17 @@
                 $rank = 1;
                 while ($item = mysqli_fetch_assoc($leaderboard)) {
                     echo '<tr>';
-                      echo '<td>'.$rank.'</td>';
-                      echo '<td>';
-                    // Add flame effect for rank 1
-                        if ($rank == 1) {
-                    echo '<div class="flame"></div>';
-                 }
-                    echo $item['user_name'].'</td>';
-                    echo '<td>'.$item['user_xp'].'</td>';
-                    $rank += 1;
-                echo '</tr>';
-               }
+                        echo '<td>'.$rank.'</td>';
+                        echo '<td>';
+                            // Add flame effect for rank 1
+                            if ($rank == 1) {
+                                echo '<div class="flame"></div>';
+                            }
+                        echo $item['user_name'].'</td>';
+                        echo '<td>'.$item['user_xp'].'</td>';
+                        $rank += 1;
+                    echo '</tr>';
+                }
             ?>
         </tbody>
    </table>

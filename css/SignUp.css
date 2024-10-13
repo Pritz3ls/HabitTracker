@@ -5,6 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     margin: 0;
 }
@@ -99,4 +100,25 @@ a:hover {
 
 .back-button:hover {
     background-color: #e0e0e0;
+}
+
+/* Error Message Popup */
+.error-message{
+    color: #e90b0b;
+    background-color: #ffe6e6;
+    border: 1px solid #ff4c4c;
+    border-radius: 5px;
+
+    text-align: center;
+    font-family: Arial, sans-serif;
+
+    margin: 10px auto;
+    padding: 10px;
+}
+
+.error-message h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: bold;
 }
