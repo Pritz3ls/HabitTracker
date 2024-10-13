@@ -65,7 +65,7 @@ th {
 }
 
 tr:nth-child(odd) {
-    background-color: #f9f9f9;
+    background-color: #ddd;
 }
 
 tr:nth-child(even) {
@@ -83,10 +83,6 @@ td:has(input){
     align-items: center;
     font-family: 'Poppin';
     gap: 5px;
-}
-
-tr:hover {
-    background-color: #ddd;
 }
 
 input[type="submit"], input[type="button"] {

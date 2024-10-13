@@ -73,26 +73,26 @@
                         $users = mysqli_query($conn, $query);
                         echo "Displayed ".mysqli_num_rows($users)." results.";
                         while($row = mysqli_fetch_assoc($users)){
-                            echo '<form action="" method="post">';
-                                $user_id = $row['id'];
-                                $username = $row['user_name'];
-                                $password = $row['password'];
-                                $phonenumber = $row['phone_number'];
-                                $account_created = $row['account_created_at'];
+                            echo "<tr>";
+                                echo '<form action="" method="post">';
+                                    $user_id = $row['id'];
+                                    $username = $row['user_name'];
+                                    $password = $row['password'];
+                                    $phonenumber = $row['phone_number'];
+                                    $account_created = $row['account_created_at'];
 
-                                echo "<tr>";
-                                    echo "<td>".$user_id."</td>";
-                                    echo "<td>".$username."</td>";
-                                    echo "<td>".$password."</td>";
-                                    echo "<td>".$phonenumber."</td>";
-                                    echo "<td>".$account_created."</td>";
-                                    echo '<td>';
-                                        echo '<input type="submit" name="edit" value="Edit">';
-                                        echo '<input type="submit" name="delete" value="Delete">';
-                                        echo '<input type="hidden" name="selectedUserID" value='.$user_id.'>';
-                                    echo '</td>';
-                                echo "</tr>";
-                            echo "</form>";
+                                        echo "<td>".$user_id."</td>";
+                                        echo "<td>".$username."</td>";
+                                        echo "<td>".$password."</td>";
+                                        echo "<td>".$phonenumber."</td>";
+                                        echo "<td>".$account_created."</td>";
+                                        echo '<td>';
+                                            echo '<input type="submit" name="edit" value="Edit">';
+                                            echo '<input type="submit" name="delete" value="Delete">';
+                                            echo '<input type="hidden" name="selectedUserID" value='.$user_id.'>';
+                                        echo '</td>';
+                                echo "</form>";
+                            echo "</tr>";
                         }
                     ?>
                 </tbody>
