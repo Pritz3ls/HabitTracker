@@ -6,29 +6,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
-    <script defer src="js/navbar.js"></script>
     <script defer src="js/logout.js"></script>
+    <script defer src="js/navbar.js"></script>
     
     <!-- i will disconnect the style for the admin, as i have plans for the look -->
     <!-- <link rel="stylesheet" href="css/dashboard-admin.css">  -->
     
-    <link rel="stylesheet" href="css/(DEBUG)admin-dashboard.css?v=<?php echo time(); ?>"> 
+    <link rel="stylesheet" href="css/dashboard-admin.css?v=<?php echo time(); ?>"> 
+    <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>"> 
     <link rel="stylesheet" href="css/popup.css?v=<?php echo time(); ?>"> 
     <title>habere | Admin Dashboard</title>
 </head>
 <body>
     <!-- Burger Button -->
-    <div><button type="button" onclick="burgir()">Burgir Menu</button></div>
-    
+    <div class="header">
+        <!-- Burger Button -->
+        <button type="button" onclick="burgir();" class="burgir">=</button>
+    </div>
+
     <h1>Admin Dashboard</h1>
     
     <!-- Navigation Bar -->
     <div class="navbar" id="navbar">
         <div class="navbar_logo"></div>
         <div class="navbar_items">
-            <div>
-                <button type="button" onclick="burgir()">Close Menu</button>
-            </div>
             <a href="testDashboard-Admin.php">Dashboard</a><br>
             <a href="testAccountSettings-Admin.php">Account Settings</a><br>
             <div>
@@ -86,8 +87,8 @@
                                     echo "<td>".$phonenumber."</td>";
                                     echo "<td>".$account_created."</td>";
                                     echo '<td>';
-                                        echo '<input type="submit" name="edit" value="edit">';
-                                        echo '<input type="submit" name="delete" value="delete">';
+                                        echo '<input type="submit" name="edit" value="Edit">';
+                                        echo '<input type="submit" name="delete" value="Delete">';
                                         echo '<input type="hidden" name="selectedUserID" value='.$user_id.'>';
                                     echo '</td>';
                                 echo "</tr>";

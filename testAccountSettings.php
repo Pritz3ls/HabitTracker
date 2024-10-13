@@ -15,15 +15,15 @@
 </head>
 <body>
     <!-- Burger Button -->
-    <div>
-        <button type="button" onclick="burgir()">Burgir Menu</button>
+    <div class="header">
+        <!-- Burger Button -->
+        <button type="button" onclick="burgir();" class="burgir">=</button>
     </div>
 
     <!-- Navigation Bar -->
     <div class="navbar" id="navbar">
         <div class="navbar_logo"></div>
             <div class="navbar_items">
-                <div><button type="button" onclick="burgir()">Close Menu</button></div>
                 <!-- Test Items -->
                 <a href="testHabit.php">Main</a><br>
                 <a href="">Dashboard</a><br>

@@ -37,8 +37,8 @@
                 echo '</div>';
                 
                 echo '<div class="form_btns">';
-                    echo '<input type="submit" name="edit_cancel" value="cancel">';
-                    echo '<input type="submit" name="edit_done" value="done">';
+                    echo '<input type="submit" name="edit_cancel" value="Cancel">';
+                    echo '<input type="submit" name="edit_done" value="Done">';
                 echo '</div>';
             echo '</form>';
         echo '</div>';

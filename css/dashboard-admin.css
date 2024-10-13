@@ -1,130 +1,200 @@
-table,tr,td,th{
-    border: 1px black dotted;
-    border-collapse: collapse;
-}
-
-*{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* General Styling */
+body {
+    font-family: 'Poppins';
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
     color: #333;
-    padding: 20px;
 }
 
-h1{
+h1 {
     text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #4a90e2;
+    color: #444;
+    margin-top: 20px;
 }
 
-form{
-    display: inline-block;
-}
-
-table{
-    width: 100%;
+/* Table Styling */
+.table-wrapper {
     margin: 20px auto;
-    border-collapse: collapse;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
     background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
 }
 
-table tr{
-    border-bottom: 1px solid #dddddd;
+.table-scroll {
+    height: 150px;
+}
+/* Table */
+h2{
+    line-height: 0px;
+}
+.table-wrapper{
+    border: 1px black solid;
+    position: relative;
+}
+.table-scroll{
+    border: 1px black dotted;
+    height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
 
-table tr:nth-child(even){
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+tr:nth-child(odd) {
     background-color: #f9f9f9;
 }
 
-table th, table td{
-    text-align: left;
-    padding: 15px;
-    font-size: 1em;
-    color: #333;
+tr:nth-child(even) {
+    background-color: #eee;
 }
 
-table th{
-    background-color: #4a90e2;
+td {
+    font-size: 14px;
+    color: #555;
+}
+
+td:has(input){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppin';
+    gap: 5px;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+input[type="submit"], input[type="button"] {
+    padding: 5px 10px;
+    background-color: #28a745;
     color: white;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-input[type="submit"]{
-    background-color: #05f024;
     border: none;
-    color: white;
-    padding: 8px 16px;
-    text-transform: uppercase;
-    font-size: 0.9em;
-    margin-right: 10px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover{
-    background-color: #5ac051;
+input[type="submit"]:hover, input[type="button"]:hover {
+    background-color: #218838;
 }
 
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
 
-form input[name="logout"]{
-    background-color: #e74c3c;
-    padding: 10px 20px;
-    margin-top: 20px;
-    display: block;
-    text-align: center;
-    font-size: 1em;
+input[type="text"], input[type="date"] {
+    padding: 5px;
     border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
+    border: 1px solid #ddd;
+    margin-right: 5px;
+}
+
+.burgir-btn {
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-form input[name="logout"]:hover{
-    background-color: #c0392b;
+.burgir-btn:hover {
+    background-color: #3498db;
 }
 
-
-table tr:hover{
-    background-color: #f1f1f1;
+/* Form Section Styling */
+form div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
 }
 
+form input[type="text"], form input[type="date"] {
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
 
-@media only screen and (max-width: 768px){
-    table, thead, tbody, th, td, tr {
-        display: block;
-        width: 100%;
+form input[type="submit"] {
+    padding: 7px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background-color  0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+form label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Responsive Design */
+
+/* Mobile Devices (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+    .container {
+        height: 80vh;
     }
-
-    table thead{
-        display: none;
+    .creator {
+        max-width: 250px;
     }
-
-    table tr{
-        margin-bottom: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    .burgir-btn {
+        padding: 8px 12px;
     }
+}
 
-    table td{
-        padding: 10px;
-        font-size: 1.1em;
-        position: relative;
-        text-align: right;
+/* Tablet Devices (min-width: 769px and max-width: 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        height: 90vh;
     }
+    .creator {
+        max-width: 280px;
+    }
+}
 
-    table td::before{
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        padding-left: 10px;
-        font-weight: bold;
-        text-transform: uppercase;
+/* Desktop Devices (min-width: 1024px) */
+@media only screen and (min-width: 1024px) {
+    .container {
+        height: 100vh;
+    }
+    .creator {
+        max-width: 300px;
     }
 }

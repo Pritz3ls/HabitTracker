@@ -15,18 +15,13 @@
 <body>
     <div class="header">
         <!-- Burger Button -->
-        <button type="button" onclick="burgir()">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-        </button>
+        <button type="button" onclick="burgir();" class="burgir">=</button>
     </div>
     
     <!-- Navigation Menu -->
     <div class="navbar" id="navbar">
         <div class="navbar_logo"></div>
         <div class="navbar_items">
-            <div>
-                <button type="button" onclick="burgir()">Close Menu</button>
-            </div>
             <!-- Test Items -->
             <a href="testHabit.php">Main</a><br>
             <a href="">Dashboard</a><br>
