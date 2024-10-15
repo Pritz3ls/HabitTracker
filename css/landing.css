@@ -1,15 +1,16 @@
+@value --backgroundcolor from "css/test.css";
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color:var(--backgroundcolor);
 }
 
 /* Navbar styling */
 nav{
     display: flex;
-    
-    background-color: #25ad03;
+    background-color:var(--backgroundcolor);
     text-align: right;
     color: white;
     /* padding: 15px; */
@@ -47,11 +48,9 @@ nav a:hover, button:hover {
     flex-direction: column; 
     justify-content: center;
     align-items: center;
-    
     height: 90vh;
     margin: 20px;
-    
-    background-color: #fff;
+    background-color:var(--containercolor);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
