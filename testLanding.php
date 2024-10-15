@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
+    
     <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/landing.css?v=<?php echo time(); ?>"> 
     <title>habere | Welcome</title>
@@ -30,17 +31,17 @@
             <div class="creator">
                 <img src="resource/cont-gyles-profile.jpg" alt="gyles">
                 <h2>Gyles Perez</h2>
-                <p>(Designer)</p>
+                <p>Designer</p>
             </div>
             <div class="creator">
                 <img src="resource/cont-prince-profile.jpg" alt="prince">
                 <h2>Prince Marco Guerrero</h2>
-                <p>(Project Lead and Backend Developer) </p> 
+                <p>Backend Developer</p> 
             </div>
             <div class="creator">
                 <img src="resource/cont-ian-profile.jpg" alt="ian">
-                <h2>Hi, this is ian carlo</h2>
-                <p>(Frontend Developer)</p>
+                <h2>Ian Carlo Zara</h2>
+                <p>Frontend Developer</p>
             </div>
         </div>
     </div>

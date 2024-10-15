@@ -1,4 +1,4 @@
-@value --backgroundcolor from "css/test.css";
+@import './css/palette.css';
 
 body {
     font-family: Arial, sans-serif;
@@ -10,25 +10,25 @@ body {
 /* Navbar styling */
 nav{
     display: flex;
-    background-color:var(--backgroundcolor);
+    background-color:var(--secondarycolor);
     text-align: right;
     color: white;
     /* padding: 15px; */
     align-items: center;
     justify-content: flex-end;
+    border-radius: 0 0 5px 5px;
 }
 
 nav a, button{
-    background-color: #2e7d32; 
+    background-color: var(--primarycolor); 
     font-weight: bold; 
     font-size: 1.1rem; 
-    color: white; 
+    color: var(--secondarycolor); 
     border: none; 
     
     margin: 5px;
     padding: 10px 30px; 
     border-radius: 25px; 
-    
     
     cursor: pointer; /* Pointer cursor to indicate it's clickable */
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -37,7 +37,7 @@ nav a, button{
 
 /* Hover effect */
 nav a:hover, button:hover {
-    background-color: #388e3c; 
+    background-color: var(--backgroundcolor); 
     transform: translateY(-2px); 
 }
 
@@ -50,14 +50,14 @@ nav a:hover, button:hover {
     align-items: center;
     height: 90vh;
     margin: 20px;
-    background-color:var(--containercolor);
+    background-color:var(--secondarycolor);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .container h1 {
     font-size: 3em;
-    color: #333;
+    color: var(--primarycolor);
 }
 
 .tagline {
@@ -83,7 +83,7 @@ nav a:hover, button:hover {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 300px;
+    width: 250px;
 }
 
 .creator img {
@@ -97,48 +97,48 @@ nav a:hover, button:hover {
 .creator h2 {
     font-size: 22px;
     margin-bottom: 10px;
+    color: var(--primarycolor);
 }
 
 .creator p {
     font-size: 16px;
-    color: #666;
 }
 
 /* Responsive Design */
 
 /* Mobile Devices (max-width: 768px) */
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
     .container {
         height: 80vh;
     }
     .creator {
         max-width: 250px;
     }
-}
+} */
 
 /* Tablet Devices (min-width: 769px and max-width: 1024px) */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+/* @media only screen and (min-width: 769px) and (max-width: 1024px) {
     .container {
         height: 90vh;
     }
     .creator {
         max-width: 280px;
     }
-}
+} */
 
 /* Desktop Devices (min-width: 1024px) */
-@media only screen and (min-width: 1024px) {
+/* @media only screen and (min-width: 1024px) {
     .container {
         height: 100vh;
     }
     .creator {
         max-width: 300px;
     }
-}
+} */
 /* Responsive Styles */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .creators{
         flex-direction: column;
         gap: 20px;
     }
-}
+} */
