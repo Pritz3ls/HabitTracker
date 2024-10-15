@@ -1,3 +1,4 @@
+// Logout
 function logout(){
     var confirmation = confirm("Do you really want to logout?");
     if(confirmation){

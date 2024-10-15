@@ -24,22 +24,22 @@
     </div>
 
     <div class="container">
-        <h1>😎 MEET THE TEAM 😎</h1>
+        <h1>MEET THE TEAM</h1>
         <div class="creators">
             <div class="creator">
                 <img src="resource/cont-gyles-profile.jpg" alt="gyles">
-                <h2>Hey, this is gyles pogi love iris robles :D</h2>
-                <p>(Frontend Developer)</p>
+                <h2>Gyles Perez</h2>
+                <p>(Designer)</p>
             </div>
             <div class="creator">
                 <img src="resource/cont-prince-profile.jpg" alt="prince">
-                <h2>Hi, this is prince marco:)</h2>
+                <h2>Prince Marco Guerrero</h2>
                 <p>(Project Lead and Backend Developer) </p> 
             </div>
             <div class="creator">
                 <img src="resource/cont-ian-profile.jpg" alt="ian">
-                <h2>Hi, this is ian carlo:)</h2>
-                <p>(Backend Developer)</p>
+                <h2>Hi, this is ian carlo</h2>
+                <p>(Frontend Developer)</p>
             </div>
         </div>
     </div>

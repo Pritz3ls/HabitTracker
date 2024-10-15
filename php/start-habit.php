@@ -136,27 +136,4 @@
                 break;
         }
     }
-
-    // Check for habits that are near the current date
-    // $habit_query = "SELECT * FROM habits 
-    // WHERE user_id = {$user_id} 
-    // ORDER BY repetition_type";
-    // $habits = mysqli_query($conn, $habit_query);
-    
-    // if(mysqli_num_rows($habits) != 0){
-    //     $last_completion = $row['last_completion'];
-    //     $repetition_type = $row['repetition_type'];
-    //     $custom_interval = $row['custom_interval_value'];
-        
-    //     $correctInterval = getRepetitionInterval($repetition_type, $last_completion, $custom_interval)->format('Y-m-d');
-    //     $currentDate = date('Y-m-d');
-    
-    //     if($currentDate < $correctInterval){
-    //         echo "Too soon";
-    //         return;
-    //     }
-    //     $habit_details = mysqli_fetch_assoc($habits);
-    //     $habitName = $habit_details['habit_name'];
-    //     echo "<script>var habitName = '$habitName';</script>";
-    // }
 ?>

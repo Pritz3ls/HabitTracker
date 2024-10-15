@@ -2,7 +2,8 @@ To reference the current session user ID, the variable name is "currentUserID"
 without the quotation marks, also to call it in any of the pages, you must start
 a session first, session_start(); with this you can refer it with $_SESSION['currentUserID'];
 
-Sample Pseudocode
+Pseudocodes
+
 DATABASE CONNECTION
 hostname = 'localhost'
 user = 'root'
