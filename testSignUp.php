@@ -8,6 +8,8 @@
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/captcha.js"></script>
     <script defer src="js/passwordstrength.js"></script>
+
+    <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/signup.css">
     <link rel="stylesheet" href="css/pass-strength.css?v=<?php echo time(); ?>">
     <title>habere | Signup</title>
