@@ -15,4 +15,5 @@ window.onclick = (event) =>{
     }
 }
 
+// Add an event listener click event on the navbar, if event is called, stop the propagation
 navbar.addEventListener('click', event => event.stopPropagation());

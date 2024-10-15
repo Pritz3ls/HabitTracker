@@ -56,8 +56,5 @@
         }else{
             echo '<script>alert("Habit Data added")</script>';
         }
-
-        
     } 
-    
 ?>
