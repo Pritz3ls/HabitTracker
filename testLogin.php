@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/captcha.js"></script>
+
+    <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/login.css">
     <title>habere | Login</title>
 </head>

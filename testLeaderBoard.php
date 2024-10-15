@@ -8,8 +8,9 @@
     <script defer src="js/navbar.js"></script>
     <script defer src="js/logout.js"></script>
     
+    <link rel="stylesheet" href="css/palette.css"> 
     <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/leaderboard.css?v=<?php echo time(); ?>"> 
+    <link rel="stylesheet" href="css/leaderboard.css?v=<?php echo time(); ?>">
     <title>habere | Leaderboard</title>
 </head>
 <body>

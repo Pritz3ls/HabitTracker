@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/passwordstrength.js"></script>
+
+    <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/forgotpass.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/pass-strength.css">
     <title>habere | Change Password</title>

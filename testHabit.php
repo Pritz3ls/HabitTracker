@@ -15,6 +15,7 @@
     <!-- Disconnect notification js for now -->
     <!-- <script defer src="js/notification.js"></script> -->
     
+    <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/habit.css?v=<?php echo time(); ?>">
     <title>habere | Main</title>

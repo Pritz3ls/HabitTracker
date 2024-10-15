@@ -12,6 +12,7 @@
     <!-- i will disconnect the style for the admin, as i have plans for the look -->
     <!-- <link rel="stylesheet" href="css/dashboard-admin.css">  -->
     
+    <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/dashboard-admin.css?v=<?php echo time(); ?>"> 
     <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>"> 
     <link rel="stylesheet" href="css/popup.css?v=<?php echo time(); ?>"> 
