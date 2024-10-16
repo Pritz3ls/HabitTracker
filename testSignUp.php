@@ -10,7 +10,7 @@
     <script defer src="js/passwordstrength.js"></script>
 
     <link rel="stylesheet" href="css/palette.css">
-    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/signup.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/pass-strength.css?v=<?php echo time(); ?>">
     <title>habere | Signup</title>
 </head>

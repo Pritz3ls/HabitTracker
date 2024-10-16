@@ -8,8 +8,8 @@
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/captcha.js"></script>
 
-    <link rel="stylesheet" href="css/palette.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/login.css?v=<?php echo time(); ?>">
     <title>habere | Login</title>
 </head>
 <body>
