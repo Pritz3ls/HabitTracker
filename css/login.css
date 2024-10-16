@@ -134,13 +134,11 @@ a:hover {
 /* Error Message Popup */
 .error-message{
   color:var(--error);
-  background-color: #ffe6e6;
+  background-color:var(--secondaryaccentcolor);
   border: 1px solid #ff4c4c;
   border-radius: 5px;
-  
   text-align: center;
   font-family: Arial, sans-serif;
-  
   margin: 10px auto;
   padding: 10px;
 }

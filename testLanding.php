@@ -10,6 +10,10 @@
     <title>habere | Welcome</title>
 </head>
 <body>
+    <!-- preloader -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
     <!-- Navbar -->
     <nav>
         <h2></h2>
@@ -45,5 +49,15 @@
             </div>
         </div>
     </div>
+    <script>
+        console.log('JavaScript code executed'); 
+        window.onload = function() {
+            console.log('Page fully loaded'); // Check if page is fully loaded
+            setTimeout(function() {
+                const loading = document.getElementById('loading');
+                loading.style.display = 'none'; // Hide the loading animation
+            }, 500); // Add a .5 second delay to simulate a slower page for the loading animation
+        };
+    </script>
 </body>
 </html>
