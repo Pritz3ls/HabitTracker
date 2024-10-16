@@ -29,7 +29,7 @@
             <label for="password" method="post">Password</label>
             <input type="password" id="password" name="password" placeholder="Enter Password" required onchange="checkPasswordStrength()">
             <input type="hidden" name="strIndex" id="strIndex" value=0>
-            <p id="strength">Very Weak</p>
+            <p id="strength"></p>
         </div>
         <div class="captcha">
             <label for="captchaInput">Enter Captcha</label>

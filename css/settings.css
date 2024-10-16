@@ -10,6 +10,7 @@ h1 {
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
+    line-height: 0px;
 }
 
 /* Form container styling */
@@ -27,7 +28,7 @@ form div {
     margin-bottom: 20px;
 }
 
-form label {
+form label{
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
@@ -55,6 +56,13 @@ input[type="submit"] {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+}
+
+#strength{
+    color: var(--backgroundcolor);
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 input[type="submit"]:hover {
