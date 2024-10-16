@@ -1,43 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import 'palette.css';
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+    font-family: 'Poppins';
+    margin: 5;
     padding: 0;
-    background-color:var(--backgroundcolor);
     overflow: hidden;
+    
+    background: linear-gradient(
+        to left,
+        rgba(18,32,25,0),
+        rgba(18,32,25,1)
+    ), url("../resource/landing-01.jpg");
+    background-size: cover;
 }
 
 /* Navbar styling */
 nav{
-    text-align: right;
     color: var(--secondarycolor);
-    /* padding: 15px; */
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
     border-radius: 0 0 5px 5px;
     gap: 50px;
-
     font-size: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
+nav a:has(img){
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
 nav img{
     width: 50px;
     height: 50px;
 }
-nav a:nth-child(n-3){
+nav a:first-child{
+    margin-right: auto;
+}
+
+nav a:nth-child(n-4){
     color: var(--secondarycolor);
     text-decoration: none;
     font-weight: bolder;
     transition: all 0.3s ease;
 }
-nav a:nth-child(n+3), button{
+
+nav a:nth-child(n+4), button{
     color: var(--secondarycolor); 
     background-color: var(--primarycolor); 
     font-weight: bold; 
 
-    padding: 10px 30px; 
+    padding: 5px 20px; 
     border-radius: 25px; 
     border: 1px solid var(--primarycolor);
 
@@ -47,40 +63,31 @@ nav a:nth-child(n+3), button{
 }
 
 /* Hover effect */
-nav a:nth-child(n+3):hover{
-    background-color: var(--backgroundcolor); 
+nav a:nth-child(n+4):hover,button:hover{
+    background-color: var(--transparent); 
     border: 1px solid var(--primarycolor);
 }
-button:hover{
-    background-color: var(--secondarycolor);
-    border: 1px solid var(--primarycolor);
-    color: var(--primarycolor); 
-}
-nav a:nth-child(n-3):hover{
+nav a:nth-child(n-4):hover{
     color: var(--primarycolor);
     transform: translateY(2px);
 }
 
 
 /* Welcome Section styling */
-.container-wrapper{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.container {
+.container{
     margin: 20px;
-    color: var(--secondarycolor);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.logo{
+    height: 90vh;
+    
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    
+    color: var(--secondarycolor);
 }
 .container h1 {
     color: var(--primarycolor);
+    line-height: 5px;
     font-size: 3em;
 }
 .content {
