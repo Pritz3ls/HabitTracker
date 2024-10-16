@@ -2,7 +2,7 @@
 /* General Styling */
 body {
     font-family: 'Poppins';
-    background-color: #f4f4f4;
+    background-color:var(--backgroundcolor);
     margin: 0;
     padding: 0;
     color: #333;
@@ -11,7 +11,7 @@ body {
 h1 {
     text-align: center;
     line-height: 0px;
-    color: #444;
+    color:var(--secondarycolor);
     margin-top: 20px;
 }
 
@@ -33,7 +33,7 @@ h2{
     line-height: 0px;
 }
 .table-wrapper{
-    border: 1px black solid;
+    border: 1px var(--primarycolor);
     position: relative;
 }
 .table-scroll{

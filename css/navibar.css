@@ -90,16 +90,16 @@ input[type='button']:hover{
 h1 {
     text-align: center;
     font-size: 24px;
-    color: #333;
+    color:var(--secondarycolor);
     margin-bottom: 20px;
 }
 
 /* Form container styling */
 form {
-    background: #f0f4f8;
+    background:var(--secondarycolor);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 30px;
     max-width: 500px;
     margin: 50px auto;
 }
@@ -126,7 +126,7 @@ form input[type="text"] {
 
 /* Submit button styling */
 input[type="submit"] {
-    background-color: #28a745;
+    background-color:var(--primarycolor);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -142,5 +142,5 @@ input[type="submit"]:hover {
 
 /* Optional background gradient */
 body {
-    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    background-color: var(--backgroundcolor);
 }

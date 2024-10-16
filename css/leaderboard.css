@@ -3,11 +3,12 @@ body{
   overflow: hidden;
   margin: 0;
   font-family: 'Poppins';
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color:var(--backgroundcolor);
 }
 
 .leaderboard-tag{
   text-align: center;
+  color:var(--secondarycolor);
 }
 
 /* Leaderboard Table Styling */
