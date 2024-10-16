@@ -32,7 +32,7 @@
         <p>
             Your ultimate habit tracker to build a better you! <br>
             habere is a habit tracking webapp, where you can manage <br>
-            your habits
+            your habits.
         </p>
         <button onclick="location.href='testSignup.php'">Get Started</button>
     </div>
@@ -56,7 +56,9 @@
                 <p>Frontend Developer</p>
             </div>
         </div>
-    </div>
+    </div> -->
+
+    <!-- Loader -->
     <script>
         console.log('JavaScript code executed'); 
         window.onload = function() {
@@ -64,9 +66,8 @@
             setTimeout(function() {
                 const loading = document.getElementById('loading');
                 loading.style.display = 'none'; // Hide the loading animation
-            }, 500); // Add a .5 second delay to simulate a slower page for the loading animation
+            }, 1500); // Add a .5 second delay to simulate a slower page for the loading animation
         };
     </script>
-    </div> -->
 </body>
 </html>

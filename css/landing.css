@@ -141,7 +141,7 @@ nav a:nth-child(n-4):hover{
     z-index: 9999; 
 }
 .spinner {
-    border: 8px solid #f3f3f3; /* Light grey */
+    border: 8px solid var(--transparent); /* Light grey */
     border-top: 8px solid var(--primarycolor); /* Blue color */
     border-radius: 50%;
     width: 60px;
