@@ -20,8 +20,8 @@
             <img src="resource/application-icon.png" alt="">
             habere
         </a>
-        <a href="testLogin.php">CONTACT</a>
-        <a href="testLogin.php">ABOUT</a>
+        <a href="">CONTACT</a>
+        <a href="">ABOUT</a>
         <a href="testLogin.php">SIGN IN</a>
     </nav>
 
@@ -60,13 +60,12 @@
 
     <!-- Loader -->
     <script>
-        console.log('JavaScript code executed'); 
+        const loading = document.getElementById('loading');
         window.onload = function() {
             console.log('Page fully loaded'); // Check if page is fully loaded
             setTimeout(function() {
-                const loading = document.getElementById('loading');
-                loading.style.display = 'none'; // Hide the loading animation
-            }, 1500); // Add a .5 second delay to simulate a slower page for the loading animation
+                loading.classList.add("hide-loader"); // Hide the loading animation
+            }, 500); // Add a .5 second delay to simulate a slower page for the loading animation
         };
     </script>
 </body>

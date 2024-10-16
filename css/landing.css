@@ -140,6 +140,12 @@ nav a:nth-child(n-4):hover{
     align-items: center; 
     z-index: 9999; 
 }
+.hide-loader{
+    opacity: 0;
+    user-select: none;
+    transition: all 0.5s;
+    z-index: -1;
+}
 .spinner {
     border: 8px solid var(--transparent); /* Light grey */
     border-top: 8px solid var(--primarycolor); /* Blue color */
