@@ -16,20 +16,28 @@
     </div>
     <!-- Navbar -->
     <nav>
-        <h2></h2>
-        <a href="testSignup.php">Sign Up</a>
-        <a href="testLogin.php">Log In</a>
+        <a href="">
+            <img src="resource/application-icon.png" alt="">
+            habere
+        </a>
+        <a href="testLogin.php">CONTACT</a>
+        <a href="testLogin.php">ABOUT</a>
+        <a href="testLogin.php">SIGN IN</a>
     </nav>
 
     <!-- Main Content -->
     <div class="container">
-        <img src="resource/application-icon.png" alt="Habere logo" width="200">
+        <h2>HABIT TRACKER FOR ALL</h2>
         <h1>Welcome to habere!</h1>
-        <p class="tagline">Your ultimate habit tracker to build a better you!</p>
+        <p>
+            Your ultimate habit tracker to build a better you! <br>
+            habere is a habit tracking webapp, where you can manage <br>
+            your habits
+        </p>
         <button onclick="location.href='testSignup.php'">Get Started</button>
     </div>
 
-    <div class="container">
+    <!-- <div class="container">
         <h1>MEET THE TEAM</h1>
         <div class="creators">
             <div class="creator">
@@ -59,5 +67,6 @@
             }, 500); // Add a .5 second delay to simulate a slower page for the loading animation
         };
     </script>
+    </div> -->
 </body>
 </html>

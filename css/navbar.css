@@ -1,0 +1,114 @@
+@import 'palette.css';
+/* Header */
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header button{
+    width: 50px;
+    height: 50px;
+
+    margin: 5px;
+    border-radius: 5px;
+
+    font-family: 'Poppins';
+    font-weight: bolder;
+    font-size: 25px;
+
+    background: var(--primarycolor);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+/* Navigation Bar */
+.navbar{
+    width: 250px;
+    height: 100vh;
+    
+    position: fixed;
+    top: 0;
+    left: -250px;
+    padding-top: 50px;
+    
+    background-color: var(--secondarycolor);
+    font-family: 'Poppins';
+
+    transition: transform 0.5s ease;
+    z-index: 999;
+}
+
+.show{
+    /* display: block; */
+    transform: translateX(250px); /* Slide in the navbar */
+}
+
+/* Navbar Logo */
+.navbar_logo{
+    display: flex;
+    color: var(--primarycolor);
+    justify-content: center;
+    align-items: center;
+}
+.navbar img{
+    width: 50px;
+    height: 50px;
+}
+.navbar_logo p{
+    line-height: 0px;
+    padding-left: 10px;
+}
+
+/* Navbar Items */
+.navbar_items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    
+    margin-top: 50px;
+    padding-left: 10px;
+    gap: 5px;
+}
+.navbar_items a{
+    font-size: 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    align-items: center;
+    display: flex;
+
+    color: var(--backgroundcolor);
+    fill: var(--backgroundcolor);
+    
+    margin-top: 2%;
+    transition: all 0.3s;
+}
+.navbar_items a:hover{
+    color: var(--primarycolor);
+    fill: var(--primarycolor);
+    transition: all 0.3s;
+    padding-left: 10px;
+}
+.navbar_items p{
+    padding-left: 20px;
+    line-height: 10px;
+}
+
+/* Logout */
+input[type='button']{
+    align-items: space-between;
+    padding: 5px 20px;
+    border-radius: 5px;
+    
+    font-family: 'Poppins';
+    font-size: 18px;
+    cursor: pointer;
+    background-color: var(--secondarycolor);
+    color: var(--primarycolor);
+
+    border: none;
+}
+input[type='button']:hover{
+    background-color: var(--backgroundcolor);
+    transition: all 0.2s;
+}

@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'palette.css';
 
 body{
     overflow: hidden;
     margin: 0;
     font-family: 'Poppins';
-    background-color:var(--backgroundcolor);
+
+    background-color: var(--backgroundcolor);
+    color: var(--secondarycolor);
 }
 
 .profile-container{    
     text-align: right;
-    background-color:var(--primarycolor);
-    color:var(--secondaryaccentcolor);
+    background-color: var(--primarycolor);
+    color: white;
     
     border-radius: 0 0 0 50px;
     line-height: 0px;
@@ -19,7 +22,7 @@ body{
 
 /* Make Habit */
 .habit-maker{
-    background-color:var(--secondaryaccentcolor);
+    background-color:var(--primarycolor);
     margin: 5px;
     padding: 5px;
     
@@ -34,7 +37,9 @@ body{
     font-size: 15px;
 }
 .habit-maker input[type="text"]{
-    width: 80%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
 }
 .habit-maker select{
     margin-top: 5px;
@@ -63,10 +68,10 @@ body{
     justify-content: space-between;
     
     /* Look */
-    border: 2px black solid;
+    border: 2px var(--secondarycolor) solid;
     backdrop-filter: blur(5px);
     border-radius: 5px ;
-    color: black;
+    color: var(--secondarycolor);
     user-select: none;
     
     /* Margins \ Padding */
@@ -81,8 +86,8 @@ body{
 /* Animation */
 .habit:hover{
     transition: .5s all;
-    color: white;
-    background-color: green;
+    color: var(--secondarycolor);
+    background-color: var(--primarycolor);
 }
 .habit .control{
     display: flex;
@@ -90,12 +95,18 @@ body{
     gap: 5px;
 }
 .control input{
+    background-color: var(--secondarycolor);
     border: none;
     height: 25px;
     width: 50px;
     border-radius: 5px;
     cursor: pointer;
     font-family: 'Poppins';
+}
+.control input:hover{
+    background-color: var(--backgroundcolor);
+    color: var(--secondarycolor);
+    transition: all 0.2s;
 }
 /* .start_habit{
     position: absolute;

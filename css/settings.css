@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'palette.css';
+/* Settings Form Enhancements */
+body{
+    background-color: var(--backgroundcolor);
+    color: var(--primarycolor);
+    font-family: 'Poppins';
+}
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    line-height: 0px;
+}
+
+/* Form container styling */
+form {
+    background: var(--secondarycolor);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+/* Individual form input styling */
+form div {
+    margin-bottom: 20px;
+}
+
+form label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+form input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid var(--backgroundcolor);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    background-color: var(--primarycolor);
+    color: var(--secondarycolor);
+    padding: 10px 20px;
+    
+    border: none;
+    border-radius: 5px;
+    
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#strength{
+    color: var(--backgroundcolor);
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--backgroundcolor);
+}
