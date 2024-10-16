@@ -12,20 +12,27 @@
 <body>
     <!-- Navbar -->
     <nav>
-        <h2></h2>
-        <a href="testSignup.php">Sign Up</a>
-        <a href="testLogin.php">Log In</a>
+        <a href="testLogin.php">CONTACT</a>
+        <a href="testLogin.php">ABOUT</a>
+        <a href="testLogin.php">SIGN IN</a>
+        <img src="resource/application-icon.png" alt="">
     </nav>
 
     <!-- Main Content -->
-    <div class="container">
-        <img src="resource/application-icon.png" alt="Habere logo" width="200">
-        <h1>Welcome to habere!</h1>
-        <p class="tagline">Your ultimate habit tracker to build a better you!</p>
-        <button onclick="location.href='testSignup.php'">Get Started</button>
+    <div class="container-wrapper">
+        <div class="container">
+            <h2>HABIT TRACKER FOR ALL</h2>
+            <h1>Welcome to habere!</h1>
+            <p>Your ultimate habit tracker to build a better you!</p>
+            <p>habere is a habit tracking webapp, where you can manage your<br>habits</p>
+            <button onclick="location.href='testSignup.php'">Get Started</button>
+        </div>
+        <div class="container">
+            <img src="resource/landing-01.jpg" alt="" width="720">
+        </div>
     </div>
 
-    <div class="container">
+    <!-- <div class="container">
         <h1>MEET THE TEAM</h1>
         <div class="creators">
             <div class="creator">
@@ -44,6 +51,6 @@
                 <p>Frontend Developer</p>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
 </html>

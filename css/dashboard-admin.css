@@ -1,26 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'palette.css';
 /* General Styling */
 body {
     font-family: 'Poppins';
-    background-color: #f4f4f4;
+    background-color: var(--backgroundcolor);
+    color: var(--backgroundcolor);
     margin: 0;
     padding: 0;
-    color: #333;
 }
 
 h1 {
+    color: var(--primarycolor);
     text-align: center;
     line-height: 0px;
-    color: #444;
     margin-top: 20px;
 }
 
 /* Table Styling */
 .table-wrapper {
+    background-color: var(--secondarycolor);
+    border-radius: 10px;
+    
     margin: 20px auto;
     width: 90%;
-    background-color: #fff;
-    border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 15px;
 }
@@ -33,11 +35,11 @@ h2{
     line-height: 0px;
 }
 .table-wrapper{
-    border: 1px black solid;
+    border: 1px var(--backgroundcolor) solid;
     position: relative;
 }
 .table-scroll{
-    border: 1px black dotted;
+    border: 1px var(--primarycolor) solid;
     height: 200px;
     overflow-y: auto;
     margin-top: 10px;
@@ -58,7 +60,7 @@ th, td {
 }
 
 th {
-    background-color: #333;
+    background-color: var(--backgroundcolor);
     color: white;
     font-size: 16px;
     text-transform: uppercase;
@@ -87,16 +89,18 @@ td:has(input){
 
 input[type="submit"], input[type="button"] {
     padding: 5px 10px;
-    background-color: #28a745;
-    color: white;
+    background-color: var(--primarycolor);
+    color: var(--secondarycolor);
+    
     border: none;
     border-radius: 5px;
+    
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 input[type="submit"]:hover, input[type="button"]:hover {
-    background-color: #218838;
+    background-color: var(--backgroundcolor);
 }
 
 label {

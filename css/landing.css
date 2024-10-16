@@ -1,77 +1,93 @@
-@import './css/palette.css';
+@import 'palette.css';
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color:var(--backgroundcolor);
+    overflow: hidden;
 }
 
 /* Navbar styling */
 nav{
-    display: flex;
-    background-color:var(--secondarycolor);
     text-align: right;
-    color: white;
+    color: var(--secondarycolor);
     /* padding: 15px; */
+    display: flex;
     align-items: center;
     justify-content: flex-end;
     border-radius: 0 0 5px 5px;
+    gap: 50px;
+
+    font-size: 15px;
 }
 
-nav a, button{
+nav img{
+    width: 50px;
+    height: 50px;
+}
+nav a:nth-child(n-3){
+    color: var(--secondarycolor);
+    text-decoration: none;
+    font-weight: bolder;
+    transition: all 0.3s ease;
+}
+nav a:nth-child(n+3), button{
+    color: var(--secondarycolor); 
     background-color: var(--primarycolor); 
     font-weight: bold; 
-    font-size: 1.1rem; 
-    color: var(--secondarycolor); 
-    border: none; 
-    
-    margin: 5px;
+
     padding: 10px 30px; 
     border-radius: 25px; 
-    
+    border: 1px solid var(--primarycolor);
+
     cursor: pointer; /* Pointer cursor to indicate it's clickable */
     transition: background-color 0.3s ease, transform 0.3s ease;
     text-decoration: none;
 }
 
 /* Hover effect */
-nav a:hover, button:hover {
+nav a:nth-child(n+3):hover{
     background-color: var(--backgroundcolor); 
-    transform: translateY(-2px); 
+    border: 1px solid var(--primarycolor);
+}
+button:hover{
+    background-color: var(--secondarycolor);
+    border: 1px solid var(--primarycolor);
+    color: var(--primarycolor); 
+}
+nav a:nth-child(n-3):hover{
+    color: var(--primarycolor);
+    transform: translateY(2px);
 }
 
 
 /* Welcome Section styling */
-.container {
+.container-wrapper{
     display: flex;
-    flex-direction: column; 
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+}
+.container {
     margin: 20px;
-    background-color:var(--secondarycolor);
+    color: var(--secondarycolor);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
+.logo{
+    display: flex;
+    align-items: center;
+}
 .container h1 {
-    font-size: 3em;
     color: var(--primarycolor);
+    font-size: 3em;
 }
-
-.tagline {
-    font-size: 1.5em;
-    color: #555;
-    margin-top: 0px;
-    text-align: center;
-}
-
 .content {
     height: 1500px; /* Make the content  scrollable  */
 }
 /* CREATOR DESIGN*/
-.creators {
+/* .creators {
     display: flex;
     justify-content: center;
     gap: 40px;
@@ -102,7 +118,7 @@ nav a:hover, button:hover {
 
 .creator p {
     font-size: 16px;
-}
+} */
 
 /* Responsive Design */
 
