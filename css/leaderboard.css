@@ -5,12 +5,13 @@ body{
   overflow: hidden;
   margin: 0;
   font-family: 'Poppins';
-  background-color: var(--backgroundcolor);
+  background-color:var(--backgroundcolor);
 }
 
 .leaderboard-tag{
   color: var(--secondarycolor);
   text-align: center;
+  color:var(--secondarycolor);
 }
 
 /* Leaderboard Table Styling */

@@ -7,11 +7,12 @@ body{
     font-family: 'Poppins';
     background-color: var(--backgroundcolor);
     color: var(--secondarycolor);
+    background-color:var(--backgroundcolor);
 }
 
 .profile-container{    
     text-align: right;
-    background-color: var(--primarycolor);
+    background-color: green;
     color: white;
     
     border-radius: 0 0 0 50px;
@@ -21,7 +22,7 @@ body{
 
 /* Make Habit */
 .habit-maker{
-    background-color: var(--primarycolor);
+    background-color:var(--secondaryaccentcolor);
     margin: 5px;
     padding: 5px;
     

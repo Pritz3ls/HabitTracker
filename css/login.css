@@ -1,3 +1,6 @@
+@import './css/palette.css';
+
+
 /* CSS for the Test Login Form */
 
 /* Global Styles */
@@ -10,7 +13,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #122023;
+  background-color:var(--backgroundcolor);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +25,7 @@ body {
 /* Form Styles */
 
 form {
-  background-color: #fff;
+  background-color:var(--secondarycolor);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -52,7 +55,7 @@ input[type="text"], input[type="password"] {
 
 input[type="submit"] {
   padding: 10px;
-  background-color: #5ac051;
+  background-color: var(--primarycolor);
   color: #f3e9e9;
   border: none;
   border-radius: 4px;
@@ -69,7 +72,7 @@ input[type="submit"]:hover {
 /* Hyperlinks */
 
 .auth-link-container {
-  color: #007bff;
+  color:var(--hyperlinks);
   text-decoration: none;
   font-size: 14px;
   text-align: center;
@@ -130,7 +133,7 @@ a:hover {
 
 /* Error Message Popup */
 .error-message{
-  color: #e90b0b;
+  color:var(--error);
   background-color: #ffe6e6;
   border: 1px solid #ff4c4c;
   border-radius: 5px;

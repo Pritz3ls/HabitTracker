@@ -120,41 +120,4 @@ nav a:nth-child(n-3):hover{
     font-size: 16px;
 } */
 
-/* Responsive Design */
 
-/* Mobile Devices (max-width: 768px) */
-/* @media only screen and (max-width: 768px) {
-    .container {
-        height: 80vh;
-    }
-    .creator {
-        max-width: 250px;
-    }
-} */
-
-/* Tablet Devices (min-width: 769px and max-width: 1024px) */
-/* @media only screen and (min-width: 769px) and (max-width: 1024px) {
-    .container {
-        height: 90vh;
-    }
-    .creator {
-        max-width: 280px;
-    }
-} */
-
-/* Desktop Devices (min-width: 1024px) */
-/* @media only screen and (min-width: 1024px) {
-    .container {
-        height: 100vh;
-    }
-    .creator {
-        max-width: 300px;
-    }
-} */
-/* Responsive Styles */
-/* @media (max-width: 768px) {
-    .creators{
-        flex-direction: column;
-        gap: 20px;
-    }
-} */
