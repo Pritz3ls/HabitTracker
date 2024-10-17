@@ -27,6 +27,4 @@ document.querySelector('form').addEventListener('submit', function(e) {
 });
 
 // Ensure CAPTCHA is generated on page load
-window.onload = function() {
-    generateCaptcha();
-};
+generateCaptcha();
