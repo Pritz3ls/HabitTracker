@@ -1,17 +1,39 @@
 /* CSS for the Sign Up Form */
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color:var(--backgroundcolor);
+    background-color: #0d2556;
+    background-image: 
+        radial-gradient(at 47% 33%, hsl(160.00, 100%, 48%) 0, transparent 59%), 
+        radial-gradient(at 82% 65%, hsl(221.38, 39%, 14.000000000000002%) 0, transparent 55%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    height: 100vh;
     margin: 0;
 }
 
+/* Glassmorphism card effect */
+/* .card {
+    backdrop-filter: blur(17px) saturate(95%);
+    -webkit-backdrop-filter: blur(17px) saturate(95%);
+    background-color: rgba(17, 25, 40, 0.82);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+} */
+
 form {
-    background-color:var(--secondarycolor);
+   
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -19,6 +41,11 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    backdrop-filter: blur(17px) saturate(95%);
+    -webkit-backdrop-filter: blur(17px) saturate(95%);
+    background-color: rgba(17, 25, 40, 0.82);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 form div {
@@ -29,6 +56,7 @@ form div {
 label {
     font-weight: bold;
     margin-bottom: 5px;
+    color:var(--secondarycolor);
 }
 
 input[type="text"], input[type="password"], select {
@@ -70,7 +98,7 @@ input[type="submit"]:hover {
 
 /* Hyperlinks */
 a{
-    color: #007bff;
+    color:var(--hyperlinks);
     text-decoration: none;
     font-size: 14px;
     text-align: center;
