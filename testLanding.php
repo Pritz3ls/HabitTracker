@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     
+    <!-- Load  -->
+    <script defer src="js/spinner.js"></script>
+    <link rel="stylesheet" href="css/spinner.css">
+
     <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/landing.css?v=<?php echo time(); ?>"> 
     <title>habere | Welcome</title>
 </head>
 <body>
-    <!-- preloader -->
+    <!-- Spinner -->
     <div id="loading" class="loading">
         <div class="spinner"></div>
     </div>
@@ -57,16 +61,5 @@
             </div>
         </div>
     </div> -->
-
-    <!-- Loader -->
-    <script>
-        const loading = document.getElementById('loading');
-        window.onload = function() {
-            console.log('Page fully loaded'); // Check if page is fully loaded
-            setTimeout(function() {
-                loading.classList.add("hide-loader"); // Hide the loading animation
-            }, 500); // Add a .5 second delay to simulate a slower page for the loading animation
-        };
-    </script>
 </body>
 </html>
