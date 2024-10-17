@@ -9,12 +9,21 @@
     <script defer src="js/captcha.js"></script>
     <script defer src="js/passwordstrength.js"></script>
 
+    <!-- Load  -->
+    <script defer src="js/spinner.js"></script>
+    <link rel="stylesheet" href="css/spinner.css">
+
     <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/signup.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/pass-strength.css?v=<?php echo time(); ?>">
     <title>habere | Signup</title>
 </head>
 <body>
+    <!-- Spinner -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
+    
     <form  method="post" action="" autocomplete="off">
         <div>
             <label for="username" method="post">Username</label>

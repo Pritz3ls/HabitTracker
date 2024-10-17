@@ -7,15 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/navbar.js"></script>
-    <script defer src="js/logout.js"></script>
     <script defer src="js/passwordstrength.js"></script>
-    
+   
+    <!-- Load  -->
+    <script defer src="js/spinner.js"></script>
+    <link rel="stylesheet" href="css/spinner.css">
+
     <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>"> 
     <link rel="stylesheet" href="css/settings.css?v=<?php echo time(); ?>"> 
     <title>habere | Account Settings</title>
 </head>
 <body>
+    <!-- Spinner -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
+    
     <!-- Burger Button -->
     <div class="header">
         <!-- Burger Button -->

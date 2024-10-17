@@ -9,8 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/habit-dropdown.js"></script>
-    <script defer src="js/logout.js"></script>
     <script defer src="js/navbar.js"></script>
+
+    <!-- Load  -->
+    <script defer src="js/spinner.js"></script>
+    <link rel="stylesheet" href="css/spinner.css">
 
     <!-- Disconnect notification js for now -->
     <!-- <script defer src="js/notification.js"></script> -->
@@ -22,6 +25,11 @@
 </head>
 <!-- save this for later onload="notif()" -->
 <body>
+    <!-- Spinner -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
+
     <div class="header">
         <!-- Burger Button -->
         <button type="button" onclick="burgir();" class="burgir">=</button>

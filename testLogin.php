@@ -6,6 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
+    <!-- Load  -->
+    <script defer src="js/spinner.js"></script>
+    <link rel="stylesheet" href="css/spinner.css">
+    
     <script defer src="js/captcha.js"></script>
 
     <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
@@ -13,7 +17,11 @@
     <title>habere | Login</title>
 </head>
 <body>
-
+    <!-- Spinner -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
+    
     <form action="" method="post" autocomplete="off">
         <div>
             <label for="username" method="post">Username</label>

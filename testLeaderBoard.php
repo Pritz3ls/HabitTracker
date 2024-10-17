@@ -6,14 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/navbar.js"></script>
-    <script defer src="js/logout.js"></script>
     
+    <!-- Load  -->
+    <script defer src="js/spinner.js"></script>
+    <link rel="stylesheet" href="css/spinner.css">
+
     <link rel="stylesheet" href="css/palette.css"> 
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/leaderboard.css?v=<?php echo time(); ?>">
     <title>habere | Leaderboard</title>
 </head>
 <body>
+    <!-- Spinner -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
+    
     <div class="header">
         <!-- Burger Button -->
         <button type="button" onclick="burgir();" class="burgir">=</button>

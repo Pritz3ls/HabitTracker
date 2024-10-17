@@ -8,12 +8,21 @@
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/passwordstrength.js"></script>
 
+    <!-- Load  -->
+    <script defer src="js/spinner.js"></script>
+    <link rel="stylesheet" href="css/spinner.css">
+
     <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/forgotpass.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/pass-strength.css">
     <title>habere | Change Password</title>
 </head>
 <body>
+    <!-- Spinner -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
+    
     <form action="" method="post" autocomplete="off">
         <div>
             <label for="username" method="post">Username</label>
