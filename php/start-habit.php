@@ -10,6 +10,7 @@
         // Check if the SQL execution were sucessful
         if(!$fetch_habit){
             echo '<script>alert("Something went wrong")</script>';
+            return;
         }
 
         $row = mysqli_fetch_assoc($fetch_habit);
@@ -32,6 +33,7 @@
         // If it's unsuccessful
         if(!$update){
             echo '<script>alert("Update unsuccessful!")</script>';
+            return;
         }
 
         // Record the User completing the habit
@@ -50,7 +52,7 @@
     // Get modified date using the repetition type
     function getRepetitionInterval($repetition_type, $lastCompletion, $custom_interval){
         $interval = date_create($lastCompletion);
-        switch ($repetition_type) {
+        switch ($repetition_type){
             case 'daily':
                 date_modify($interval,"+1 day");
                 break;

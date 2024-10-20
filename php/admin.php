@@ -57,9 +57,12 @@
         SET user_name = '{$username}', password = '{$password}', phone_number = '{$phonenumber}' 
         WHERE id = {$userID}";
 
+        // Execute the query
         $update = mysqli_query($conn, $update_query);
+        // Check if the exection is succesful?
         if(!$update){
             echo "Update Unsucessful!";
+            return;
         }
 
         $admin_id = $_SESSION['currentUserID'];
@@ -68,6 +71,7 @@
         // Create the log
         $log_query = "INSERT INTO activity_logs(admin_id, operation, log_date)
         VALUES({$admin_id}, '{$operation_message}', CURRENT_TIMESTAMP)";
+        // Execute the log query
         $log = mysqli_query($conn, $log_query);
 
         echo '<script>alert('.$operation_message.');</script>';
@@ -88,12 +92,16 @@
         // Create the log
         $log_query = "INSERT INTO activity_logs(admin_id, operation, log_date)
         VALUES({$admin_id}, '{$operation_message}', CURRENT_TIMESTAMP)";
+        // Execute the log query
         $log = mysqli_query($conn, $log_query);
 
         echo '<script>alert('.$operation_message.');</script>';
     }
 
     function LOG_ACTIVITY($index, $userID){
+        // Tertiary Operator
+        // Index 0 = Edited
+        // Index 1 = Deleted
         return $index == 1 ? "Deleted user at index: ".$userID : "Edited user at index: ".$userID;
     }
 ?>

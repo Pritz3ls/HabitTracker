@@ -27,7 +27,6 @@
     <form  method="post" action="" autocomplete="off">
         <div>
             <label for="username" method="post">Username</label>
-            
             <input type="text" name="username" placeholder="Enter Username" required>
         </div>
         <div>

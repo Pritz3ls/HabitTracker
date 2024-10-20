@@ -88,7 +88,9 @@
                             $query = "SELECT * FROM `users` WHERE user_type = 'client' AND deleted_at IS NULL";
                         }
 
+                        // Execute the query
                         $users = mysqli_query($conn, $query);
+                        // Indication on how many rows
                         echo "Displayed ".mysqli_num_rows($users)." results.";
                         while($row = mysqli_fetch_assoc($users)){
                             echo "<tr>";
@@ -144,9 +146,11 @@
                         }else{
                             $activity_logs_query = "SELECT * FROM activity_logs ORDER BY log_date DESC LIMIT 20";
                         }
+                        // Execute the query
                         $activity_logs = mysqli_query($conn, $activity_logs_query);
-                        // Iterate every rows
+                        // Indication of how many rows or result
                         echo "Displayed ".mysqli_num_rows($activity_logs)." results.";
+                        // Iterate every rows
                         while ($rows = mysqli_fetch_assoc($activity_logs)){
                             echo '<tr>';
                                 echo '<td>'.$rows['activity_log_id'].'</td>';

@@ -52,17 +52,20 @@
         }
 
         // Save the current User ID
-        $fetch_id_query = "SELECT * FROM `users` WHERE phone_number = '{$phonenumber}'";
+        $fetch_id_query = "SELECT id FROM `users` WHERE phone_number = '{$phonenumber}'";
         $fetch_id = mysqli_query($conn, $fetch_id_query);
         $fetch = mysqli_fetch_assoc($fetch_id);
         $_SESSION['currentUserID'] = $fetch['id'];
         
-        if($user_type == 'client'){
-            Header('Location: testHabit.php');  
-            exit;
-        }else{ /* Admin */
-            Header('Location: testDashboard-Admin.php');  
-            exit;
-        }
+        Header('Location: testHabit.php');
+
+        // For Debugging purposes
+        // if($user_type == 'client'){
+        //     Header('Location: testHabit.php');  
+        //     exit;
+        // }else{ /* Admin */
+        //     Header('Location: testDashboard-Admin.php');  
+        //     exit;
+        // }
     }
 ?>

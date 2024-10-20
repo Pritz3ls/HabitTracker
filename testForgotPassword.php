@@ -25,8 +25,8 @@
     
     <form action="" method="post" autocomplete="off">
         <div>
-            <label for="username" method="post">Username</label>
-            <input type="text" name="username" placeholder="Enter Username" required>
+            <label for="phonenumber" method="post">Phone Number</label>
+            <input type="text" name="phonenumber" pattern="[09][0-9]{10}" placeholder="+63 Phone Number" required>
         </div>
         <div>
             <label for="new_password" method="post">New Password</label>
