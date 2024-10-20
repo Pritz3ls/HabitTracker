@@ -3,7 +3,10 @@
 /* General Styling */
 body {
     font-family: 'Poppins';
-    background-color: var(--backgroundcolor);
+    background-color: #0d2556;
+    background-image: 
+        radial-gradient(at 47% 33%, hsl(160.00, 100%, 48%) 0, transparent 59%), 
+        radial-gradient(at 82% 65%, hsl(221.38, 39%, 14.000000000000002%) 0, transparent 55%);
     color: var(--backgroundcolor);
     margin: 0;
     padding: 0;

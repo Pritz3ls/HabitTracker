@@ -2,7 +2,11 @@
 @import 'palette.css';
 /* Settings Form Enhancements */
 body{
-    background-color: var(--backgroundcolor);
+    background-color: #0d2556;
+    background-image: 
+      radial-gradient(at 47% 33%, hsl(160.00, 100%, 48%) 0, transparent 59%), 
+      radial-gradient(at 82% 65%, hsl(221.38, 39%, 14.000000000000002%) 0, transparent 55%);
+    background-size: cover;
     color: var(--primarycolor);
     font-family: 'Poppins';
 }
@@ -21,6 +25,11 @@ form {
     padding: 20px;
     max-width: 500px;
     margin: 50px auto;
+    backdrop-filter: blur(17px) saturate(95%);
+    -webkit-backdrop-filter: blur(17px) saturate(95%);
+    background-color: rgba(17, 25, 40, 0.82);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 /* Individual form input styling */
@@ -32,7 +41,7 @@ form label{
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-    color: #333;
+    color:var(--secondarycolor);
 }
 
 form input[type="text"] {
