@@ -3,15 +3,11 @@
 /* General Styling */
 
 body {
-    font-family: 'Poppins', sans-serif; 
-    background-color: #0d2556; 
-    background-image: url('../resource/dashboard.jpg'); 
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh; 
-    margin: 0; 
-  }
+    background-color: #ffffff;
+    background-image: 
+        radial-gradient(at 47% 33%, hsl(190.59, 32%, 10%) 0, transparent 59%), 
+        radial-gradient(at 82% 65%, hsl(126.84, 63%, 49%) 0, transparent 55%);
+}
 
 h1 {
     color: var(--backgroundcolor);
