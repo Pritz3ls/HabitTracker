@@ -2,7 +2,7 @@
 @import 'palette.css';
 
 body {
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     margin: 5;
     padding: 0;
     overflow: hidden;
