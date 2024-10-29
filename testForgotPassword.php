@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/forgotpass.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="css/pass-strength.css">
+    <link rel="stylesheet" href="css/pass-strength.css?v=<?php echo time(); ?>">
     <title>habere | Change Password</title>
 </head>
 <body>
