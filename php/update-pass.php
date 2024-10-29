@@ -34,7 +34,7 @@
         
         // Check if the user exists using the input username
         if(mysqli_num_rows($user) == 0){
-            echo "<div class='error-message'><h3>Wrong Phone Numeber!</h3></div>";
+            echo "<div class='error-message'><h3>Wrong Phone Number!</h3></div>";
             return;
         }
 
