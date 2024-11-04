@@ -14,14 +14,20 @@ p{
 }
 .nav-link{
     color: var(--secondarycolor );
+    transition: all 0.3s;
     cursor: pointer;
+}
+.nav-link:hover{
+    color: var(--primarycolor);
+    transform: translateY(-2px);
+    transition: all 0.3s;
 }
 .home{
     background-image: linear-gradient(
         rgba(18,32,35,0.5) 20%, 
         rgba(18,32,35,1) 90%
     ),
-    url(resource/landing-01.jpg);
+    url(../resource/landing-01.jpg);
     background-size: cover;
 
     position: absolute;
