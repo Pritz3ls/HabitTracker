@@ -44,9 +44,18 @@ p{
 .btn-signup{
     color: var(--secondarycolor);
     background-color: var(--primarycolor);
+    border: 1px var(--transparent) solid;
+    transition: all 0.2s;
 }
 .btn-login{
     color: var(--primarycolor);
     background-color: var(--transparent);
     border: 1px var(--primarycolor) solid;
+    transition: all 0.2s;
+}
+.btn:hover{
+    color: var(--secondarycolor);
+    border: 1px var(--secondarycolor) solid;
+    /* transform: translateY(2px); */
+    transition: all 0.2s;
 }
