@@ -82,7 +82,7 @@
             break;
             case 'weekly':
                 # Weekly format
-                if($currentDate > $correctInterval){
+                if($currentDate >= $correctInterval){
                     $currentDay = (int)date('w');
                     if($currentDay < $weekday){
                         echo '<script>alert("Try again on '.$weekday.'.")</script>';

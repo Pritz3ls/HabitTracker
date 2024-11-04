@@ -10,7 +10,7 @@
     <script defer src="js/spinner.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
     
-    <script defer src="js/captcha.js"></script>
+    <script defer src="js/captcha.js?v=<?php echo time(); ?>"></script>
 
     <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/login.css?v=<?php echo time(); ?>">

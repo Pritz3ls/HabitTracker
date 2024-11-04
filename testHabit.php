@@ -75,86 +75,89 @@
         </div>
     </div>
 
-    <!-- Habit Form Container -->
-    <form action="testHabit.php" method="post" class="habit-maker">
-        <div>
-            <label for="name" method="post">Name</label>
-            <input type="text" name="name" placeholder="Habit name">
-        </div>
-                
-        <div>
-            <label for="repitition_type" method="post">Repitition</label>
-            <select name="repitition_type" id="repitition_type">
-                <option value="daily" selected>Daily</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-                <option value="custom">Custom</option>
-            </select>  
-        </div>
-        
-        <!-- Custom Format -->
-        <div id="custom_repitition_value" style="display:none;">
-            <label for="custom_interval_value" method="post">Every</label>
-            <input type="number" name="custom_interval_value"> Days
-        </div>
-
-        <!-- Weekly Format -->
-        <div id="dayofweek" style="display:none;">
-            <label for="dayofweek" method="post">Weekday</label>
-            <select name="dayofweek">
-                <option value="sunday" selected>Sunday</option>
-                <option value="monday">Monday</option>
-                <option value="tuesday">Tuesday</option>
-                <option value="wednesday">Wednesday</option>
-                <option value="thursday">Thursday</option>
-                <option value="friday">Friday</option>
-                <option value="saturday">Saturday</option>
-            </select>  
-        </div>
-        
-        <div>
-            <input type="submit" name = "create" value="Submit">
-        </div>
-    </form>
-
-    <!-- View Habit -->
-    <h1>Habits</h1>
-    <div class="habit-container">
-        <?php
-            // Retrieve the current User ID that logged in
-            $user_id = $_SESSION['currentUserID'];
-            $query = "SELECT * FROM habits WHERE user_id = {$user_id} AND deleted_at IS NULL";
-            $view_habits = mysqli_query($conn, $query);
-
+    <!-- Habit Wrapper -->
+    <div class="habit-wrapper">
+        <!-- Habit Maker Container -->
+        <form action="testHabit.php" method="post" class="habit-maker">
+            <div>
+                <label for="name" method="post">Name</label>
+                <input type="text" name="name" placeholder="Habit name">
+            </div>
+                    
+            <div>
+                <label for="repitition_type" method="post">Repitition</label>
+                <select name="repitition_type" id="repitition_type">
+                    <option value="daily" selected>Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="custom">Custom</option>
+                </select>  
+            </div>
             
-            // Control
-            if(!$view_habits){return;}
-            while($row = mysqli_fetch_assoc($view_habits)){
-                echo '<form action="" method="post" class="habit">';
-                    $habit_id = $row['id'];
-                    $habit_name = $row['habit_name'];
-                    $repetition_type = $row['repetition_type'];
-                    $custom_interval_value = $row['custom_interval_value'];
-                    $dayofweek = $row['dayofweek'];
-                    $last_completion = $row['last_completion'];
-                    // Start Button
-                        echo '<div class="details">';
-                            echo "<p><b>{$habit_name}</b></p>";
-                            echo "<p>{$repetition_type}</p>";
-                            if($repetition_type == 'custom'){
-                                echo "<p>Every {$custom_interval_value} days</p>";
-                            }else if($repetition_type == 'weekly'){
-                                echo "<p>{$dayofweek}</p>";
-                            }
-                        echo '</div>';
-                        echo '<div class="control">';
-                            echo '<input type="submit" name = "start_habit" value="Start">';
-                            echo '<input type="submit" name = "delete_habit" value="Delete">';
-                            echo '<input type="hidden" name = "habit_id" value='.$habit_id.'>';
-                        echo '</div>';
-                echo "</form>";
-            };
-        ?>
+            <!-- Custom Format -->
+            <div id="custom_repitition_value" style="display:none;">
+                <label for="custom_interval_value" method="post">Every</label>
+                <input type="number" name="custom_interval_value"> Days
+            </div>
+
+            <!-- Weekly Format -->
+            <div id="dayofweek" style="display:none;">
+                <label for="dayofweek" method="post">Weekday</label>
+                <select name="dayofweek">
+                    <option value="sunday" selected>Sunday</option>
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                </select>  
+            </div>
+            
+            <div>
+                <input type="submit" name = "create" value="Submit">
+            </div>
+        </form>
+
+        <!-- View Habit -->
+        <h1>Habits</h1>
+        <div class="habit-container">
+            <?php
+                // Retrieve the current User ID that logged in
+                $user_id = $_SESSION['currentUserID'];
+                $query = "SELECT * FROM habits WHERE user_id = {$user_id} AND deleted_at IS NULL";
+                $view_habits = mysqli_query($conn, $query);
+
+                
+                // Control
+                if(!$view_habits){return;}
+                while($row = mysqli_fetch_assoc($view_habits)){
+                    echo '<form action="" method="post" class="habit">';
+                        $habit_id = $row['id'];
+                        $habit_name = $row['habit_name'];
+                        $repetition_type = $row['repetition_type'];
+                        $custom_interval_value = $row['custom_interval_value'];
+                        $dayofweek = $row['dayofweek'];
+                        $last_completion = $row['last_completion'];
+                        // Start Button
+                            echo '<div class="details">';
+                                echo "<p><b>{$habit_name}</b></p>";
+                                echo "<p>{$repetition_type}</p>";
+                                if($repetition_type == 'custom'){
+                                    echo "<p>Every {$custom_interval_value} days</p>";
+                                }else if($repetition_type == 'weekly'){
+                                    echo "<p>{$dayofweek}</p>";
+                                }
+                            echo '</div>';
+                            echo '<div class="control">';
+                                echo '<input type="submit" name = "start_habit" value="Start">';
+                                echo '<input type="submit" name = "delete_habit" value="Delete">';
+                                echo '<input type="hidden" name = "habit_id" value='.$habit_id.'>';
+                            echo '</div>';
+                    echo "</form>";
+                };
+            ?>
+        </div>
     </div>
 </body>
 </html>

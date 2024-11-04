@@ -4,17 +4,13 @@
 
 body {
     font-family: 'Poppins', sans-serif; 
-    background-color: #0d2556; 
-    background-image: url('../resource/dashboard.jpg'); 
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: var(--backgroundcolor); 
     height: 100vh; 
     margin: 0; 
   }
 
 h1 {
-    color: var(--backgroundcolor);
+    color: var(--primarycolor);
     text-align: center;
     line-height: 0px;
     margin-top: 20px;
@@ -37,6 +33,7 @@ h1 {
 /* Table */
 h2{
     line-height: 0px;
+    color: var(--backgroundcolor);
 }
 .table-wrapper{
     border: 1px var(--backgroundcolor) solid;
