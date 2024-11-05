@@ -10,9 +10,17 @@ CREATE TABLE users (
     account_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE habit_category(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(150),
+    user_id INT NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
 CREATE TABLE habits (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
+    category_id INT NOT NULL,
     habit_name VARCHAR(255) NOT NULL,
     repetition_type ENUM('daily', 'weekly', 'monthly', 'custom') NOT NULL,
     custom_interval_value INT DEFAULT NULL,  -- For custom repetition only
@@ -22,6 +30,7 @@ CREATE TABLE habits (
     -- Log for habits
     deleted_at DATETIME,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    	FOREIGN KEY (category_id) REFERENCES habit_category(id),
     	FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
