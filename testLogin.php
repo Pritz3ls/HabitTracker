@@ -23,6 +23,7 @@
     </div>
     
     <form action="" method="post" autocomplete="off">
+        <h3>LOGIN</h3>
         <div>
             <label for="username" method="post">Username</label>
             <input type="text" name="username" placeholder="Enter Username" required>
@@ -34,21 +35,23 @@
         <div class="captcha">
             <label for="captchaInput">Enter Captcha</label><br>
             <span id="captcha"></span><br>
-            <input type="text" id="captchaInput" name="captchaInput" placeholder="Enter Captcha" required><br>
-            <button type="button" onclick="generateCaptcha()">Refresh</button>
+            <div class="captchaInput">
+                <input type="text" id="captchaInput" name="captchaInput" placeholder="Enter Captcha" required><br>
+                <button type="button" class="refreshCaptcha" onclick="generateCaptcha()">Refresh</button>
+            </div>
             <input type="hidden" id="hiddenCaptcha" name="hiddenCaptcha">
+        </div>
+        <div>
+            <input type="submit" value="Login" name="login">
         </div>
         <div class="auth-link-container">
             <a href="testForgotPassword.php" class="auth-link">Forgot password</a>
         </div>
         <div class="auth-link-container">
-            <a href="testSignUp.php" class="auth-link">Don't have an account?</a>
+            <a href="testSignUp.php" class="auth-link">Don't have an account? SignUp</a>
         </div>
-        <div>
-            <input type="submit" value="Login" name="login">
-        </div>
-         <div class="button-container">
-        <a href="testLanding.php" class="back-button">Back</a>
+        <div class="button-container">
+            <a href="testLanding.php" class="auth-link">Back</a>
         </div>
         </form>
 </body>
