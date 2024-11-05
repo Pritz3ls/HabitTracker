@@ -1,4 +1,4 @@
-@import './css/palette.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 /* CSS for the Test Login Form */
@@ -12,7 +12,9 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  line-height: 20px;
+  color: var(--secondarycolor);
   background-color: #0d2556;
   background-image:url('../resource/loginbg.jpg');
   background-size: cover;
@@ -46,6 +48,10 @@ form {
 form div {
   display: flex;
   flex-direction: column;
+}
+
+h3{
+  text-align: center;
 }
 
 label {
@@ -91,23 +97,21 @@ input[type="submit"]:hover {
   text-decoration: underline;
 }
 
-.button-container {
+.button-container{
   display: flex;
   flex-direction: column;
+  align-items: start;
   gap: 10px;
+  margin-top: 20px;
 }
 
 .back-button {
   text-align: center;
-  padding: 0.75rem;
-  background-color: #f0f0f0;
-  color: #333;
-  border: 1px solid #ccc;
+  color: var(--hyperlinks);
   border-radius: 5px;
   font-size: 1rem;
   text-decoration: none;
   transition: background-color 0.3s ease;
-  width: 100%;
 }
 
 .back-button:hover {
@@ -124,7 +128,29 @@ input[type="submit"]:hover {
   text-align: center;
   border-radius: 2px;
   font-size: 25px;
-  user-select: none;
+  user-select: none;  
+}
+
+.captchaInput{
+  display: flex;
+  flex-direction: row;
+}
+
+.refreshCaptcha{
+  font-family: 'Poppins',sans-serif;
+  background-color: var(--secondaryaccentcolor);
+  border: none;
+  
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 2px;
+  cursor: pointer;
+}
+.refreshCaptcha:hover{
+  background-color: var(--hyperlinks);
+  color: var(--secondarycolor);
+  transition: all 0.3s;
 }
 
 /* Hyperlinks */

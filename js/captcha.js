@@ -14,17 +14,5 @@ function generateCaptcha() {
     document.getElementById('hiddenCaptcha').value = captchaValue;
 }
 
-// Validate CAPTCHA before form submission (client-side check)
-document.querySelector('form').addEventListener('submit', function(e) {
-    var enteredCaptcha = document.getElementById('captchaInput').value;
-    var hiddenCaptcha = document.getElementById('hiddenCaptcha').value;
-
-    // Check if entered CAPTCHA matches generated CAPTCHA
-    if (enteredCaptcha !== hiddenCaptcha) {
-        alert('Incorrect CAPTCHA!');
-        e.preventDefault(); // Prevent form submission if CAPTCHA is wrong
-    }
-});
-
 // Ensure CAPTCHA is generated on page load
 generateCaptcha();
