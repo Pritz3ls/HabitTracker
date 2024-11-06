@@ -50,11 +50,27 @@ body{
     line-height: 0px;
     font-weight: 600;
 }
+.habit-maker select{
+    font-family: 'Poppins', sans-serif;
+    color: var(--backgroundcolor);
+    background-color: var(--secondaryaccentcolor);
+    border-radius: 2px;
+    border: none;
+}
 .habit-name-submit{
     display: flex;
 }
 .habit-name-submit input[type="text"]{
     width: 100%;
+    border: 1px solid var(--secondaryaccentcolor);
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px 0 0 3px;
+}
+.habit-name-submit button{
+    border-radius: 0 3px 3px 0;
+    background-color: var(--secondaryaccentcolor);
+    border: none;
+    cursor: pointer;
 }
 
 .habit-option-wrapper{
@@ -70,32 +86,18 @@ input{
 input[type="number"]{
     width: 9em;
 }
-
-/* Create New Board */
-.create-new-category{
-    width: 250px;
-    height: fit-content;
-    padding: 5px;
-    line-height: 5px;
-
-    background-color: var(--secondarycolor);
-    color: var(--backgroundcolor);
-    border-radius: 2px;
-
-}
 .name-submit{
     display: flex;
     flex-direction: row;
 }
-.create-new-category input[type="text"]{
-    width: 100%;
-    box-sizing: border-box;
-}
 
 /* Habits Container */
 .habits-container{
-    height: 100%;
-    overflow-y: hidden;
+    min-height: fit-content;
+    max-height: 59vh;
+    margin: 5px;
+    border-radius: 5px;
+    overflow-y: auto;
 }
 
 .habit{
@@ -109,6 +111,7 @@ input[type="number"]{
 
     background-color: var(--secondaryaccentcolor);
     border-radius: 2px;
+    cursor:help;
 }
 .habit-details{
     width: 100%;
@@ -121,8 +124,56 @@ input[type="number"]{
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0%;
+    transition: all 0.2s;
 }
-.habit-control input{
-    width: 50%;
+.habit-details:hover + .habit-control, .habit-control:hover{
+    opacity: 100%;
+    transition: all 0.2s;
+}
+.habit-control button{
+    border: none;
+    color: white;
     height: 100%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.habit-control button:nth-child(1){
+    background-color: var(--buttonPrimary);
+}
+.habit-control button:nth-child(2){
+    background-color: var(--buttonSecondary);
+}
+.habit-control button:hover{
+    background-color: var(--backgroundcolor);
+    transition: all 0.3s;
+}
+/* Create New Board */
+.create-new-category{
+    width: 250px;
+    height: fit-content;
+    padding: 5px;
+    line-height: 5px;
+
+    background-color: var(--secondarycolor);
+    color: var(--backgroundcolor);
+    border-radius: 2px;
+}
+.create-new-category div{
+    display: flex;
+}
+.create-new-category p{
+    font-weight: 600;
+}
+.create-new-category input[type="text"]{
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--secondaryaccentcolor);
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px 0 0 3px;
+}
+.create-new-category button{
+    border: 1px solid var(--secondaryaccentcolor);
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
 }

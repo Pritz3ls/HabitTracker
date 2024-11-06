@@ -12,7 +12,7 @@
         
         // Fetch all necessary details
         $name = $_POST['name'];
-        $category_id = $_POST['category_id'];
+        $board_id = $_POST['board_id'];
 
         if(empty($_POST['repitition_type']) || empty($name)){
             echo '<script>alert("Invalid inputs, Try again.")</script>';
@@ -35,7 +35,7 @@
                 }
                 $dayofweek = $_POST['dayofweek'];
                 $query = 
-                "INSERT INTO habits(user_id, category_id, habit_name, repetition_type, dayofweek)
+                "INSERT INTO habits(user_id, board_id, habit_name, repetition_type, dayofweek)
                 VALUES ({$user_id},$category_id,'{$name}','{$repitition_type}','{$dayofweek}')";
                 break;
             case 'custom':
@@ -46,14 +46,14 @@
                     return;
                 }
                 $query = 
-                "INSERT INTO habits(user_id, category_id, habit_name, repetition_type, custom_interval_value)
-                VALUES ({$user_id},$category_id,'{$name}','{$repitition_type}','{$custom_interval_value}')";
+                "INSERT INTO habits(user_id, board_id, habit_name, repetition_type, custom_interval_value)
+                VALUES ({$user_id},$board_id,'{$name}','{$repitition_type}','{$custom_interval_value}')";
                 break;
             default:
                 # code...
                 $query = 
-                "INSERT INTO habits(user_id, category_id, habit_name, repetition_type)
-                VALUES ({$user_id},$category_id,'{$name}','{$repitition_type}')";
+                "INSERT INTO habits(user_id, board_id, habit_name, repetition_type)
+                VALUES ({$user_id},$board_id,'{$name}','{$repitition_type}')";
                 break;
         }
 

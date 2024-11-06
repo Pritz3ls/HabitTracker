@@ -10,9 +10,9 @@ CREATE TABLE users (
     account_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE habit_category(
+CREATE TABLE habit_board(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    category_name VARCHAR(150) DEFAULT 'New Category',
+    board_name VARCHAR(150) DEFAULT 'New Board',
     user_id INT NOT NULL,
         FOREIGN KEY (user_id) REFERENCES users(id)
 );
@@ -20,7 +20,7 @@ CREATE TABLE habit_category(
 CREATE TABLE habits (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    category_id INT NOT NULL,
+    board_id INT NOT NULL,
     habit_name VARCHAR(255) NOT NULL,
     repetition_type ENUM('daily', 'weekly', 'monthly', 'custom') NOT NULL,
     custom_interval_value INT DEFAULT NULL,  -- For custom repetition only
@@ -30,7 +30,7 @@ CREATE TABLE habits (
     -- Log for habits
     deleted_at DATETIME,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    	FOREIGN KEY (category_id) REFERENCES habit_category(id),
+    	FOREIGN KEY (board_id) REFERENCES habit_board(id),
     	FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
@@ -74,3 +74,8 @@ VALUES (1,'Walking','daily','2024-08-31')
 /*For Custom Habits*/
 INSERT INTO habits(user_id, habit_name, repetition_type, custom_repitition_value, start_date)
 VALUES (1,'Jogging','custom', 5,'2024-08-31')
+
+-- Delete all habits
+DROP TABLE habit_logs;
+DROP TABLE habits;
+DROP TABLE habit_board;

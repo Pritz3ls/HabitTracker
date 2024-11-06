@@ -2,6 +2,7 @@
 <?php include "php/habit-creation.php"?>
 <?php include "php/start-habit.php"?>
 <?php include "php/delete-habit.php"?>
+<?php include "php/create-board.php"?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +13,15 @@
     <script defer src="js/navbar.js"></script>
 
     <!-- Load  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <script defer src="js/spinner.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
 
     <!-- Disconnect notification js for now -->
     <!-- <script defer src="js/notification.js"></script> -->
     
-    <link rel="stylesheet" href="css/palette.css">
+    <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/habit.css?v=<?php echo time(); ?>">
     <title>habere | Main</title>
@@ -78,29 +81,25 @@
     <!-- Board Wrapper -->
     <div class="board-wrapper">
         <?php
-            $query = "SELECT * FROM habit_category";
+            $query = "SELECT * FROM habit_board";
             $executed_query = mysqli_query($conn, $query);
-            // There is no habit board to begin with
-            if(mysqli_num_rows($executed_query) == 0){
-                $create_new_board = "INSERT INTO habit_category(user_id, category_name)
-                VALUES({$_SESSION['currentUserID']}, 'New Board')";
-                $executed_new_board = mysqli_query($conn, $create_new_board);
-            }
             // Habit Boards
             while($row = mysqli_fetch_assoc($executed_query)){
-                $category_id = $row['id'];
+                $board_id = $row['id'];
                 // Habit Maker
                 echo '<div class="habit-category-container">';
-                    echo "<p class='board-name'>{$row['category_name']}</p>";
+                    echo "<p class='board-name'>{$row['board_name']}</p>";
                     echo '
                         <div class="habit-maker">
                         <!-- Habit Maker Container -->
                             <form action="testHabit.php" method="post" class="habit-maker">
-                                <input type="number" name="category_id" value='.$category_id.' hidden>
+                                <input type="number" name="board_id" value='.$board_id.' hidden>
                                 <label for="name" method="post">Name</label>
                                 <div class="habit-name-submit">
                                     <input type="text" name="name" placeholder="Habit name" required>
-                                    <input type="submit" name="create" value="/">
+                                    <button type="submit" name="create">
+                                        <i class="material-icons">check</i>
+                                    </button>
                                 </div>
 
                                 <div class="habit-option-wrapper">
@@ -140,7 +139,7 @@
                     // Habits
                     // Retrieve the current User ID that logged in
                     $user_id = $_SESSION['currentUserID'];
-                    $query = "SELECT * FROM habits WHERE category_id = {$category_id} AND deleted_at IS NULL";
+                    $query = "SELECT * FROM habits WHERE board_id = {$board_id} AND deleted_at IS NULL";
                     $view_habits = mysqli_query($conn, $query);
                     echo '<div class="habits-container">';
                         // Control
@@ -165,8 +164,8 @@
                                         }
                                     echo '</div>';
                                     echo '<div class="habit-control">';
-                                        echo '<input type="submit" name = "start_habit" value="Start">';
-                                        echo '<input type="submit" name = "delete_habit" value="Delete">';
+                                        echo '<button type="submit" name = "start_habit"><i class="material-icons">check</i></button>';
+                                        echo '<button type="submit" name = "delete_habit"><i class="material-icons">delete</i></button>';
                                         echo '<input type="hidden" name = "habit_id" value='.$habit_id.'>';
                                     echo '</div>';
                             echo "</form>";
@@ -180,9 +179,11 @@
                 <div class="create-new-category">
                     <form action="" method="post">
                         <p>Create New Board</p>
-                        <div class="name-submit">
-                            <input type="text" name="board_name" placeholder="Board Name">
-                            <input type="submit" value="/">
+                        <div>
+                            <input type="text" name="board_name" placeholder="New Board Name">
+                            <button type="submit" name="create-board">
+                                <i class="material-icons">check</i>
+                            </button>
                         </div>
                     </form>
                 </div>
