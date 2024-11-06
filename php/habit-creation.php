@@ -36,7 +36,7 @@
                 $dayofweek = $_POST['dayofweek'];
                 $query = 
                 "INSERT INTO habits(user_id, board_id, habit_name, repetition_type, dayofweek)
-                VALUES ({$user_id},$category_id,'{$name}','{$repitition_type}','{$dayofweek}')";
+                VALUES ({$user_id},$board_id,'{$name}','{$repitition_type}','{$dayofweek}')";
                 break;
             case 'custom':
                 # code...
