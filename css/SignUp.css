@@ -21,6 +21,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin: 0;
 }
 
@@ -131,40 +132,45 @@ a:hover {
     flex-direction: column;
     align-items: start;
     gap: 10px;
-    margin-top: 20px;
-}
-
-.back-button {
-    text-align: center;
-    padding: 0.75rem;
-    background-color: #f0f0f0;
-    color: #333;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.back-button:hover {
-    background-color: #e0e0e0;
 }
 
 /* Error Message Popup */
-.error-message{
-    color: #e90b0b;
-    background-color: #ffe6e6;
-    border: 1px solid #ff4c4c;
-    border-radius: 5px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin: 10px auto;
+.error-message {
+    background-color: var(--error);
+    border: 1px solid var(--secondarycolor);
+    font-family: 'Poppins', sans-serif;
+    color: var(--secondarycolor);
+    
     padding: 10px;
+    width: 100%;
+    height: fit-content;
+    
+    border-radius: 5px;
+    
+    font-size: 10px;
+    
+    display: flex;
+    align-items: center;
+    
+    max-width: 300px; /* Set max width if desired */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    user-select: none;
+    
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    top: 5%;
+  
+    animation: fadeout 3s;
+    animation-fill-mode: forwards;
 }
-
-.error-message h3 {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    font-weight: bold;
+  
+.error-message::before {
+    content: '⚠️';
+    margin-right: 10px;
+    font-size: 18px;
+}
+  
+@keyframes fadeout{
+    from{opacity: 100%;}
+    to{opacity: 0%;}
 }

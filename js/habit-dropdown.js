@@ -5,7 +5,7 @@ function HandleCustomRepitition(){
         const selectValue = this.value;
         const customField = document.getElementById('custom_repitition_value');
         if(selectValue == 'custom'){
-            customField.style.display = 'block';
+            customField.style.display = 'flex';
         }else{
             customField.style.display = 'none';
         }
@@ -18,7 +18,7 @@ function HandleWeekDay(){
         const selectValue = this.value;
         const customField = document.getElementById('dayofweek');
         if(selectValue == 'weekly'){
-            customField.style.display = 'block';
+            customField.style.display = 'flex';
         }else{
             customField.style.display = 'none';
         }

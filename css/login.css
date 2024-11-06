@@ -119,7 +119,6 @@ input[type="submit"]:hover {
 }
 
 /* Captcha */
-
 #captcha {
   background-color: gainsboro;
   color: #2d3d30;
@@ -165,32 +164,43 @@ a:hover {
   text-decoration: underline;
 }
 
-
 /* Error Message Popup */
 .error-message {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
+  background-color: var(--error);
+  border: 1px solid var(--secondarycolor);
+  font-family: 'Poppins', sans-serif;
+  color: var(--secondarycolor);
+  
   padding: 10px;
-  margin: 0 auto;
+  width: 100%;
+  height: fit-content;
+  
   border-radius: 5px;
-  font-family: Arial, sans-serif;
+  
   font-size: 10px;
+  
   display: flex;
   align-items: center;
-  width: 100%;
+  
   max-width: 300px; /* Set max width if desired */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 10px; /* Position it 10px from the top */
-  left: 50%;
-  transform: translateX(-50%);
+  position: absolute;
+  user-select: none;
+  
   z-index: 1000; /* Ensure it stays on top of other elements */
-  margin-bottom: 20px;
+  top: 5%;
+
+  animation: fadeout 3s;
+  animation-fill-mode: forwards;
 }
 
 .error-message::before {
   content: '⚠️';
   margin-right: 10px;
   font-size: 18px;
+}
+
+@keyframes fadeout{
+  from{opacity: 100%;}
+  to{opacity: 0%;}
 }
