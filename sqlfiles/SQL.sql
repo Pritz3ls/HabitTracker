@@ -12,7 +12,7 @@ CREATE TABLE users (
 
 CREATE TABLE habit_category(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    category_name VARCHAR(150),
+    category_name VARCHAR(150) DEFAULT 'New Category',
     user_id INT NOT NULL,
         FOREIGN KEY (user_id) REFERENCES users(id)
 );

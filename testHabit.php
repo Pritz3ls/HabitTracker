@@ -75,89 +75,119 @@
         </div>
     </div>
 
-    <!-- Habit Wrapper -->
-    <div class="habit-wrapper">
-        <!-- Habit Maker Container -->
-        <form action="testHabit.php" method="post" class="habit-maker">
-            <div>
-                <label for="name" method="post">Name</label>
-                <input type="text" name="name" placeholder="Habit name">
-            </div>
+    <!-- Board Wrapper -->
+    <div class="board-wrapper">
+        <?php
+            $query = "SELECT * FROM habit_category";
+            $executed_query = mysqli_query($conn, $query);
+            // There is no habit board to begin with
+            if(mysqli_num_rows($executed_query) == 0){
+                $create_new_board = "INSERT INTO habit_category(user_id, category_name)
+                VALUES({$_SESSION['currentUserID']}, 'New Board')";
+                $executed_new_board = mysqli_query($conn, $create_new_board);
+            }
+            // Habit Boards
+            while($row = mysqli_fetch_assoc($executed_query)){
+                $category_id = $row['id'];
+                // Habit Maker
+                echo '<div class="habit-category-container">';
+                    echo "<p class='board-name'>{$row['category_name']}</p>";
+                    echo '
+                        <div class="habit-maker">
+                        <!-- Habit Maker Container -->
+                            <form action="testHabit.php" method="post" class="habit-maker">
+                                <input type="number" name="category_id" value='.$category_id.' hidden>
+                                <label for="name" method="post">Name</label>
+                                <div class="habit-name-submit">
+                                    <input type="text" name="name" placeholder="Habit name" required>
+                                    <input type="submit" name="create" value="/">
+                                </div>
+
+                                <div class="habit-option-wrapper">
+                                    <div class="repetition-type-container">
+                                        <select name="repitition_type" id="repitition_type">
+                                            <option disabled selected hidden>Repetition Type</option>
+                                            <option value="daily">Daily</option>
+                                            <option value="weekly">Weekly</option>
+                                            <option value="monthly">Monthly</option>
+                                            <option value="custom">Custom</option>
+                                        </select>  
+                                    </div>
+                                    
+                                    <!-- Custom Format -->
+                                    <div id="custom_repitition_value" style="display:none;">
+                                        <input type="number" name="custom_interval_value" placeholder="Every # days" min="1" max="999">
+                                    </div>
+
+                                    <!-- Weekly Format -->
+                                    <div id="dayofweek" style="display:none;">
+                                        <select name="dayofweek">
+                                            <option disabled selected hidden>Day Of Week</option>
+                                            <option value="sunday">Sunday</option>
+                                            <option value="monday">Monday</option>
+                                            <option value="tuesday">Tuesday</option>
+                                            <option value="wednesday">Wednesday</option>
+                                            <option value="thursday">Thursday</option>
+                                            <option value="friday">Friday</option>
+                                            <option value="saturday">Saturday</option>
+                                        </select>  
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    ';
                     
-            <div>
-                <label for="repitition_type" method="post">Repitition</label>
-                <select name="repitition_type" id="repitition_type">
-                    <option value="daily" selected>Daily</option>
-                    <option value="weekly">Weekly</option>
-                    <option value="monthly">Monthly</option>
-                    <option value="custom">Custom</option>
-                </select>  
-            </div>
-            
-            <!-- Custom Format -->
-            <div id="custom_repitition_value" style="display:none;">
-                <label for="custom_interval_value" method="post">Every</label>
-                <input type="number" name="custom_interval_value"> Days
-            </div>
+                    // Habits
+                    // Retrieve the current User ID that logged in
+                    $user_id = $_SESSION['currentUserID'];
+                    $query = "SELECT * FROM habits WHERE category_id = {$category_id} AND deleted_at IS NULL";
+                    $view_habits = mysqli_query($conn, $query);
+                    echo '<div class="habits-container">';
+                        // Control
+                        if(!$view_habits){return;}
+                        while($row = mysqli_fetch_assoc($view_habits)){
+                            echo '<form action="" method="post" class="habit">';
+                                $habit_id = $row['id'];
+                                $habit_name = $row['habit_name'];
+                                $repetition_type = $row['repetition_type'];
+                                $custom_interval_value = $row['custom_interval_value'];
+                                $dayofweek = $row['dayofweek'];
+                                $last_completion = $row['last_completion'];
+                                // Start Button
+                                    echo '<div class="habit-details">';
+                                        echo "<p><b>{$habit_name}</b></p>";
+                                        if($repetition_type == 'custom'){
+                                            echo "<p>{$repetition_type} | Every {$custom_interval_value} days</p>";
+                                        }else if($repetition_type == 'weekly'){
+                                            echo "<p>{$repetition_type} | {$dayofweek}</p>";
+                                        }else{
+                                            echo "<p>{$repetition_type}</p>";
+                                        }
+                                    echo '</div>';
+                                    echo '<div class="habit-control">';
+                                        echo '<input type="submit" name = "start_habit" value="Start">';
+                                        echo '<input type="submit" name = "delete_habit" value="Delete">';
+                                        echo '<input type="hidden" name = "habit_id" value='.$habit_id.'>';
+                                    echo '</div>';
+                            echo "</form>";
+                        };
+                    echo '</div>';
+                echo '</div>';
+            }
 
-            <!-- Weekly Format -->
-            <div id="dayofweek" style="display:none;">
-                <label for="dayofweek" method="post">Weekday</label>
-                <select name="dayofweek">
-                    <option value="sunday" selected>Sunday</option>
-                    <option value="monday">Monday</option>
-                    <option value="tuesday">Tuesday</option>
-                    <option value="wednesday">Wednesday</option>
-                    <option value="thursday">Thursday</option>
-                    <option value="friday">Friday</option>
-                    <option value="saturday">Saturday</option>
-                </select>  
-            </div>
-            
-            <div>
-                <input type="submit" name = "create" value="Submit">
-            </div>
-        </form>
-
-        <!-- View Habit -->
-        <h1>Habits</h1>
-        <div class="habit-container">
-            <?php
-                // Retrieve the current User ID that logged in
-                $user_id = $_SESSION['currentUserID'];
-                $query = "SELECT * FROM habits WHERE user_id = {$user_id} AND deleted_at IS NULL";
-                $view_habits = mysqli_query($conn, $query);
-
-                
-                // Control
-                if(!$view_habits){return;}
-                while($row = mysqli_fetch_assoc($view_habits)){
-                    echo '<form action="" method="post" class="habit">';
-                        $habit_id = $row['id'];
-                        $habit_name = $row['habit_name'];
-                        $repetition_type = $row['repetition_type'];
-                        $custom_interval_value = $row['custom_interval_value'];
-                        $dayofweek = $row['dayofweek'];
-                        $last_completion = $row['last_completion'];
-                        // Start Button
-                            echo '<div class="details">';
-                                echo "<p><b>{$habit_name}</b></p>";
-                                echo "<p>{$repetition_type}</p>";
-                                if($repetition_type == 'custom'){
-                                    echo "<p>Every {$custom_interval_value} days</p>";
-                                }else if($repetition_type == 'weekly'){
-                                    echo "<p>{$dayofweek}</p>";
-                                }
-                            echo '</div>';
-                            echo '<div class="control">';
-                                echo '<input type="submit" name = "start_habit" value="Start">';
-                                echo '<input type="submit" name = "delete_habit" value="Delete">';
-                                echo '<input type="hidden" name = "habit_id" value='.$habit_id.'>';
-                            echo '</div>';
-                    echo "</form>";
-                };
-            ?>
-        </div>
+            // Create new board
+            echo '
+                <div class="create-new-category">
+                    <form action="" method="post">
+                        <p>Create New Board</p>
+                        <div class="name-submit">
+                            <input type="text" name="board_name" placeholder="Board Name">
+                            <input type="submit" value="/">
+                        </div>
+                    </form>
+                </div>
+            ';
+        ?>
     </div>
 </body>
 </html>
