@@ -3,14 +3,14 @@
 /* General Styling */
 
 body {
-    background-color: #ffffff;
-    background-image: 
-        radial-gradient(at 47% 33%, hsl(190.59, 32%, 10%) 0, transparent 59%), 
-        radial-gradient(at 82% 65%, hsl(126.84, 63%, 49%) 0, transparent 55%);
-}
+    font-family: 'Poppins', sans-serif; 
+    background-color: var(--backgroundcolor); 
+    height: 100vh; 
+    margin: 0; 
+  }
 
 h1 {
-    color: var(--backgroundcolor);
+    color: var(--primarycolor);
     text-align: center;
     line-height: 0px;
     margin-top: 20px;
@@ -33,6 +33,7 @@ h1 {
 /* Table */
 h2{
     line-height: 0px;
+    color: var(--backgroundcolor);
 }
 .table-wrapper{
     border: 1px var(--backgroundcolor) solid;

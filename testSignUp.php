@@ -25,6 +25,7 @@
     </div>
     
     <form  method="post" action="" autocomplete="off">
+        <h3>SIGNUP</h3>
         <div>
             <label for="username" method="post">Username</label>
             <input type="text" name="username" placeholder="Enter Username" required>
@@ -42,12 +43,17 @@
         <div class="captcha">
             <label for="captchaInput">Enter Captcha</label>
             <span id="captcha"></span>
-            <input type="text" id="captchaInput" name="captchaInput" placeholder="Enter Captcha" required>
-            <button type="button" onclick="generateCaptcha()">Refresh</button>
+            <div class="captchaInput">
+                <input type="text" id="captchaInput" name="captchaInput" placeholder="Enter Captcha" required>
+                <button type="button" class="refreshCaptcha" onclick="generateCaptcha()">Refresh</button>
+            </div>
             <input type="hidden" id="hiddenCaptcha" name="hiddenCaptcha">
         </div>
+        <div class="button-container">
+            <input type="submit" value="SignUp" name="create">
+        </div>
         <div>
-            <a href="testLogin.php">Already have an account?</a>
+            <a href="testLogin.php">Already have an account? Login</a>
         </div>
         <!-- For Debugging purpose -->
         <!-- <div>
@@ -56,11 +62,8 @@
                 <option value="admin">Admin</option>
             </select>
         </div> -->
-        <div class="button-container">
-            <input type="submit" value="SignUp" name="create">
-        </div>
-        <div class="button-container">
-        <a href="testLanding.php" class="back-button">Back</a>
+        <div class="links">
+            <a href="testLanding.php" class="auth-link">Back</a>
         </div>
     </form>
 </body>

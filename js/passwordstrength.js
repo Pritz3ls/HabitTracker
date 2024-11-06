@@ -6,6 +6,7 @@ function checkPasswordStrength(){
         strength.textContent = ['Weak','Fair', 'Good', 'Strong'][score - 1] || 'Very Weak';
         var curStrength = document.getElementById('strength');
         var strIndex = document.getElementById('strIndex');
+        curStrength.style.display = "block";
         switch (curStrength.innerHTML) {
             case 'Weak':
                 curStrength.style.backgroundColor = "orange";

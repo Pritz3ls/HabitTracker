@@ -24,6 +24,7 @@
     </div>
     
     <form action="" method="post" autocomplete="off">
+        <h3>FORGOT PASSWORD</h3>
         <div>
             <label for="phonenumber" method="post">Phone Number</label>
             <input type="text" name="phonenumber" pattern="[09][0-9]{10}" placeholder="+63 Phone Number" required>
@@ -32,14 +33,14 @@
             <label for="new_password" method="post">New Password</label>
             <input type="password" name="new_password" id="password" placeholder="Enter New Password" required onchange="checkPasswordStrength()">
             <input type="hidden" name="strIndex" id="strIndex" value=0>
-            <p id="strength">Very Weak</p>
+            <p id="strength"></p>
         </div>
         <div>
             <label for="confirm_password" method="post">Confirm Password</label>
             <input type="password" name="confirm_password" placeholder="Enter Confirm Password" required>
         </div>
+        <input type="submit" value="Continue" name="forgotPass">
         <div class="button-container">
-            <input type="submit" value="Continue" name="forgotPass">
             <a href="testLogin.php" class="back-button">Back</a>
         </div>
     </form>
