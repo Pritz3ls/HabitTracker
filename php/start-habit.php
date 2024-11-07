@@ -1,5 +1,4 @@
 <?php
-    $user_id = $_SESSION['currentUserID'];
     if(isset($_POST['start_habit'])){
         $habit_id = $_POST['habit_id'];
         
@@ -24,12 +23,12 @@
         
         $correctInterval = getRepetitionInterval($repetition_type, $last_completion, $custom_interval)->format('Y-m-d');
         
-        // Check if the user can complete the habit
-        // If not, then return the block
-        // if(!isCompleteValid($repetition_type, $correctInterval, $weekday)) return;
-
         try {
             if($status != "started"){
+                // Check if the user can complete the habit
+                // If not, then return the block
+                if(!isCompleteValid($repetition_type, $correctInterval, $weekday)) return;
+
                 echo '<script>alert("Habit Started!")</script>';
                 
                 // Record the User starting the habit
@@ -60,6 +59,7 @@
         }
 
         // Reward the user with XP
+        $user_id = $_SESSION['currentUserID'];
         $correctXP = getRewardXP($repetition_type, $custom_interval);
         $xp_query = "UPDATE users SET user_xp = user_xp + {$correctXP} WHERE id = {$user_id}";
         $xp = mysqli_query($conn, $xp_query); 
@@ -101,7 +101,7 @@
                 if($currentDate >= $correctInterval){
                     $currentDay = (int)date('w');
                     if($currentDay < $weekday){
-                        echo '<script>alert("Try again on '.$weekday.'.")</script>';
+                        echo '<script>alert("Try again on '.getWeekDayString($weekday).'.")</script>';
                         return false;
                     }
                 }else{
@@ -130,6 +130,17 @@
             case 'thursday':return 4; break;
             case 'friday':return 5; break;
             case 'saturday':return 6; break;
+        }
+    }
+    function getWeekDayString($index){
+        switch ($index) {
+            case 0:return 'Sunday'; break;
+            case 1:return 'Monday'; break;
+            case 2:return 'Tuesday'; break;
+            case 3:return 'Wednesday'; break;
+            case 4:return 'Thursday'; break;
+            case 5:return 'Friday'; break;
+            case 6:return 'Saturday'; break;
         }
     }
 

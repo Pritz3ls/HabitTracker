@@ -1,15 +1,5 @@
 <?php 
-    session_start();
-    // Redirect user to login page if the current session ID is empty or null
-    if(empty($_SESSION['currentUserID'])){
-        Header("Location: testLanding.php");
-        exit;
-    }
-
-    if(isset($_POST['create'])){
-        // Retrieve the current user ID that logged in
-        $user_id = $_SESSION['currentUserID'];
-        
+    if(isset($_POST['create'])){        
         // Fetch all necessary details
         $name = $_POST['name'];
         $board_id = $_POST['board_id'];
@@ -35,8 +25,8 @@
                 }
                 $dayofweek = $_POST['dayofweek'];
                 $query = 
-                "INSERT INTO habits(user_id, board_id, habit_name, repetition_type, dayofweek)
-                VALUES ({$user_id},$board_id,'{$name}','{$repitition_type}','{$dayofweek}')";
+                "INSERT INTO habits(board_id, habit_name, repetition_type, dayofweek)
+                VALUES ($board_id,'{$name}','{$repitition_type}','{$dayofweek}')";
                 break;
             case 'custom':
                 # code...
@@ -46,14 +36,14 @@
                     return;
                 }
                 $query = 
-                "INSERT INTO habits(user_id, board_id, habit_name, repetition_type, custom_interval_value)
-                VALUES ({$user_id},$board_id,'{$name}','{$repitition_type}','{$custom_interval_value}')";
+                "INSERT INTO habits(board_id, habit_name, repetition_type, custom_interval_value)
+                VALUES ($board_id,'{$name}','{$repitition_type}','{$custom_interval_value}')";
                 break;
             default:
                 # code...
                 $query = 
-                "INSERT INTO habits(user_id, board_id, habit_name, repetition_type)
-                VALUES ({$user_id},$board_id,'{$name}','{$repitition_type}')";
+                "INSERT INTO habits(board_id, habit_name, repetition_type)
+                VALUES ($board_id,'{$name}','{$repitition_type}')";
                 break;
         }
 

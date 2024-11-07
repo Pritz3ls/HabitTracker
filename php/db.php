@@ -12,4 +12,5 @@
     if(!$conn){
         die("Error, connection failed with {$database}". mysqli_connect_error());
     }
+    session_start();
 ?>
