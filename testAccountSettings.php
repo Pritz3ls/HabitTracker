@@ -61,7 +61,7 @@
 
     <!-- Update Account Information -->
     <form  method="post" action="" autocomplete="off">
-        <h1>Account Settings</h1>
+        <h1>Profile Information</h1>
         <?php
             $user_info_query = "SELECT user_name, phone_number, password FROM users WHERE id = {$_SESSION['currentUserID']}";
             $user_info = mysqli_query($conn, $user_info_query);

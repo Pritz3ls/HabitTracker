@@ -23,7 +23,7 @@ body {
 }
 
 form {
-    background-color: rgba(17, 25, 40, 0.65); /* Make it more transparent */
+    background-color: rgba(17, 25, 40, 0.5); /* Make it more transparent */
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -31,8 +31,8 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    backdrop-filter: blur(25px) saturate(150%); /* Increased blur and saturation */
-    -webkit-backdrop-filter: blur(25px) saturate(150%); /* For Safari */
+    backdrop-filter: blur(20px) saturate(150%); /* Increased blur and saturation */
+    -webkit-backdrop-filter: blur(20px) saturate(150%); /* For Safari */
     border: 1px solid rgba(255, 255, 255, 0.2); /* Adjust border for a more glassy look */
     margin-top: 20px;
 }
