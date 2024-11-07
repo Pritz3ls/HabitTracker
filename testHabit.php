@@ -81,7 +81,8 @@
     <!-- Board Wrapper -->
     <div class="board-wrapper">
         <?php
-            $query = "SELECT * FROM habit_board";
+            $user_id = $_SESSION['currentUserID'];
+            $query = "SELECT * FROM habit_board WHERE user_id = {$user_id}";
             $executed_query = mysqli_query($conn, $query);
             // Habit Boards
             while($row = mysqli_fetch_assoc($executed_query)){
@@ -138,8 +139,9 @@
                     
                     // Habits
                     // Retrieve the current User ID that logged in
-                    $user_id = $_SESSION['currentUserID'];
-                    $query = "SELECT * FROM habits WHERE board_id = {$board_id} AND deleted_at IS NULL";
+                    $query = "SELECT * FROM habits 
+                        LEFT JOIN habit_logs ON habit_logs.log_id = habits.id
+                        WHERE board_id = {$board_id} AND deleted_at IS NULL";
                     $view_habits = mysqli_query($conn, $query);
                     echo '<div class="habits-container">';
                         // Control
@@ -152,6 +154,7 @@
                                 $custom_interval_value = $row['custom_interval_value'];
                                 $dayofweek = $row['dayofweek'];
                                 $last_completion = $row['last_completion'];
+                                $status = $row['status'];
                                 // Start Button
                                     echo '<div class="habit-details">';
                                         echo "<p><b>{$habit_name}</b></p>";
@@ -164,7 +167,13 @@
                                         }
                                     echo '</div>';
                                     echo '<div class="habit-control">';
-                                        echo '<button type="submit" name = "start_habit"><i class="material-icons">check</i></button>';
+                                        echo '<button type="submit" name = "start_habit">';
+                                            if($status == "started"){
+                                                echo '<i class="material-icons">stop_circle</i>';
+                                            }else{
+                                                echo '<i class="material-icons">play_circle</i>';
+                                            }
+                                        echo '</button>';
                                         echo '<button type="submit" name = "delete_habit"><i class="material-icons">delete</i></button>';
                                         echo '<input type="hidden" name = "habit_id" value='.$habit_id.'>';
                                     echo '</div>';
