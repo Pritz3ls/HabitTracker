@@ -24,6 +24,7 @@ CREATE TABLE habits (
     habit_name VARCHAR(255) NOT NULL,
     repetition_type ENUM('daily', 'weekly', 'monthly', 'custom') NOT NULL,
     custom_interval_value INT DEFAULT NULL,  -- For custom repetition only
+    status ENUM('none','started','complete') DEFAULT 'none',
     -- Dates for habits
     dayofweek ENUM('sunday','monday','tuesday','wednesday','thursday','friday','saturday') DEFAULT NULL,
     last_completion DATE DEFAULT '1990-1-1',
@@ -37,7 +38,6 @@ CREATE TABLE habits (
 CREATE TABLE habit_logs(
 	log_id INT AUTO_INCREMENT PRIMARY KEY,
     habit_id INT NOT NULL,
-    habit_status ENUM('skipped','complete') DEFAULT 'skipped',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     	FOREIGN KEY (habit_id) REFERENCES habits(id)
 );

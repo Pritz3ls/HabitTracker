@@ -1,10 +1,10 @@
 <?php
-    $user_id = $_SESSION['currentUserID'];
     if(isset($_POST['start_habit'])){
         $habit_id = $_POST['habit_id'];
         
         // Make a new habit log referencing this habit
         $query = "SELECT * FROM habits WHERE id = {$habit_id}";
+
         $fetch_habit = mysqli_query($conn, $query);
         
         // Check if the SQL execution were sucessful
@@ -18,35 +18,51 @@
         $last_completion = $row['last_completion'];
         $repetition_type = $row['repetition_type'];
         $custom_interval = $row['custom_interval_value'];
+        $status = $row['status'];
         $weekday = getWeekIndex($row['dayofweek']);
         
         $correctInterval = getRepetitionInterval($repetition_type, $last_completion, $custom_interval)->format('Y-m-d');
         
-        // Check if the user can complete the habit
-        // If not, then return the block
-        if(!isCompleteValid($repetition_type, $correctInterval, $weekday)) return;
+        try {
+            if($status != "started"){
+                // Check if the user can complete the habit
+                // If not, then return the block
+                if(!isCompleteValid($repetition_type, $correctInterval, $weekday)) return;
 
-        // Update the habit last completion to current date
-        $update_query = "UPDATE habits SET last_completion = CURRENT_DATE WHERE id = {$habit_id}";
-        $update = mysqli_query($conn, $update_query);
-        
-        // If it's unsuccessful
-        if(!$update){
-            echo '<script>alert("Update unsuccessful!")</script>';
+                echo '<script>alert("Habit Started!")</script>';
+                
+                // Record the User starting the habit
+                $update_query = "UPDATE habits 
+                SET last_completion = CURRENT_DATE, status = 'started' 
+                WHERE id = {$habit_id}";
+                $update = mysqli_query($conn, $update_query);
+
+                // Stop the code here
+                return;
+            }else{
+                echo '<script>alert("Habit Completed!")</script>';
+
+                // Update the habit last completion to current date and habit status
+                $update_query = "UPDATE habits 
+                SET last_completion = CURRENT_DATE, status = 'complete' 
+                WHERE id = {$habit_id}";
+                $update = mysqli_query($conn, $update_query);
+                
+                // Log the details
+                $log_habit_query = "INSERT INTO habit_logs(habit_id)
+                VALUES('{$habit_id}')";
+                $log_habit = mysqli_query($conn, $log_habit_query);
+            }
+        } catch (Exception $e) {
+            echo '<script>alert("Update unsuccessful! Message: '.$e.'")</script>';
             return;
         }
 
-        // Record the User completing the habit
-        $log_habit_query = "INSERT INTO habit_logs(habit_id, habit_status)
-        VALUES('{$habit_id}','complete')";
-        $log_habit = mysqli_query($conn, $log_habit_query);
-
         // Reward the user with XP
+        $user_id = $_SESSION['currentUserID'];
         $correctXP = getRewardXP($repetition_type, $custom_interval);
         $xp_query = "UPDATE users SET user_xp = user_xp + {$correctXP} WHERE id = {$user_id}";
         $xp = mysqli_query($conn, $xp_query); 
-
-        echo '<script>alert("Habit Started")</script>';
     }
 
     // Get modified date using the repetition type
@@ -85,7 +101,7 @@
                 if($currentDate >= $correctInterval){
                     $currentDay = (int)date('w');
                     if($currentDay < $weekday){
-                        echo '<script>alert("Try again on '.$weekday.'.")</script>';
+                        echo '<script>alert("Try again on '.getWeekDayString($weekday).'.")</script>';
                         return false;
                     }
                 }else{
@@ -114,6 +130,17 @@
             case 'thursday':return 4; break;
             case 'friday':return 5; break;
             case 'saturday':return 6; break;
+        }
+    }
+    function getWeekDayString($index){
+        switch ($index) {
+            case 0:return 'Sunday'; break;
+            case 1:return 'Monday'; break;
+            case 2:return 'Tuesday'; break;
+            case 3:return 'Wednesday'; break;
+            case 4:return 'Thursday'; break;
+            case 5:return 'Friday'; break;
+            case 6:return 'Saturday'; break;
         }
     }
 
