@@ -1,7 +1,9 @@
 <?php
-    // Start a session
-    session_start();
-
+    // Redirect user to login page if the current session ID is empty or null
+    if(empty($_SESSION['currentUserID'])){
+        Header("Location: testLanding.php");
+        exit;
+    }
     // Update the user information
     if(isset($_POST['update_info'])){
         $password_strength = (int)$_POST['strIndex'];

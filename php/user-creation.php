@@ -1,5 +1,4 @@
 <?php
-    session_start();
     if(isset($_POST['create'])){
         // Fetch CAPTCHA input from the user and the generated CAPTCHA value
         $enteredCaptcha = $_POST['captchaInput'];
