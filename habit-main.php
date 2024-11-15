@@ -1,8 +1,8 @@
-<?php include "php/db.php"?>
-<?php include "php/habit-creation.php"?>
-<?php include "php/start-habit.php"?>
-<?php include "php/delete-habit.php"?>
-<?php include "php/create-board.php"?>
+<?php 
+    require "php/db.php";
+    include "php.utils/activity-logging.php";
+    include "php/habit-core.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,55 +88,54 @@
             while($row = mysqli_fetch_assoc($executed_query)){
                 $board_id = $row['id'];
                 // Habit Maker
-                echo '<div class="habit-category-container">';
-                    echo "<p class='board-name'>{$row['board_name']}</p>";
-                    echo '
-                        <div class="habit-maker">
+                ?>
+                <div class="habit-category-container">
+                    <p class='board-name'><?php echo $row['board_name']?></p>
+                    <div class="habit-maker">
                         <!-- Habit Maker Container -->
-                            <form action="testHabit.php" method="post" class="habit-maker">
-                                <input type="number" name="board_id" value='.$board_id.' hidden>
-                                <label for="name" method="post">Name</label>
-                                <div class="habit-name-submit">
-                                    <input type="text" name="name" placeholder="Habit name" required>
-                                    <button type="submit" name="create">
-                                        <i class="material-icons">check</i>
-                                    </button>
+                        <form action="" method="post" class="habit-maker">
+                            <input type="number" name="board_id" value='<?php echo $board_id?>' hidden>
+                            <label for="name" method="post">Name</label>
+                            <div class="habit-name-submit">
+                                <input type="text" name="name" placeholder="Habit name" required>
+                                <button type="submit" name="create-habit">
+                                    <i class="material-icons">check</i>
+                                </button>
+                            </div>
+
+                            <div class="habit-option-wrapper">
+                                <div class="repetition-type-container">
+                                    <select name="repitition_type" id="repitition_type">
+                                        <option disabled selected hidden>Repetition Type</option>
+                                        <option value="daily">Daily</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="monthly">Monthly</option>
+                                        <option value="custom">Custom</option>
+                                    </select>  
+                                </div>
+                                
+                                <!-- Custom Format -->
+                                <div id="custom_repitition_value" style="display:none;">
+                                    <input type="number" name="custom_interval_value" placeholder="Every # days" min="1" max="999">
                                 </div>
 
-                                <div class="habit-option-wrapper">
-                                    <div class="repetition-type-container">
-                                        <select name="repitition_type" id="repitition_type">
-                                            <option disabled selected hidden>Repetition Type</option>
-                                            <option value="daily">Daily</option>
-                                            <option value="weekly">Weekly</option>
-                                            <option value="monthly">Monthly</option>
-                                            <option value="custom">Custom</option>
-                                        </select>  
-                                    </div>
-                                    
-                                    <!-- Custom Format -->
-                                    <div id="custom_repitition_value" style="display:none;">
-                                        <input type="number" name="custom_interval_value" placeholder="Every # days" min="1" max="999">
-                                    </div>
-
-                                    <!-- Weekly Format -->
-                                    <div id="dayofweek" style="display:none;">
-                                        <select name="dayofweek">
-                                            <option disabled selected hidden>Day Of Week</option>
-                                            <option value="sunday">Sunday</option>
-                                            <option value="monday">Monday</option>
-                                            <option value="tuesday">Tuesday</option>
-                                            <option value="wednesday">Wednesday</option>
-                                            <option value="thursday">Thursday</option>
-                                            <option value="friday">Friday</option>
-                                            <option value="saturday">Saturday</option>
-                                        </select>  
-                                    </div>
+                                <!-- Weekly Format -->
+                                <div id="dayofweek" style="display:none;">
+                                    <select name="dayofweek">
+                                        <option disabled selected hidden>Day Of Week</option>
+                                        <option value="sunday">Sunday</option>
+                                        <option value="monday">Monday</option>
+                                        <option value="tuesday">Tuesday</option>
+                                        <option value="wednesday">Wednesday</option>
+                                        <option value="thursday">Thursday</option>
+                                        <option value="friday">Friday</option>
+                                        <option value="saturday">Saturday</option>
+                                    </select>  
                                 </div>
-                            </form>
-                        </div>
-                    ';
-                    
+                            </div>
+                        </form>
+                    </div>
+                    <?php
                     // Habits
                     // Retrieve the current User ID that logged in
                     $query = "SELECT * FROM habits 
@@ -182,22 +181,19 @@
                     echo '</div>';
                 echo '</div>';
             }
-
-            // Create new board
-            echo '
-                <div class="create-new-category">
-                    <form action="" method="post">
-                        <p>Create New Board</p>
-                        <div>
-                            <input type="text" name="board_name" placeholder="New Board Name">
-                            <button type="submit" name="create-board">
-                                <i class="material-icons">check</i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            ';
         ?>
+        <!-- Create new board -->
+        <div class="create-new-category">
+            <form action="" method="post">
+                <p>Create New Board</p>
+                <div>
+                    <input type="text" name="board_name" placeholder="New Board Name">
+                    <button type="submit" name="create-board">
+                        <i class="material-icons">check</i>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>

@@ -1,5 +1,8 @@
-<?php include "php/db.php"?>
-<?php include "php/update-account.php"?>
+<?php
+    require "php/db.php";
+    include "php.utils/activity-logging.php";
+    include "php/update-account.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

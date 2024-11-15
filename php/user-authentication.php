@@ -49,7 +49,7 @@
         // Save the current user ID
         $_SESSION['currentUserID'] = $row['id'];
 
-        LogActivity_Login($row['id']);
+        LogActivity_Signin($row['id']);
 
         // Divert the user to their respective pages
         // Two users are expected, Client and Admin    
@@ -126,6 +126,6 @@
     
     // Handles Logout
     function User_Logout(){
-
+        
     }
 ?>

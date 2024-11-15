@@ -1,8 +1,16 @@
 <?php
-    function LogActivity_Login($id){
+    function LogActivity_Signin($id){
         global $conn;
         $message = GenerateActivityMessage('signin');
 
+        $query = "INSERT INTO activity_logs(user_id, operation) VALUES($id, '$message')";
+        $executedQuery = mysqli_query($conn, $query);
+    }
+    
+    function LogActivity_Signout($id){
+        global $conn;
+        $message = GenerateActivityMessage('signout');
+    
         $query = "INSERT INTO activity_logs(user_id, operation) VALUES($id, '$message')";
         $executedQuery = mysqli_query($conn, $query);
     }
@@ -12,6 +20,7 @@
         $date = date("h:i:s A");
         switch ($type){
             case 'signin': return "User signed in at $date";
+            case 'signout': return "User signed out at $date";
             case 'forgot': return "User changed password at $date";
         }
     }

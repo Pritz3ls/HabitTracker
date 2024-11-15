@@ -1,4 +1,7 @@
-<?php include "php/db.php"?>
+<?php
+    require "php/db.php";
+    include "php.utils/activity-logging.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

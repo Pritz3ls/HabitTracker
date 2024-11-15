@@ -33,23 +33,4 @@
     
         return $n_format . $suffix;
     }
-
-    function LogActivity_Login(){
-        global $conn;
-        $id = 1;
-        $query = "SELECT user_name FROM users WHERE id = $id";
-        $executedQuery = mysqli_query($conn, $query);
-        $data = mysqli_fetch_assoc($executedQuery);
-        $name = $data['user_name'];
-
-        echo GenerateActivityMessage('signin');
-    }
-
-    function GenerateActivityMessage($type){
-        date_default_timezone_set("Asia/Manila");
-        $date = date("h:i:s A");
-        switch ($type){
-            case 'signin': return "User signed in at $date";
-        }
-    }
 ?>

@@ -1,6 +1,7 @@
 <?php
     require "php/db.php";
     include 'php.utils/php-utils.php';
+    include "php.utils/activity-logging.php";
     include "php/admin.php";
     include 'php.dashboard/dashboard-admin-utils.php';
 ?>

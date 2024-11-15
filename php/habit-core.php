@@ -1,7 +1,113 @@
 <?php
+    // Redirect user to login page if the current session ID is empty or null
+    if(empty($_SESSION['currentUserID'])){
+        Header("Location: index.php");
+        exit;
+    }
+
+    // Handles user inputs
+    if(isset($_POST['create-board'])){
+        CreateBoard();
+    }
+    if(isset($_POST['create-habit'])){
+        CreateHabit();
+    }
     if(isset($_POST['start_habit'])){
-        $habit_id = $_POST['habit_id'];
+        ProgressHabit();
+    }
+    if(isset($_POST['delete_habit'])){
+        ArchiveHabit();   
+    }
+
+    // Board Level
+    // Handles Board Creation
+    function CreateBoard(){
+        global $conn;
+        // Fetch data
+        $userId = $_SESSION['currentUserID'];
+        $board_name = $_POST['board_name'];
+        if(empty($board_name)){
+            echo "<script>alert('Invalid inputs!')</script>";
+            return;
+        }
+
+        $query = "INSERT INTO habit_board(board_name, user_id)
+        VALUES('{$board_name}',$userId)";
+        $executedQuery = mysqli_query($conn,$query);
+        if(!$executedQuery){
+            echo "Error!";
+        }
+    }
+    function ArchiveBoard(){
+
+    }
+
+    // Habit Level
+    // Handles Habit creation
+    function CreateHabit(){
+        global $conn;
+        // Fetch all necessary details
+        $name = $_POST['name'];
+        $board_id = $_POST['board_id'];
+        echo $board_id;
+
+        if(empty($_POST['repitition_type']) || empty($name)){
+            echo '<script>alert("Invalid inputs, Try again.")</script>';
+            return;
+        }
         
+        $repitition_type = $_POST['repitition_type'];
+
+        /*
+            IF CONDITION
+            Check if the dropdown value is custom, if not
+            then proceed with non-custom habit
+        */
+        switch ($repitition_type) {
+            case 'weekly':
+                # code...
+                if(empty($_POST['dayofweek'])) {
+                    echo '<script>alert("Weekday not specified.")</script>';
+                    return;
+                }
+                $dayofweek = $_POST['dayofweek'];
+                $query = 
+                "INSERT INTO habits(board_id, habit_name, repetition_type, dayofweek)
+                VALUES ($board_id,'{$name}','{$repitition_type}','{$dayofweek}')";
+                break;
+            case 'custom':
+                # code...
+                $custom_interval_value = $_POST['custom_interval_value'];
+                if($custom_interval_value <= 0) {
+                    echo '<script>alert("Days not specified.")</script>';
+                    return;
+                }
+                $query = 
+                "INSERT INTO habits(board_id, habit_name, repetition_type, custom_interval_value)
+                VALUES ($board_id,'{$name}','{$repitition_type}','{$custom_interval_value}')";
+                break;
+            default:
+                # code...
+                $query = 
+                "INSERT INTO habits(board_id, habit_name, repetition_type)
+                VALUES ($board_id,'{$name}','{$repitition_type}')";
+                break;
+        }
+
+        // Execute the sql to the database
+        $add_data = mysqli_query($conn, $query);
+        // Check if the sql execution is successful
+        if(!$add_data){
+            echo "Something went wrong";
+            return;
+        }
+        echo '<script>alert("Habit Data added")</script>';
+    }
+    // Handles Habit Progression
+    function ProgressHabit(){
+        global $conn;
+        
+        $habit_id = $_POST['habit_id'];
         // Make a new habit log referencing this habit
         $query = "SELECT * FROM habits WHERE id = {$habit_id}";
 
@@ -64,8 +170,25 @@
         $xp_query = "UPDATE users SET user_xp = user_xp + {$correctXP} WHERE id = {$user_id}";
         $xp = mysqli_query($conn, $xp_query); 
     }
+    // Handles Habit Archival
+    function ArchiveHabit(){
+        global $conn;
+        // Create a deletion query using the habit_id
+        $habit_id = $_POST['habit_id'];
+        $delete_query = "UPDATE habits 
+        SET deleted_at = CURRENT_TIMESTAMP
+        WHERE id = {$habit_id}";
+        $delete = mysqli_query($conn, $delete_query);
+    
+        // Check if the executed query is successful
+        if(!$delete){
+            echo "Something went wrong!" . mysqli_connect_error($conn);
+            return;
+        }
+    }
 
-    // Get modified date using the repetition type
+    // Habit Utils
+    // Get how many interval to modify the next completion date
     function getRepetitionInterval($repetition_type, $lastCompletion, $custom_interval){
         $interval = date_create($lastCompletion);
         switch ($repetition_type){
@@ -132,6 +255,7 @@
             case 'saturday':return 6; break;
         }
     }
+    // Return the Weekday string
     function getWeekDayString($index){
         switch ($index) {
             case 0:return 'Sunday'; break;
