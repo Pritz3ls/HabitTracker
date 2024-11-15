@@ -41,7 +41,7 @@
         </div>
         <input type="submit" value="Continue" name="forgotPass">
         <div class="button-container">
-            <a href="testLogin.php" class="back-button">Back</a>
+            <a href="login.php" class="back-button">Back</a>
         </div>
     </form>
 </body>

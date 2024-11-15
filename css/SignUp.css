@@ -58,7 +58,12 @@ label {
     color:var(--secondarycolor);
 }
 
-input[type="text"], input[type="password"], select {
+.iti__selected-flag{
+    flex-direction: column;
+    justify-content: center;
+}
+
+input[type="text"], input[type="password"], input[type="tel"], select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;

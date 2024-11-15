@@ -11,6 +11,6 @@
     function user_logout(){
         session_start();
         session_destroy();
-        Header("Location: ../testLanding.php");
+        Header("Location: ../index.php");
     }
 ?>

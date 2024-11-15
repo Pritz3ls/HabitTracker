@@ -4,199 +4,95 @@
 
 body {
     font-family: 'Poppins', sans-serif; 
-    background-color: var(--backgroundcolor); 
+    background-color: var(--backgroundcolorvariant); 
     height: 100vh; 
     margin: 0; 
-  }
+}
 
-h1 {
+h1{
     color: var(--primarycolor);
-    text-align: center;
-    line-height: 0px;
-    margin-top: 20px;
 }
 
-/* Table Styling */
-.table-wrapper {
-    background-color: var(--secondarycolor);
-    border-radius: 10px;
-    
-    margin: 20px auto;
-    width: 90%;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px;
+.motd{
+    padding: 10px 0;
+    /* margin: 20px 50px; */
 }
 
-.table-scroll {
-    height: 150px;
-}
-/* Table */
-h2{
-    line-height: 0px;
-    color: var(--backgroundcolor);
-}
-.table-wrapper{
-    border: 1px var(--backgroundcolor) solid;
-    position: relative;
-}
-.table-scroll{
-    border: 1px var(--primarycolor) solid;
-    height: 200px;
-    overflow-y: auto;
-    margin-top: 10px;
-    border-radius: 5px;
-    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.2);
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-th, td {
-    padding: 12px;
-    text-align: center;
-    border: 1px solid #ddd;
-}
-
-th {
-    background-color: var(--backgroundcolor);
-    color: white;
-    font-size: 16px;
-    text-transform: uppercase;
-}
-
-tr:nth-child(odd) {
-    background-color: #ddd;
-}
-
-tr:nth-child(even) {
-    background-color: #eee;
-}
-
-td {
-    font-size: 14px;
-    color: #555;
-}
-
-td:has(input){
+.motd .profile{
     display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Wrapper */
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    font-family: 'Poppin';
-    gap: 5px;
-}
 
-input[type="submit"], input[type="button"] {
-    padding: 5px 10px;
-    background-color: var(--primarycolor);
-    color: var(--secondarycolor);
-    
-    border: none;
-    border-radius: 5px;
-    
-    cursor: pointer;
-    transition: all 0.3s ease;
+    gap: 10px;
 }
-
-input[type="submit"]:hover, input[type="button"]:hover {
-    background-color: var(--backgroundcolor);
+/* Statistics */
+.statistics{
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    gap: 10px;
+    flex-direction: column;
 }
-
-label {
-    font-size: 14px;
-    font-weight: bold;
+.statistics .container{
+    display: flex;
 }
-
-input[type="text"], input[type="date"] {
+.statistics .container .reports{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 15px;
+    height: fit-content;
+}
+/* Statistics Boxes Items */
+.item{
+    width: 250px;
+    height: 160px;
     padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    margin-right: 5px;
+    /* flex-grow: 1; */
+    
+    background-color: var(--secondaryaccentcolor);
 }
-
-.burgir-btn {
-    background-color: #2980b9;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    margin: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.burgir-btn:hover {
-    background-color: #3498db;
-}
-
-/* Form Section Styling */
-form div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-}
-
-form input[type="text"], form input[type="date"] {
-    padding: 7px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-right: 10px;
-}
-
-form input[type="submit"] {
-    padding: 7px 15px;
-    border-radius: 5px;
-    border: none;
-    background-color: #3498db;
-    color: white;
-    cursor: pointer;
-    transition: background-color  0.3s ease;
-}
-
-form input[type="submit"]:hover {
-    background-color: #2980b9;
-}
-
-form label {
-    font-size: 14px;
+.item .head{
+    line-height: 2px;
     font-weight: bold;
-    margin-right: 10px;
+    text-align: center;
+}
+.item{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 100%;
+}   
+.item .percentage{
+    text-align: center;
+    line-height: 0px;
+    font-size: 30px;
+    color:  var(--primarycolor);
+}
+.item .label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    font-size: 13px;
+}
+.item .label p{
+    line-height: 0;
 }
 
-/* Responsive Design */
-
-/* Mobile Devices (max-width: 768px) */
-@media only screen and (max-width: 768px) {
-    .container {
-        height: 80vh;
-    }
-    .creator {
-        max-width: 250px;
-    }
-    .burgir-btn {
-        padding: 8px 12px;
-    }
-}
-
-/* Tablet Devices (min-width: 769px and max-width: 1024px) */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-    .container {
-        height: 90vh;
-    }
-    .creator {
-        max-width: 280px;
-    }
-}
-
-/* Desktop Devices (min-width: 1024px) */
-@media only screen and (min-width: 1024px) {
-    .container {
-        height: 100vh;
-    }
-    .creator {
-        max-width: 300px;
-    }
+.container .graph{
+    flex-grow: 1;
+    height: fit-content;
+    background-color: var(--secondarycolor);
 }

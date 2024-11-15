@@ -1,5 +1,7 @@
-<?php include "php/db.php"?>
-<?php include "php/user-creation.php"?>
+<?php
+    require "php/db.php";
+    include "php/user-authentication.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +34,7 @@
         </div>
         <div>
             <label for="phonenumber" method="post">Phone Number</label>
-            <input type="text" name="phonenumber" pattern="[+63][0-9]{10}" placeholder="+63 Phone Number" required>
+            <input type="text" name="phonenumber" pattern="[09][0-9]{10}" placeholder="+63 Phone Number" required>
         </div>
         <div>
             <label for="password" method="post">Password</label>
@@ -53,17 +55,10 @@
             <input type="submit" value="SignUp" name="create">
         </div>
         <div>
-            <a href="testLogin.php">Already have an account? Login</a>
+            <a href="login.php">Already have an account? Login</a>
         </div>
-        <!-- For Debugging purpose -->
-        <!-- <div>
-            <select name="user_type" id="" method="post">
-                <option value="client">Client</option>
-                <option value="admin">Admin</option>
-            </select>
-        </div> -->
         <div class="links">
-            <a href="testLanding.php" class="auth-link">Back</a>
+            <a href="index.php" class="auth-link">Back</a>
         </div>
     </form>
 </body>
