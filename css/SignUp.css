@@ -58,12 +58,7 @@ label {
     color:var(--secondarycolor);
 }
 
-.iti__selected-flag{
-    flex-direction: column;
-    justify-content: center;
-}
-
-input[type="text"], input[type="password"], input[type="tel"], select {
+input[type="text"], input[type="password"], select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -168,6 +163,17 @@ a:hover {
     animation: fadeout 3s;
     animation-fill-mode: forwards;
 }
+
+.terms{
+    display: block;
+    color: var(--secondarycolor);
+    font-size: 12px;
+    text-align: center;
+}
+.terms a{
+    font-size: inherit;    
+}
+
   
 .error-message::before {
     content: '⚠️';

@@ -51,6 +51,10 @@
             </div>
             <input type="hidden" id="hiddenCaptcha" name="hiddenCaptcha">
         </div>
+        <div class="terms">
+            <input type="checkbox" name="terms" required id="termsCheck">
+            <label for="terms"> I agree to these <a href="#">Terms and Conditions</a>.</label>
+        </div>
         <div class="button-container">
             <input type="submit" value="SignUp" name="create">
         </div>
@@ -61,5 +65,8 @@
             <a href="index.php" class="auth-link">Back</a>
         </div>
     </form>
+    <script>
+        document.getElementById("termsCheck").required = true;
+    </script>
 </body>
 </html>
