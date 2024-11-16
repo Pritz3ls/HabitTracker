@@ -1,5 +1,8 @@
-<?php include "php/db.php"?>
-<?php include "php/user-login.php"?>
+<?php 
+    include "php/db.php";
+    include "php.utils/activity-logging.php";
+    include "php/user-authentication.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,13 +48,13 @@
             <input type="submit" value="Login" name="login">
         </div>
         <div class="auth-link-container">
-            <a href="testForgotPassword.php" class="auth-link">Forgot password</a>
+            <a href="password-recovery.php" class="auth-link">Forgot password</a>
         </div>
         <div class="auth-link-container">
-            <a href="testSignUp.php" class="auth-link">Don't have an account? SignUp</a>
+            <a href="signup.php" class="auth-link">Don't have an account? SignUp</a>
         </div>
         <div class="button-container">
-            <a href="testLanding.php" class="auth-link">Back</a>
+            <a href="index.php" class="auth-link">Back</a>
         </div>
         </form>
 </body>

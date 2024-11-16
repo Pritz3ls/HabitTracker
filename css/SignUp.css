@@ -163,6 +163,17 @@ a:hover {
     animation: fadeout 3s;
     animation-fill-mode: forwards;
 }
+
+.terms{
+    display: block;
+    color: var(--secondarycolor);
+    font-size: 12px;
+    text-align: center;
+}
+.terms a{
+    font-size: inherit;    
+}
+
   
 .error-message::before {
     content: '⚠️';

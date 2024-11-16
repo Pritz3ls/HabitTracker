@@ -7,7 +7,7 @@ CREATE TABLE users (
     -- Log for users
     deleted_at DATETIME,
     user_xp INT DEFAULT 0,
-    account_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE habit_board(
@@ -50,14 +50,14 @@ CREATE TABLE activity_logs(
     	FOREIGN KEY (admin_id) REFERENCES users(id)
 );
 
--- Bug Encountered
-CREATE TABLE bug_report{
-    bug_id AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
+-- Bug Reports
+CREATE TABLE bug_report(
+    bug_id INT AUTO_INCREMENT PRIMARY KEY,
     report_title VARCHAR(255) NOT NULL,
     report_content TEXT NOT NULL,
-        FOREIGN KEY (user_id) REFERENCES users(id)
-}
+    bug_status ENUM('pending','solved','duplicate','invalid') DEFAULT 'pending',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+)
 
 /*
 This SQL is for clients only,

@@ -1,5 +1,8 @@
-<?php include "php/db.php"?>
-<?php include "php/update-pass.php"?>
+<?php
+    require "php/db.php";
+    include "php.utils/activity-logging.php";
+    include "php/update-pass.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +44,7 @@
         </div>
         <input type="submit" value="Continue" name="forgotPass">
         <div class="button-container">
-            <a href="testLogin.php" class="back-button">Back</a>
+            <a href="login.php" class="back-button">Back</a>
         </div>
     </form>
 </body>

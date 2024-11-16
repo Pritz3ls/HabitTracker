@@ -1,7 +1,4 @@
-<?php
-    // Start session
-    session_start();
-    
+<?php    
     // Update password of the user
     if(isset($_POST['forgotPass'])){
         $phonenumber = $_POST['phonenumber'];

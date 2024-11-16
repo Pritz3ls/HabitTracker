@@ -1,5 +1,7 @@
-<?php include "php/db.php"?>
-<?php include "php/user-creation.php"?>
+<?php
+    require "php/db.php";
+    include "php/user-authentication.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,22 +51,22 @@
             </div>
             <input type="hidden" id="hiddenCaptcha" name="hiddenCaptcha">
         </div>
+        <div class="terms">
+            <input type="checkbox" name="terms" required id="termsCheck">
+            <label for="terms"> I agree to these <a href="#">Terms and Conditions</a>.</label>
+        </div>
         <div class="button-container">
             <input type="submit" value="SignUp" name="create">
         </div>
         <div>
-            <a href="testLogin.php">Already have an account? Login</a>
+            <a href="login.php">Already have an account? Login</a>
         </div>
-        <!-- For Debugging purpose -->
-        <!-- <div>
-            <select name="user_type" id="" method="post">
-                <option value="client">Client</option>
-                <option value="admin">Admin</option>
-            </select>
-        </div> -->
         <div class="links">
-            <a href="testLanding.php" class="auth-link">Back</a>
+            <a href="index.php" class="auth-link">Back</a>
         </div>
     </form>
+    <script>
+        document.getElementById("termsCheck").required = true;
+    </script>
 </body>
 </html>

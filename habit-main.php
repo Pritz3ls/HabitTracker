@@ -1,8 +1,8 @@
-<?php include "php/db.php"?>
-<?php include "php/habit-creation.php"?>
-<?php include "php/start-habit.php"?>
-<?php include "php/delete-habit.php"?>
-<?php include "php/create-board.php"?>
+<?php 
+    require "php/db.php";
+    include "php.utils/activity-logging.php";
+    include "php/habit-core.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,19 +55,19 @@
             <img src="resource/application-icon.png" alt="">
         </div>
         <div class="navbar_items">
-            <a href="testHabit.php">
+            <a href="habit-main.php">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" ><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
-                <p>Home</p>
+                <p>My Habits</p>
             </a>
-            <a href="">
+            <a href="dashboard-user.php">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h240v-560H200v560Zm320 0h240v-280H520v280Zm0-360h240v-200H520v200Z"/></svg>
                 <p>Dashboard</p>
             </a>
-            <a href="testLeaderBoard.php">
+            <a href="user-leaderboard.php">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M280-120v-80h160v-124q-49-11-87.5-41.5T296-442q-75-9-125.5-65.5T120-640v-40q0-33 23.5-56.5T200-760h80v-80h400v80h80q33 0 56.5 23.5T840-680v40q0 76-50.5 132.5T664-442q-18 46-56.5 76.5T520-324v124h160v80H280Zm0-408v-152h-80v40q0 38 22 68.5t58 43.5Zm200 128q50 0 85-35t35-85v-240H360v240q0 50 35 85t85 35Zm200-128q36-13 58-43.5t22-68.5v-40h-80v152Zm-200-52Z"/></svg>
                 <p>Leaderboard</p>
             </a>
-            <a href="testAccountSettings.php">
+            <a href="user-account-settings.php">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"/></svg>
                 <p>Settings</p>
             </a>
@@ -88,55 +88,54 @@
             while($row = mysqli_fetch_assoc($executed_query)){
                 $board_id = $row['id'];
                 // Habit Maker
-                echo '<div class="habit-category-container">';
-                    echo "<p class='board-name'>{$row['board_name']}</p>";
-                    echo '
-                        <div class="habit-maker">
+                ?>
+                <div class="habit-category-container">
+                    <p class='board-name'><?php echo $row['board_name']?></p>
+                    <div class="habit-maker">
                         <!-- Habit Maker Container -->
-                            <form action="testHabit.php" method="post" class="habit-maker">
-                                <input type="number" name="board_id" value='.$board_id.' hidden>
-                                <label for="name" method="post">Name</label>
-                                <div class="habit-name-submit">
-                                    <input type="text" name="name" placeholder="Habit name" required>
-                                    <button type="submit" name="create">
-                                        <i class="material-icons">check</i>
-                                    </button>
+                        <form action="" method="post" class="habit-maker">
+                            <input type="number" name="board_id" value='<?php echo $board_id?>' hidden>
+                            <label for="name" method="post">Name</label>
+                            <div class="habit-name-submit">
+                                <input type="text" name="name" placeholder="Habit name" required>
+                                <button type="submit" name="create-habit">
+                                    <i class="material-icons">check</i>
+                                </button>
+                            </div>
+
+                            <div class="habit-option-wrapper">
+                                <div class="repetition-type-container">
+                                    <select name="repitition_type" id="repitition_type">
+                                        <option disabled selected hidden>Repetition Type</option>
+                                        <option value="daily">Daily</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="monthly">Monthly</option>
+                                        <option value="custom">Custom</option>
+                                    </select>  
+                                </div>
+                                
+                                <!-- Custom Format -->
+                                <div id="custom_repitition_value" style="display:none;">
+                                    <input type="number" name="custom_interval_value" placeholder="Every # days" min="1" max="999">
                                 </div>
 
-                                <div class="habit-option-wrapper">
-                                    <div class="repetition-type-container">
-                                        <select name="repitition_type" id="repitition_type">
-                                            <option disabled selected hidden>Repetition Type</option>
-                                            <option value="daily">Daily</option>
-                                            <option value="weekly">Weekly</option>
-                                            <option value="monthly">Monthly</option>
-                                            <option value="custom">Custom</option>
-                                        </select>  
-                                    </div>
-                                    
-                                    <!-- Custom Format -->
-                                    <div id="custom_repitition_value" style="display:none;">
-                                        <input type="number" name="custom_interval_value" placeholder="Every # days" min="1" max="999">
-                                    </div>
-
-                                    <!-- Weekly Format -->
-                                    <div id="dayofweek" style="display:none;">
-                                        <select name="dayofweek">
-                                            <option disabled selected hidden>Day Of Week</option>
-                                            <option value="sunday">Sunday</option>
-                                            <option value="monday">Monday</option>
-                                            <option value="tuesday">Tuesday</option>
-                                            <option value="wednesday">Wednesday</option>
-                                            <option value="thursday">Thursday</option>
-                                            <option value="friday">Friday</option>
-                                            <option value="saturday">Saturday</option>
-                                        </select>  
-                                    </div>
+                                <!-- Weekly Format -->
+                                <div id="dayofweek" style="display:none;">
+                                    <select name="dayofweek">
+                                        <option disabled selected hidden>Day Of Week</option>
+                                        <option value="sunday">Sunday</option>
+                                        <option value="monday">Monday</option>
+                                        <option value="tuesday">Tuesday</option>
+                                        <option value="wednesday">Wednesday</option>
+                                        <option value="thursday">Thursday</option>
+                                        <option value="friday">Friday</option>
+                                        <option value="saturday">Saturday</option>
+                                    </select>  
                                 </div>
-                            </form>
-                        </div>
-                    ';
-                    
+                            </div>
+                        </form>
+                    </div>
+                    <?php
                     // Habits
                     // Retrieve the current User ID that logged in
                     $query = "SELECT * FROM habits 
@@ -182,22 +181,19 @@
                     echo '</div>';
                 echo '</div>';
             }
-
-            // Create new board
-            echo '
-                <div class="create-new-category">
-                    <form action="" method="post">
-                        <p>Create New Board</p>
-                        <div>
-                            <input type="text" name="board_name" placeholder="New Board Name">
-                            <button type="submit" name="create-board">
-                                <i class="material-icons">check</i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            ';
         ?>
+        <!-- Create new board -->
+        <div class="create-new-category">
+            <form action="" method="post">
+                <p>Create New Board</p>
+                <div>
+                    <input type="text" name="board_name" placeholder="New Board Name">
+                    <button type="submit" name="create-board">
+                        <i class="material-icons">check</i>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>
