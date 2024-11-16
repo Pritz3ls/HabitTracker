@@ -1,7 +1,5 @@
 <?php
     // Start a session
-    session_start();
-
     // Update the user information
     if(isset($_POST['update_info'])){
         $password_strength = (int)$_POST['strIndex'];

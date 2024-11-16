@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    
     
     if(isset($_POST['login'])){
         // Fetch CAPTCHA input from the user and the generated CAPTCHA value
