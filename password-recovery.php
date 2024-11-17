@@ -12,6 +12,7 @@
     <script defer src="js/passwordstrength.js"></script>
 
     <!-- Load  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script defer src="js/spinner.js"></script>
     <script defer src="js/showpassword.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
@@ -20,7 +21,6 @@
     <link rel="stylesheet" href="css/forgotpass.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/pass-strength.css?v=<?php echo time(); ?>">
     <title>habere | Change Password</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Spinner -->
@@ -36,15 +36,23 @@
         </div>
         <div>
             <label for="new_password" method="post">New Password</label>
-            <input type="password" name="new_password" id="password-field" class="form-control" placeholder="Enter New Password" required onchange="checkPasswordStrength()">
-            <input type="hidden" name="strIndex" id="strIndex" value=0>
+            <div class="password-input">
+                <input type="password" name="new_password" id="password" class="form-control" placeholder="Enter New Password" required onchange="checkPasswordStrength()">
+                <input type="hidden" name="strIndex" id="strIndex" value=0>
+                <button type="button">
+                    <i class="material-icons" onClick="showPassword('password')">visibility</i>
+                </button>
+            </div>
             <p id="strength"></p>
-            <i class="fa fa-eye toggle-password"></i>
         </div>
         <div>
             <label for="confirm_password" method="post">Confirm Password</label>
-            <input type="password" name="confirm_password"  id="password-field" class="form-control" placeholder="Enter Confirm Password" required>
-            <i class="fa fa-eye toggle-password"></i>
+            <div class="password-input">
+                <input type="password" name="confirm_password" id="confirm-password-field" class="form-control" placeholder="Enter Confirm Password" required>
+                <button type="button">
+                    <i class="material-icons" onClick="showPassword('confirm-password-field')">visibility</i>
+                </button>
+            </div>
         </div>
         <input type="submit" value="Continue" name="forgotPass">
         <div class="button-container">

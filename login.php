@@ -9,7 +9,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
+    
     <!-- Load  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script defer src="js/spinner.js"></script>
     <script defer src="js/showpassword.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
@@ -19,7 +21,6 @@
     <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/login.css?v=<?php echo time(); ?>">
     <title>habere | Login</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Spinner -->
@@ -33,16 +34,20 @@
             <label for="username" method="post">Username</label>
             <input type="text" name="username" placeholder="Enter Username" required>
         </div>
-        <div>
-        <input id="password-field" type="password" name="password" class="form-control" placeholder="Password" required>
-        <i class="fa fa-eye toggle-password"></i>
+        <div class="password-input">
+            <input id="password" type="password" name="password" class="form-control" placeholder="Password" required>
+            <button type="button">
+                <i class="material-icons" onClick="showPassword('password')">visibility</i>
+            </button>
         </div>
         <div class="captcha">
             <label for="captchaInput">Enter Captcha</label><br>
             <span id="captcha"></span><br>
             <div class="captchaInput">
                 <input type="text" id="captchaInput" name="captchaInput" placeholder="Enter Captcha" required><br>
-                <button type="button" class="refreshCaptcha" onclick="generateCaptcha()">Refresh</button>
+                <button type="button" class="refreshCaptcha" onclick="generateCaptcha()">
+                    <i class="material-icons">refresh</i>
+                </button>
             </div>
             <input type="hidden" id="hiddenCaptcha" name="hiddenCaptcha">
         </div>

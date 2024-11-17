@@ -1,4 +1,11 @@
 <?php
+    // Redirect user to login page if the current session ID is empty or null
+    if(empty($_SESSION['currentUserID'])){
+        Header("Location: index.php");
+        exit;
+    }
+    $curID = $_SESSION['currentUserID'];
+
     // Registered Users
     function Fetch_Total_RegisteredUsers(){
         global $conn;
@@ -218,7 +225,17 @@
         $data = mysqli_fetch_assoc($executed_query);
         return $data['custom'];
     }
-    
+
+    // Fetch Username
+    function Fetch_Username(){
+        global $conn;
+        global $curID;
+        $query = "SELECT user_name FROM users WHERE id = $curID";
+        $executed_query = mysqli_query($conn,$query);
+        $data = mysqli_fetch_assoc($executed_query);
+        return $data['user_name'];
+    }
+
     // Template
     /*
     function Template(){

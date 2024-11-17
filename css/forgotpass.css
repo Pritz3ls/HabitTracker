@@ -60,6 +60,28 @@ input[type="password"] {
     transition: all 0.3s ease;
 }
 
+
+.password-input{
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+.password-input input[type="password"]{
+    flex-grow: 5;
+}
+.password-input button{
+    width: 15%;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+.password-input button:hover{
+    background-color: var(--hyperlinks);
+    color: var(--secondarycolor);
+    transition: all 0.3s;
+}
+
+
 input[type="text"]:focus,
 input[type="password"]:focus {
     border-color: #6c63ff;

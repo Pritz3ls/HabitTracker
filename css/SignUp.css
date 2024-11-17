@@ -66,6 +66,26 @@ input[type="text"], input[type="password"], select {
     width: 100%;
 }
 
+.password-input{
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+.password-input input[type="password"]{
+    flex-grow: 5;
+}
+.password-input button{
+    width: 15%;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+.password-input button:hover{
+    background-color: var(--hyperlinks);
+    color: var(--secondarycolor);
+    transition: all 0.3s;
+}
+
 input[type="submit"] {
     padding: 10px;
     background-color:var(--primarycolor);
@@ -103,7 +123,10 @@ input[type="submit"]:hover {
     background-color: var(--secondaryaccentcolor);
     border: none;
 
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     border-radius: 5px;
     padding: 5px;
     margin-left: 2px;

@@ -2,7 +2,6 @@
     require "php/db.php";
     include 'php.utils/php-utils.php';
     include "php.utils/activity-logging.php";
-    include "php/admin.php";
     include 'php.dashboard/dashboard-admin-utils.php';
 ?>
 <!DOCTYPE html>
@@ -64,99 +63,100 @@
     </div>
 
     <!-- Contents -->
-    <!-- MOTD -->
-    <div class="motd">
-        <div class="profile">
-            <div class="detail">
-                <h4>Dashboard<br>
-                    <?php echo "Eugene Perez"?>
-                </h4>
+    <div class="holder">
+        <!-- MOTD -->
+        <div class="dashboard-head">
+            <div class="profile">
+                <div class="info">
+                    <h4>Welcome back,<br>
+                        <?php echo Fetch_Username()?>
+                    </h4>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Dashboard Wrapper -->
-    <div class="wrapper">
-        <div class="statistics">
-            <div class="container">
-                <div class="reports">
-                    <!-- Registered Users Container -->
-                    <div class="item">
-                        <div class="content">
-                            <div class="head">
-                                <p>Registered Users</p>
-                            </div>
-                            <div class="percentage">
-                                <h1>
-                                    <?php echo Fetch_Total_RegisteredUsers()?>
-                                </h1>
-                            </div>
-                            <div class="label">
-                                <?php echo Fetch_Readings_RegisteredUsers()?>
+        <!-- Statistics Wrapper -->
+        <div class="wrapper">
+            <div class="statistics">
+                <div class="container">
+                    <div class="reports">
+                        <!-- Registered Users Container -->
+                        <div class="item">
+                            <div class="content">
+                                <div class="head">
+                                    <p>Registered Users</p>
+                                </div>
+                                <div class="percentage">
+                                    <h1>
+                                        <?php echo Fetch_Total_RegisteredUsers()?>
+                                    </h1>
+                                </div>
+                                <div class="label">
+                                    <?php echo Fetch_Readings_RegisteredUsers()?>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Active Users -->
-                    <div class="item">
-                        <div class="content">
-                            <div class="head">
-                                <p>Active Users</p>
-                            </div>
-                            <div class="percentage">
-                                <h1>
-                                    <?php echo Fetch_Total_ActiveUsers()?>
-                                </h1>
-                            </div>
-                            <div class="label">
-                                <?php
-                                    echo Fetch_Readings_ActiveUsers();
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Total Habits -->
-                    <div class="item">
-                        <div class="content">
-                            <div class="head">
-                                <p>Habits</p>
-                            </div>
-                            <div class="percentage">
-                                <h1>
-                                <?php echo Fetch_Total_Habits()?>
-                                </h1>
-                            </div>
-                            <div class="label">
-                                <?php
-                                    echo Fetch_Readings_Habits();
-                                ?>
+                        <!-- Active Users -->
+                        <div class="item">
+                            <div class="content">
+                                <div class="head">
+                                    <p>Active Users</p>
+                                </div>
+                                <div class="percentage">
+                                    <h1>
+                                        <?php echo Fetch_Total_ActiveUsers()?>
+                                    </h1>
+                                </div>
+                                <div class="label">
+                                    <?php
+                                        echo Fetch_Readings_ActiveUsers();
+                                    ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Completed Habits -->
-                    <div class="item">
-                        <div class="content">
-                            <div class="head">
-                                <p>Completed Habits</p>
+                        
+                        <!-- Total Habits -->
+                        <div class="item">
+                            <div class="content">
+                                <div class="head">
+                                    <p>Habits</p>
+                                </div>
+                                <div class="percentage">
+                                    <h1>
+                                    <?php echo Fetch_Total_Habits()?>
+                                    </h1>
+                                </div>
+                                <div class="label">
+                                    <?php
+                                        echo Fetch_Readings_Habits();
+                                    ?>
+                                </div>
                             </div>
-                            <div class="percentage">
-                                <h1>
-                                    <?php echo Fetch_Completed_Habits()?>
-                                </h1>
-                            </div>
-                            <div class="label">
-                                <?php
-                                    echo Fetch_Readings_CompletedHabits();
-                                ?>
+                        </div>
+                        
+                        <!-- Completed Habits -->
+                        <div class="item">
+                            <div class="content">
+                                <div class="head">
+                                    <p>Completed Habits</p>
+                                </div>
+                                <div class="percentage">
+                                    <h1>
+                                        <?php echo Fetch_Completed_Habits()?>
+                                    </h1>
+                                </div>
+                                <div class="label">
+                                    <?php
+                                        echo Fetch_Readings_CompletedHabits();
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <div id="lineChart" class="graph">
+                <div class="container">
+                    <div id="lineChart" class="graph">
+                    </div>
                 </div>
             </div>
         </div>
@@ -196,27 +196,43 @@
                 
 
             var options = {
+                curveType: 'function',
                 pointSize: 2,
+                backgroundColor: { fill:'transparent' },
+                fontName: 'Poppins',
+                style: {
+                    borderRadius: "25px",
+                },
                 // Legend
                 legend: {
                     position: 'top',
-                    alignment: 'center'
+                    alignment: 'center',
+                    textStyle:{
+                        bold: true,
+                    }
                 },
                 // Axis
                 vAxis: { 
                     format: '',
                     gridlines: {
                         color: 'none'
+                    },
+                    viewWindow:{
+                        min:0
+                    },
+                    textStyle:{
+                        bold: true,
                     }
                 },
                 hAxis: {
                     format: 'MMMM',
-                    gridlines: {
-                        color: 'none'
+                    gridlines: {color: 'none'},
+                    baselineColor: 'none',
+                    textStyle:{
+                        bold: true,
                     }
                 },
-                height: 300,
-                backgroundColor: '#ededed',
+                height: 250,
             };
             // Draw Chart
             const chart = new google.visualization.LineChart(document.getElementById('lineChart'));
