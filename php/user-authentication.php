@@ -54,7 +54,7 @@
         // Divert the user to their respective pages
         // Two users are expected, Client and Admin    
         if($row['user_type'] == 'client'){
-            Header('Location: habit-main.php');  
+            Header('Location: user-dashboard.php');  
             exit;
         }else{ /* Admin */
             Header('Location: admin-dashboard.php');  

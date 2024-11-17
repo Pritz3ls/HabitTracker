@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Dangrek&family=Modak&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    font-family: 'Poppins',Arial, Helvetica, sans-serif;
+    background-color:var(--backgroundcolor);
+    overflow: hidden;
+}
+
+.bod{
+    margin: 10px 100px;
+}
+.holder{
+    background-color: var(--secondarycolor);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    /* padding: 20px; */
+    border-radius: 25px;
+}
+.container{
+    display: flex;
+    gap: 10px;
+}
+.container .statistics{
+    justify-content: space-between;
+}
+.wrapper{
+    background-color: var(--secondaryaccentcolor);
+    color: black;
+    margin: 10px;
+    border-radius: 25px;
+    padding: 15px;
+}
+.square{
+    width: 250px;
+    height: 250px;
+}
+.fill{
+    width: 250px;
+    height: 90vh;
+}
+.fgrow{
+    flex-grow: 5;
+}
+.dircolumn{
+    flex-direction: column;
+}
+
+/* Specific */
+/* Events */
+.profile{
+    background-image: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
+    color: var(--secondarycolor);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+.profile .info{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.profile .info a{
+    color: var(--secondarycolor);
+    text-decoration: none;
+    font-weight: 500;
+
+    margin-top: auto;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+}
+
+/* Progress */
+.progress{
+    background-color: black;
+    color: white;
+    user-select: none;
+}
+.progress{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.progress .note{
+    font-size: 13px;
+    line-height: 15px;
+    font-weight: 300;
+}
+.progress .note p,h1{
+    margin: 0;
+}
+.progress .total{
+    font-size: 60px;
+    line-height: normal;
+    justify-self: flex-end;
+}
+.progress .total p{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Graphs */
+.graph{
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25) inset;
+}
+
+
+/* Today Habits / TODO */
+.todo{
+    background-color: var(--secondarycolor);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+.todo .wrapper{
+    background-color: transparent;
+    border-bottom: 2px solid var(--secondaryaccentcolor);
+    border-radius: 0px;
+    text-align: center;
+    font-weight: bolder;
+}
+.todo .wrapper p{
+    margin: 0;
+}
+.todo .habitcon{
+    flex-grow: 5;
+    overflow-y: auto;
+    gap: 2px;
+}
+.todo .item{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--secondarycolor);
+    
+    margin: 10px;
+    padding: 15px;
+
+    transition: all 0.3s;
+    border-radius: 25px;
+    border: 2px solid var(--secondaryaccentcolor);
+    user-select: none;
+}
+.todo .item .details{
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    font-weight: normal;
+    flex-grow: 5;
+}
+.todo .item .details p,h4{
+    margin: 0;
+}
+.todo .item .control{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.todo .item .control a{
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--primarycolor);
+    color: var(--white);
+}
+.todo .item:hover{
+    transition: all 0.3s;
+    border-radius: 5px;
+    border: 2px solid var(--backgroundcolor);
+}
+.details:hover + .control, .item .control:hover{
+    opacity: 100%;
+    transition: all 1s;
+}

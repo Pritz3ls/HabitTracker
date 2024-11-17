@@ -3,11 +3,10 @@
 
 body{
     overflow: hidden;
-    margin: 0;
     font-family: 'Poppins', sans-serif;
-
     background-color: var(--backgroundcolor);
     color: var(--secondarycolor);
+    margin: 0;
 }
 
 .profile-container{    
@@ -23,7 +22,7 @@ body{
 .board-wrapper{
     display: flex;
     flex-direction: row;
-    margin: 5px;
+    margin: 10px 10px;
     gap: 5px;
 
     overflow-x: auto;
