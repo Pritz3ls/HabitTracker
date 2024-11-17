@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/captcha.js"></script>
+    <script defer src="js/showpassword.js"></script>
     <script defer src="js/passwordstrength.js"></script>
 
     <!-- Load  -->
@@ -19,6 +20,7 @@
     <link rel="stylesheet" href="css/signup.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/pass-strength.css?v=<?php echo time(); ?>">
     <title>habere | Signup</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Spinner -->
@@ -38,9 +40,10 @@
         </div>
         <div>
             <label for="password" method="post">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter Password" required onchange="checkPasswordStrength()">
+            <input type="password"  id="password-field" name="password"  class="form-control" placeholder="Enter Password" required onchange="checkPasswordStrength()">
             <input type="hidden" name="strIndex" id="strIndex" value=0>
             <p id="strength"></p>
+            <i class="fa fa-eye toggle-password"></i>
         </div>
         <div class="captcha">
             <label for="captchaInput">Enter Captcha</label>

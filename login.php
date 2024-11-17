@@ -11,6 +11,7 @@
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <!-- Load  -->
     <script defer src="js/spinner.js"></script>
+    <script defer src="js/showpassword.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
     
     <script defer src="js/captcha.js?v=<?php echo time(); ?>"></script>
@@ -18,6 +19,7 @@
     <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/login.css?v=<?php echo time(); ?>">
     <title>habere | Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Spinner -->
@@ -32,8 +34,8 @@
             <input type="text" name="username" placeholder="Enter Username" required>
         </div>
         <div>
-            <label for="password" method="post">Password</label>
-            <input type="password" name="password" placeholder="Enter Password" required>
+        <input id="password-field" type="password" name="password" class="form-control" placeholder="Password" required>
+        <i class="fa fa-eye toggle-password"></i>
         </div>
         <div class="captcha">
             <label for="captchaInput">Enter Captcha</label><br>
