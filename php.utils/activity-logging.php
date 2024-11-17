@@ -15,6 +15,17 @@
         $executedQuery = mysqli_query($conn, $query);
     }
 
+    function LogActivity_Deactivation($id){
+        global $conn;
+        $message = GenerateActivityMessage('deactivation');
+    
+        $query = "INSERT INTO activity_logs(user_id, operation) VALUES($id, '$message')";
+        $executedQuery = mysqli_query($conn, $query);
+        if(!$executedQuery){
+            echo 'error';
+        }
+    }
+
     function GenerateActivityMessage($type){
         date_default_timezone_set("Asia/Manila");
         $date = date("h:i:s A");
@@ -22,6 +33,7 @@
             case 'signin': return "User signed in at $date";
             case 'signout': return "User signed out at $date";
             case 'forgot': return "User changed password at $date";
+            case 'deactivation': return "Deactivated account at $date";
         }
     }
 ?>
