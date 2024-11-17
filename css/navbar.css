@@ -1,15 +1,15 @@
-@import 'palette.css';
 /* Header */
 .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 10px;
 }
 .header button{
     width: 35px;
     height: 35px;
 
-    margin: 5px;
+    /* margin: 5px; */
     border-radius: 5px;
     
     display: flex;
@@ -21,7 +21,7 @@
     font-size: 25px;
 
     background: var(--primarycolor);
-    color: white;
+    color: var(--secondarycolor);
     border: none;
     cursor: pointer;
 }
@@ -29,8 +29,10 @@
 .navbar{
     width: 250px;
     height: 100vh;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
     
-    position: fixed;
+    position: absolute;
     top: 0;
     left: -250px;
     padding-top: 50px;

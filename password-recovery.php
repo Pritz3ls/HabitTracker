@@ -12,7 +12,9 @@
     <script defer src="js/passwordstrength.js"></script>
 
     <!-- Load  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script defer src="js/spinner.js"></script>
+    <script defer src="js/showpassword.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
 
     <link rel="stylesheet" href="css/palette.css">
@@ -34,13 +36,23 @@
         </div>
         <div>
             <label for="new_password" method="post">New Password</label>
-            <input type="password" name="new_password" id="password" placeholder="Enter New Password" required onchange="checkPasswordStrength()">
-            <input type="hidden" name="strIndex" id="strIndex" value=0>
+            <div class="password-input">
+                <input type="password" name="new_password" id="password" class="form-control" placeholder="Enter New Password" required onchange="checkPasswordStrength()">
+                <input type="hidden" name="strIndex" id="strIndex" value=0>
+                <button type="button">
+                    <i class="material-icons" onClick="showPassword('password')">visibility</i>
+                </button>
+            </div>
             <p id="strength"></p>
         </div>
         <div>
             <label for="confirm_password" method="post">Confirm Password</label>
-            <input type="password" name="confirm_password" placeholder="Enter Confirm Password" required>
+            <div class="password-input">
+                <input type="password" name="confirm_password" id="confirm-password-field" class="form-control" placeholder="Enter Confirm Password" required>
+                <button type="button">
+                    <i class="material-icons" onClick="showPassword('confirm-password-field')">visibility</i>
+                </button>
+            </div>
         </div>
         <input type="submit" value="Continue" name="forgotPass">
         <div class="button-container">

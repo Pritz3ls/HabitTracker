@@ -9,9 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/captcha.js"></script>
+    <script defer src="js/showpassword.js"></script>
     <script defer src="js/passwordstrength.js"></script>
 
     <!-- Load  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script defer src="js/spinner.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
 
@@ -38,8 +40,13 @@
         </div>
         <div>
             <label for="password" method="post">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter Password" required onchange="checkPasswordStrength()">
-            <input type="hidden" name="strIndex" id="strIndex" value=0>
+            <div class="password-input">
+                <input type="password"  id="password" name="password"  class="form-control" placeholder="Enter Password" required onchange="checkPasswordStrength()">
+                <input type="hidden" name="strIndex" id="strIndex" value=0>
+                <button type="button">
+                    <i class="material-icons" onclick="showPassword('password')">visibility</i>
+                </button>
+            </div>
             <p id="strength"></p>
         </div>
         <div class="captcha">
@@ -47,7 +54,9 @@
             <span id="captcha"></span>
             <div class="captchaInput">
                 <input type="text" id="captchaInput" name="captchaInput" placeholder="Enter Captcha" required>
-                <button type="button" class="refreshCaptcha" onclick="generateCaptcha()">Refresh</button>
+                <button type="button" class="refreshCaptcha" onclick="generateCaptcha()">
+                    <i class="material-icons" id="toggle-password">refresh</i>
+                </button>
             </div>
             <input type="hidden" id="hiddenCaptcha" name="hiddenCaptcha">
         </div>
