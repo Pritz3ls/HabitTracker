@@ -21,10 +21,9 @@
     <!-- Disconnect notification js for now -->
     <!-- <script defer src="js/notification.js"></script> -->
     
-    <link rel="stylesheet" href="css/account-settings.css">
     <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="css/dashboard-user.css">
+    <link rel="stylesheet" href="css/account-settings.css">
 
     <title>habere | Account Settings</title>
 </head>
@@ -67,7 +66,9 @@
             </a>
         </div>
     </div>
-
+    <header>
+        <h1>Account Settings</h1>
+    </header>
     <div class="container">
         <!-- Profile Information -->
         <div class="wrapper info">

@@ -24,11 +24,21 @@
         global $curID;
         $query = "SELECT board_name FROM habit_board WHERE user_id = $curID";
         $executedQuery = mysqli_query($conn, $query);
+
+        // There are no boards
+        if(mysqli_num_rows($executedQuery) <= 0){
+            ?>
+                <div class="no-item">
+                    <p>You dont have any habit boards.</p>
+                </div>
+            <?php
+            return;
+        }
         while ($row = mysqli_fetch_assoc($executedQuery)){
             ?>
-                <div>
-                    <label for="<?php echo $row['board_name']?>"><?php echo $row['board_name']?></label>
+                <div class="preference">
                     <input type="checkbox" name="<?php echo $row['board_name']?>" checked>
+                    <label for="<?php echo $row['board_name']?>"><?php echo $row['board_name']?></label>
                 </div>
             <?php
         }
