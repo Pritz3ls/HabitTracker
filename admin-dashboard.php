@@ -49,22 +49,22 @@
             <i class="material-icons">dashboard</i>
             <p>Dashboard</p>
         </a>
-        <div class="dropdown">
-        <button>
-            <i class="material-icons" style="vertical-align: middle;">manage_accounts</i>
-            Manage
-        </button>
-        <div class="dropdown-options">
-        <a href="manage-users.php">
-            <i class="material-icons" style="vertical-align: middle;">group</i>
-            Manage Users
-        </a>
-        <a href="manage-activity.php">
-            <i class="material-icons" style="vertical-align: middle;">event</i>
-            Manage Activity
-        </a>
-        </div>
-        </div>
+            <div class="dropdown">
+                <button>
+                    <i class="material-icons" style="vertical-align: middle;">manage_accounts</i>
+                    Manage
+                </button>
+                <div class="dropdown-options">
+                    <a href="manage-users.php">
+                        <i class="material-icons" style="vertical-align: middle;">group</i>
+                        Manage Users
+                    </a>
+                    <a href="manage-activity.php">
+                        <i class="material-icons" style="vertical-align: middle;">event</i>
+                        Manage Activity
+                    </a>
+                </div>
+            </div>
             <a href="admin-account-settings.php">
                 <i class="material-icons">settings</i>
                 <p>Settings</p>
