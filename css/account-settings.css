@@ -5,9 +5,6 @@ body{
     background-color: var(--backgroundcolor);
     overflow: hidden;
 }
-p,a,h1,h2,h3,h4{
-    margin: 0;
-}
 header{
     text-align: center;
     color: var(--secondarycolor);
@@ -25,9 +22,13 @@ header{
 /* Profile */
 .info{
     width: 300px;
+    height: fit-content;
 }
 .info h4{
     text-align: center;
+}
+.info p, h4{
+    margin: 0;
 }
 .info div{
     display: flex;
@@ -71,6 +72,9 @@ header{
     display: flex;
     flex-direction: column;
     height: min-content;
+}
+.notif p, .notif h4{
+    margin: 0;
 }
 .notif .items{
     flex-grow: 5;
