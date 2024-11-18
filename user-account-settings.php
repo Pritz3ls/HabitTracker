@@ -1,7 +1,6 @@
 <?php
-    require "php/db.php";
-    include "php.utils/activity-logging.php";
-    include "php/update-account.php";
+    require 'php/db.php';
+    include 'php/account-settings.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,16 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/navbar.js"></script>
-    <script defer src="js/passwordstrength.js"></script>
-   
-    <!-- Load  -->
-    <script defer src="js/spinner.js"></script>
-    <link rel="stylesheet" href="css/spinner.css">
+    
+    <script src="js/update-info-ajax.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link rel="stylesheet" href="css/palette.css">
-    <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>"> 
-    <link rel="stylesheet" href="css/settings.css?v=<?php echo time(); ?>"> 
+    <script defer src="js/spinner.js"></script>
+    <link rel="stylesheet" href="css/spinner.css">
+    
+    <!-- Disconnect notification js for now -->
+    <!-- <script defer src="js/notification.js"></script> -->
+    
+    <link rel="stylesheet" href="css/account-settings.css">
+    <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/dashboard-user.css">
+
     <title>habere | Account Settings</title>
 </head>
 <body>
@@ -27,8 +32,7 @@
     <div id="loading" class="loading">
         <div class="spinner"></div>
     </div>
-    
-    <!-- Burger Button -->
+    <!-- Navigation Bar -->
     <div class="header">
         <!-- Burger Button -->
         <button type="button" onclick="burgir();" class="burgir">=</button>
@@ -63,38 +67,56 @@
         </div>
     </div>
 
-    <!-- Update Account Information -->
-    <form  method="post" action="" autocomplete="off">
-        <h1>Account Settings</h1>
-        <?php
-            $user_info_query = "SELECT user_name, phone_number, password FROM users WHERE id = {$_SESSION['currentUserID']}";
-            $user_info = mysqli_query($conn, $user_info_query);
-            if(!$user_info){
-                echo "Cannot find the specified user!";
-            }
-            $info = mysqli_fetch_assoc($user_info);
-        ?>
-        <div>
-            <label for="username" method="post">Username</label>
-            <?php echo '<input type="text" name="username" value='.$info['user_name'].' required>';?>
+    <div class="container">
+        <!-- Profile Information -->
+        <div class="wrapper info">
+            <h4>Profile Information</h4>
+            <form action="" method="post">
+                <label for="username">Username</label>
+                <div>
+                    <input type="text" name="username" id="username" value="<?php echo Fetch_Username()?>">
+                </div>
+                <label for="pass">Password</label>
+                <div class="input-password">
+                    <input type="password" name="pass" id="pass" value="<?php echo Fetch_Password()?>">
+                    <button type="button">
+                        <i class="material-icons">visibility</i>
+                    </button>
+                </div>
+                <div>
+                    <button type="button" class="submit" onclick='ConfirmChanges()'>Update</button>
+                </div>
+            </form>
         </div>
-        <div>
-            <label for="phonenumber" method="post">Phone Number</label>
-            <?php echo '<input type="text" name="phonenumber" pattern="[09][0-9]{10}" value='.$info['phone_number'].' required>';?>
+        <!-- Notifacition Settings -->
+        <div class="wrapper notif">
+            <h4>Notification Settings</h4>
+            <div class="items">
+                <!-- Head -->
+                <div class="item">
+                    <p>Customize Notifications</p>
+                </div>
+
+                <!-- Performance Reports -->
+                <div class="item">
+                    <h4>Reports</h4>
+                    <p>Receive Reports on how you perform this month, include or exclude what reports you want to receive.</p>
+                    <?php echo Fetch_Preferences()?>                    
+                </div>
+
+                </div>
+                <!-- 2FA -->
+                <div class="item">
+                    <h4>Two Factor Authentication</h4>
+                    <p>Enable Two Factor Authentication, receive a 6 digit code from your mobile phone number.</p>
+                    <p class="warning">(Warning: This would put your account at risk)</p>
+                    <div>
+                        <label for="enable2FA">Enable 2FA</label>
+                        <input type="checkbox" name="enable2FA" id="">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <label for="password" method="post">Password</label>
-            <?php echo '<input type="text" id="password" name="password" value='.$info['password'].' required onchange="checkPasswordStrength();">';?>
-            <input type="hidden" name="strIndex" id="strIndex" value=0>
-            <p id="strength"></p>
-        </div>
-        <div>
-            <input type="submit" value="Update" name="update_info">
-        </div>
-    </form>
-    
-    <!-- Notification Settings -->
-    <h1>Notification Settings</h1>
-    <p>Work in progress</p>
+    </div>
 </body>
 </html>

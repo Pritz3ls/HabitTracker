@@ -1,0 +1,60 @@
+:root {
+    --backgroundcolor:#122023;
+    --backgroundcolorvariant:#FFFFFF;
+    --primarycolor:#2ECC40;
+    --secondarycolor:#FFFFFF;
+    --secondaryaccentcolor:#ededed;
+    --buttonPrimary:#007bff;
+    --buttonSecondary:#e90b0b;
+    --hyperlinks:#007bff;
+    --error:#e90b0b;
+    --transparent: rgba(0,0,0,0)
+}
+body{
+    background-color: var(--backgroundcolor);
+}
+p,a,h1,h2,h3,h4{
+    margin: 0;
+}
+.container{
+    margin: 10px 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.wrapper{
+    background-color: var(--secondarycolor);
+    border-radius: 25px;
+    padding: 20px;
+}
+/* Profile */
+.info{
+    width: 300px;
+}
+.info h4{
+    text-align: center;
+}
+.info div{
+    display: flex;
+    margin: 10px 5px;
+}
+.info input{
+    padding: 5px;
+    flex-grow: 5;
+    box-sizing: border-box;
+}
+.info form .submit{
+    width: 100%;
+    box-sizing: border-box;
+}
+/* Notif */
+.notif{
+    display: flex;
+    flex-direction: column;
+    height: min-content;
+}
+.notif .items{
+    flex-grow: 5;
+}
+.notif .items .item{
+    border-bottom: 1px solid var(--secondaryaccentcolor);
+}
