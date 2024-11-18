@@ -64,6 +64,9 @@
     </div>
 
     <!-- Update Account Information -->
+    <div class="account-settings-container">
+        <h1>Account Settings</h1>
+   
     <form  method="post" action="" autocomplete="off">
         <h1>Profile Information</h1>
         <?php
