@@ -14,11 +14,12 @@
     <script defer src="js/navbar.js"></script>
     <script defer src="js/spinner.js"></script>
     <script src="js/showdeactpanel.js"></script>
-    
+
     <link rel="stylesheet" href="css/spinner.css">
+    
     <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>"> 
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/mis.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>

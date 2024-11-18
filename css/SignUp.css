@@ -26,9 +26,9 @@ body {
 }
 
 form {
-    background-color: rgba(17, 25, 40, 0.65); /* Make it more transparent */
-    backdrop-filter: blur(25px) saturate(150%); /* Increased blur and saturation */
-    -webkit-backdrop-filter: blur(25px) saturate(150%); /* For Safari */
+    background-color: rgba(17, 25, 40, 0.5); /* Make it more transparent */
+    backdrop-filter: blur(20px) saturate(150%); /* Increased blur and saturation */
+    -webkit-backdrop-filter: blur(20px) saturate(150%); /* For Safari */
     border: 1px solid rgba(255, 255, 255, 0.2); /* Adjust border for a more glassy look */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
