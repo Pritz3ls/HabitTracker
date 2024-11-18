@@ -19,8 +19,6 @@
     <script defer src="js/spinner.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
 
-    <script src="" ></script>
-
     <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/habit.css?v=<?php echo time(); ?>">
