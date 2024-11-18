@@ -100,9 +100,9 @@
                 </div>
             </div>
             <!-- Graph -->
-            <div class="container">
-                <div class="wrapper fgrow graph">
-                    <div id="linechart">
+            <div class="container fgrow">
+                <div class="wrapper graph">
+                    <div id="linechart" class="chart">
                     </div>
                 </div>
             </div>
@@ -124,6 +124,9 @@
             var data = new google.visualization.DataTable();
             data.addColumn('date', 'Date');
             data.addColumn('number', 'Completed Habits');
+            // data.addColumn('number', 'Active Users');
+            // data.addColumn('number', 'Habits');
+            // data.addColumn('number', 'Complete Habits');
             
             <?php
                 $year = date('Y');
@@ -179,11 +182,20 @@
                         bold: true,
                     }
                 },
-                height: 250,
+                chartArea: {
+                    left: "5%",
+                    top: "10%",
+                    right: "5%",
+                    bottom: "10%",
+                },
             };
             // Draw Chart
             const chart = new google.visualization.LineChart(document.getElementById('linechart'));
             chart.draw(data, options);
+        }
+        window.onresize = resizeChart;
+        function resizeChart(){
+            drawChart();
         }
     </script>
 </body>
