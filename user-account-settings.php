@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <script defer src="js/spinner.js"></script>
+    <script defer src="js/showpassword.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
     
     <!-- Disconnect notification js for now -->
@@ -79,7 +80,7 @@
                 <label for="pass">Password</label>
                 <div class="input-password">
                     <input type="password" name="pass" id="pass" value="<?php echo Fetch_Password()?>">
-                    <button type="button">
+                    <button type="button" onClick="showPassword('pass')">
                         <i class="material-icons">visibility</i>
                     </button>
                 </div>
