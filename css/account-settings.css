@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    font-family: 'Poppins',Arial, Helvetica, sans-serif;
+    background-color: var(--backgroundcolor);
+    overflow: hidden;
+}
+header{
+    text-align: center;
+    color: var(--secondarycolor);
+}
+.container{
+    margin: 10px 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.wrapper{
+    background-color: var(--secondarycolor);
+    border-radius: 25px;
+    padding: 20px;
+}
+/* Profile */
+.info{
+    width: 300px;
+    height: fit-content;
+}
+.info h4{
+    text-align: center;
+}
+.info p, h4{
+    margin: 0;
+}
+.info div{
+    display: flex;
+    margin: 10px 5px;
+}
+.info input{
+    flex-grow: 5;
+    box-sizing: border-box;
+    font-family: inherit;
+    border: 1px solid var(--secondaryaccentcolor);
+    border-radius: 5px;
+    padding: 10px;
+}
+.info input:focus{
+    border: 1px solid var(--hyperlinks);
+}
+.info button{
+    border: 1px solid var(--secondaryaccentcolor);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.info button:hover{
+    background-color: var(--hyperlinks);
+    color: var(--secondarycolor);
+    transition: all 0.3s;
+}
+.info form .submit{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+
+    border: none;
+    background-color: var(--hyperlinks);
+    color: var(--secondarycolor);
+    font-weight: 500;
+    font-family: inherit;
+}
+/* Notif */
+.notif{
+    display: flex;
+    flex-direction: column;
+    height: min-content;
+}
+.notif p, .notif h4{
+    margin: 0;
+}
+.notif .items{
+    flex-grow: 5;
+}
+.notif .items .item{
+    border-bottom: 1px solid var(--secondaryaccentcolor);
+}
+.no-item{
+    color: var(--greyscaledcolor);
+    text-align: center;
+    margin: 15px;
+}
