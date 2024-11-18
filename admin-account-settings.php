@@ -34,8 +34,8 @@
         <button type="button" onclick="burgir();" class="burgir">=</button>
     </div>
 
-   <!-- Navigation Bar -->
-   <div class="navbar" id="navbar">
+<!-- Navigation Bar -->
+    <div class="navbar" id="navbar">
     <div class="navbar_logo">
         <img src="resource/application-icon.png" alt="Application Icon">
     </div>
