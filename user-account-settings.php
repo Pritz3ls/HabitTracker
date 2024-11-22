@@ -113,8 +113,8 @@
                     <p>Enable Two Factor Authentication, receive a 6 digit code from your mobile phone number.</p>
                     <p class="warning">(Warning: This would put your account at risk)</p>
                     <div>
-                        <label for="enable2FA">Enable 2FA</label>
                         <input type="checkbox" name="enable2FA" id="">
+                        <label for="enable2FA">Enable 2FA</label>
                     </div>
                 </div>
             </div>

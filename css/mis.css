@@ -5,6 +5,10 @@ body{
     overflow: hidden;
 }
 
+*{
+    font-family: inherit;
+}
+
 .container{
     padding: 30px;
 }
