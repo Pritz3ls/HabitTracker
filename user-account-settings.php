@@ -66,6 +66,7 @@
             </a>
         </div>
     </div>
+    
     <header>
         <h1>Account Settings</h1>
     </header>

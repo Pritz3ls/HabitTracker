@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     <link rel="stylesheet" href="css/palette.css">
-    <link rel="stylesheet" href="css/dashboard-admin.css?v=<?php echo time(); ?>"> 
     <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>"> 
+    <link rel="stylesheet" href="css/dashboard-admin.css?v=<?php echo time(); ?>"> 
     <link rel="stylesheet" href="css/popup.css?v=<?php echo time(); ?>"> 
     <title>habere | Admin Dashboard</title>
 </head>
@@ -41,14 +41,15 @@
     
     <!-- Navigation Bar -->
     <div class="navbar" id="navbar">
-    <div class="navbar_logo">
-        <img src="resource/application-icon.png" alt="Application Icon">
-    </div>
-    <div class="navbar_items">
-        <a href="admin-dashboard.php">
-            <i class="material-icons">dashboard</i>
-            <p>Dashboard</p>
-        </a>
+        <div class="navbar_logo">
+            <img src="resource/application-icon.png" alt="Application Icon">
+        </div>
+
+        <div class="navbar_items">
+            <a href="admin-dashboard.php">
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+            </a>
             <div class="dropdown">
                 <button>
                     <i class="material-icons" style="vertical-align: middle;">manage_accounts</i>
@@ -65,6 +66,10 @@
                     </a>
                 </div>
             </div>
+            <a href="generate-report.php">
+                <i class="material-icons">summarize</i>
+                <p>Generate Report</p>
+            </a>
             <a href="admin-account-settings.php">
                 <i class="material-icons">settings</i>
                 <p>Settings</p>
@@ -75,7 +80,6 @@
             </a>
         </div>
     </div>
-
 
     <!-- Contents -->
     <div class="holder">

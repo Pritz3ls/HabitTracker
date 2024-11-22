@@ -42,6 +42,10 @@ body{
     flex-grow: 1;
 }
 
+input,select{
+    cursor: pointer;
+}
+
 
 /* Dropdowns are depcrecated, do not use this */
 .dropdown-wrapper{

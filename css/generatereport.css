@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Dangrek&family=Modak&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --backgroundcolor:#122023;
+    --backgroundcolorvariant:#FFFFFF;
+    --primarycolor:#2ECC40;
+    --secondarycolor:#FFFFFF;
+    --secondaryaccentcolor:#ededed;
+    --buttonPrimary:#007bff;
+    --buttonSecondary:#e90b0b;
+    --hyperlinks:#007bff;
+    --error:#e90b0b;
+    --transparent: rgba(0,0,0,0)
+}
+
+body{
+    background-color: var(--backgroundcolor);
+    font-family: 'Poppins',Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    margin: 50px 25px;
+}
+
+form{
+    width: fit-content;
+    flex-direction: column;
+    display: flex;
+    gap: 15px;
+
+    background-color: var(--secondarycolor);
+    padding: 10px;
+    border-radius: 10px;
+}
+h2,h4{
+    margin: 0;
+}
+
+form h2{
+    background-color: var(--primarycolor);
+    color: var(--secondarycolor);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+form .date input{
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 2px solid var(--secondaryaccentcolor);
+
+    width: 100%;
+    padding: 5px;
+}
+form .include{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input[type="submit"]{
+    background-color: var(--primarycolor);
+    color: var(--secondarycolor);
+    
+    font-family: inherit;
+    font-weight: bolder;
+    font-size: 16px;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 10px 5px;
+    width: 100%;
+
+    cursor: pointer;
+}

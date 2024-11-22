@@ -1,7 +1,6 @@
-<?php 
-    include "php/db.php";
-    include "php.utils/activity-logging.php";
-    include "php/update-account.php";
+<?php
+    require 'php/db.php';
+    include 'php/account-settings.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,16 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/navbar.js"></script>
-    <script defer src="js/passwordstrength.js"></script>
     
-    <!-- Load  -->
-    <script defer src="js/spinner.js"></script>
-    <link rel="stylesheet" href="css/spinner.css">
+    <script src="js/update-info-ajax.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <script defer src="js/spinner.js"></script>
+    <script defer src="js/showpassword.js"></script>
+    <link rel="stylesheet" href="css/spinner.css">
     
-    <link rel="stylesheet" href="css/palette.css">
-    <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>"> 
-    <link rel="stylesheet" href="css/settings.css?v=<?php echo time(); ?>"> 
+    <!-- Disconnect notification js for now -->
+    <!-- <script defer src="js/notification.js"></script> -->
+    
+    <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/account-settings.css">
+
     <title>habere | Account Settings</title>
 </head>
 <body>
@@ -27,39 +32,43 @@
     <div id="loading" class="loading">
         <div class="spinner"></div>
     </div>
-    
-    <!-- Burger Button -->
+    <!-- Navigation Bar -->
     <div class="header">
         <!-- Burger Button -->
         <button type="button" onclick="burgir();" class="burgir">=</button>
     </div>
 
-   <!-- Navigation Bar -->
-   <div class="navbar" id="navbar">
-    <div class="navbar_logo">
-        <img src="resource/application-icon.png" alt="Application Icon">
-    </div>
-    <div class="navbar_items">
-        <a href="admin-dashboard.php">
-            <i class="material-icons">dashboard</i>
-            <p>Dashboard</p>
-        </a>
-        <div class="dropdown">
-        <button>
-            <i class="material-icons" style="vertical-align: middle;">manage_accounts</i>
-            Manage
-        </button>
-        <div class="dropdown-options">
-        <a href="manage-users.php">
-            <i class="material-icons" style="vertical-align: middle;">group</i>
-            Manage Users
-        </a>
-        <a href="manage-activity.php">
-            <i class="material-icons" style="vertical-align: middle;">event</i>
-            Manage Activity
-        </a>
+    <!-- Navigation Bar -->
+    <div class="navbar" id="navbar">
+        <div class="navbar_logo">
+            <img src="resource/application-icon.png" alt="Application Icon">
         </div>
-        </div>
+
+        <div class="navbar_items">
+            <a href="admin-dashboard.php">
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+            </a>
+            <div class="dropdown">
+                <button>
+                    <i class="material-icons" style="vertical-align: middle;">manage_accounts</i>
+                    Manage
+                </button>
+                <div class="dropdown-options">
+                    <a href="manage-users.php">
+                        <i class="material-icons" style="vertical-align: middle;">group</i>
+                        Manage Users
+                    </a>
+                    <a href="manage-activity.php">
+                        <i class="material-icons" style="vertical-align: middle;">event</i>
+                        Manage Activity
+                    </a>
+                </div>
+            </div>
+            <a href="generate-report.php">
+                <i class="material-icons">summarize</i>
+                <p>Generate Report</p>
+            </a>
             <a href="admin-account-settings.php">
                 <i class="material-icons">settings</i>
                 <p>Settings</p>
@@ -71,38 +80,49 @@
         </div>
     </div>
 
-    <!-- Update Account Information -->
-    <h1>Account Settings</h1>
-    <form  method="post" action="" autocomplete="off">
-        <?php
-            $user_info_query = "SELECT user_name, phone_number, password FROM users WHERE id = {$_SESSION['currentUserID']}";
-            $user_info = mysqli_query($conn, $user_info_query);
-            if(!$user_info){
-                echo "Cannot find the specified user!";
-            }
-            $info = mysqli_fetch_assoc($user_info);
-        ?>
-        <div>
-            <label for="username" method="post">Username</label>
-            <?php echo '<input type="text" name="username" value='.$info['user_name'].' required>';?>
+    <header>
+        <h1>Account Settings</h1>
+    </header>
+    <div class="container">
+        <!-- Profile Information -->
+        <div class="wrapper info">
+            <h4>Profile Information</h4>
+            <form action="" method="post">
+                <label for="username">Username</label>
+                <div>
+                    <input type="text" name="username" id="username" value="<?php echo Fetch_Username()?>">
+                </div>
+                <label for="pass">Password</label>
+                <div class="input-password">
+                    <input type="password" name="pass" id="pass" value="<?php echo Fetch_Password()?>">
+                    <button type="button" onClick="showPassword('pass')">
+                        <i class="material-icons">visibility</i>
+                    </button>
+                </div>
+                <div>
+                    <button type="button" class="submit" onclick='ConfirmChanges()'>Update</button>
+                </div>
+            </form>
         </div>
-        <div>
-            <label for="phonenumber" method="post">Phone Number</label>
-            <?php echo '<input type="text" name="phonenumber" pattern="[09][0-9]{10}" value='.$info['phone_number'].' required>';?>
-        </div>
-        <div>
-            <label for="password" method="post">Password</label>
-            <?php echo '<input type="text" id="password" name="password" value='.$info['password'].' required onchange="checkPasswordStrength();">';?>
-            <input type="hidden" name="strIndex" id="strIndex" value=0>
-            <p id="strength"></p>
-        </div>
-        <div>
-            <input type="submit" value="Update" name="update_info">
-        </div>
-    </form>
-    
-    <!-- Notification Settings -->
-    <h1>Notification Settings</h1>
-    <p>Work in progress</p>
+        <!-- Notifacition Settings -->
+        <!-- <div class="wrapper notif">
+            <h4>Notification Settings</h4>
+            <div class="items">
+                <div class="item">
+                    <p>Customize Notifications</p>
+                </div>
+                </div>
+                <div class="item">
+                    <h4>Two Factor Authentication</h4>
+                    <p>Enable Two Factor Authentication, receive a 6 digit code from your mobile phone number.</p>
+                    <p class="warning">(Warning: This would put your account at risk)</p>
+                    <div>
+                        <input type="checkbox" name="enable2FA" id="">
+                        <label for="enable2FA">Enable 2FA</label>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
 </body>
 </html>

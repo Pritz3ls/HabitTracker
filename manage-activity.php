@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>habere | Manage Activity</title>
     <link rel="icon" href="resource/application-icon.png" type="image/png">
-    <script src="js/showelement.js"></script>
 
     <!-- Load  -->
     <script defer src="js/navbar.js"></script>
@@ -37,14 +36,15 @@
     
     <!-- Navigation Bar -->
     <div class="navbar" id="navbar">
-    <div class="navbar_logo">
-        <img src="resource/application-icon.png" alt="Application Icon">
-    </div>
-    <div class="navbar_items">
-        <a href="admin-dashboard.php">
-            <i class="material-icons">dashboard</i>
-            <p>Dashboard</p>
-        </a>
+        <div class="navbar_logo">
+            <img src="resource/application-icon.png" alt="Application Icon">
+        </div>
+
+        <div class="navbar_items">
+            <a href="admin-dashboard.php">
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+            </a>
             <div class="dropdown">
                 <button>
                     <i class="material-icons" style="vertical-align: middle;">manage_accounts</i>
@@ -61,6 +61,10 @@
                     </a>
                 </div>
             </div>
+            <a href="generate-report.php">
+                <i class="material-icons">summarize</i>
+                <p>Generate Report</p>
+            </a>
             <a href="admin-account-settings.php">
                 <i class="material-icons">settings</i>
                 <p>Settings</p>
@@ -98,6 +102,7 @@
                     <option value="signed out">Sign Out</option>
                     <option value="update">Updates</option>
                     <option value="deac">Deactivation</option>
+                    <option value="generate">Generate Reports</option>
                 </select>
                 <!-- <div class="dropdown-wrapper">
                     <button type="button" onClick="showItem('ffo')">Category</button>
