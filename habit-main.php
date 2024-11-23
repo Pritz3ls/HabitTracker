@@ -18,7 +18,6 @@
     <script defer src="js/motivation.js"></script>
     <script defer src="js/spinner.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
-    <script defer src="js/habit-core-ajax.js"></script>
 
     <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>">
@@ -76,7 +75,6 @@
             </a>
         </div>
     </div>
-
     <!-- Board Wrapper -->
     <div class="board-wrapper">
         <?php
@@ -193,7 +191,7 @@
         ?>
         <!-- Create new board -->
         <div class="create-new-category">
-            <form action="" method="post">
+            <form action="" method="post" class="category">
                 <p>Create New Board</p>
                 <div>
                     <input type="text" name="board_name" placeholder="New Board Name">
