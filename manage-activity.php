@@ -1,19 +1,19 @@
 <?php
     require 'php/db.php';
     include "php.utils/activity-logging.php";
-    include "php.mis/mis-user-utils.php";
+    include "php.mis/mis-activity-utils.php";
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Users</title>
- 
+    <title>habere | Manage Activity</title>
+    <link rel="icon" href="resource/application-icon.png" type="image/png">
+
     <!-- Load  -->
     <script defer src="js/navbar.js"></script>
     <script defer src="js/spinner.js"></script>
-    <script src="js/showdeactpanel.js"></script>
 
     <link rel="stylesheet" href="css/spinner.css">
     
@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>"> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/mis.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <!-- Spinner -->
@@ -34,7 +33,7 @@
         <!-- Burger Button -->
         <button type="button" onclick="burgir();" class="burgir">=</button>
     </div>
-
+    
     <!-- Navigation Bar -->
     <div class="navbar" id="navbar">
         <div class="navbar_logo">
@@ -74,32 +73,65 @@
             </a>
         </div>
     </div>
-    <!-- Content -->
+
+    <!-- Container -->
     <div class="container">
+        <!-- Filter -->
         <form action="" method="post" class="filter">
-            <!-- Search -->
+            <!-- Search Date -->
             <div class="field">
-                <input name="username" type="text" placeholder="Search Username" value=<?php echo !empty($_SESSION['mis_user_name']) ? $_SESSION['mis_user_name'] : ""?>>
+                <label for="">Search date</label>
+                <input name="date_min" type="date">
+                <label for="">and</label>
+                <input name="date_max" type="date">
             </div>
             <div>
                 <select name="sortBy" id="">
                     <option value="" hidden selected>Sort by</option>
-                    <option value="user_name">Username</option>
-                    <option value="created_at">Account Creation</option>
+                    <option value="user_name">Name</option>
+                    <option value="user_type">User Type</option>
+                    <option value="log_date">Date</option>
                 </select>
+            </div>
+            <div>
+                <select name="categoryBy" id="">
+                    <option value="" hidden selected>Category by</option>
+                    <option value="signed in">Sign In</option>
+                    <option value="signed out">Sign Out</option>
+                    <option value="update">Updates</option>
+                    <option value="deac">Deactivation</option>
+                    <option value="generate">Generate Reports</option>
+                </select>
+                <!-- <div class="dropdown-wrapper">
+                    <button type="button" onClick="showItem('ffo')">Category</button>
+                    <div class="dropdown" id="ffo">
+                        <div class="items">
+                            <li>
+                                <input type="checkbox" name="signin">
+                                <label for="signin">Sign in</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="signout">
+                                <label for="signout">Sign Out</label>
+                            </li>
+                        </div>
+                    </div>
+                </div> -->
             </div>
             <input name="filter" type="submit" value="Filter">
             <input name="reset" type="submit" value="Reset">
         </form>
+        <!-- Table -->
         <div class="wrapper">
             <table>
                 <tbody>
                     <tr>
                         <th>ID</th>
-                        <th>Username</th>
-                        <th>Phonenumber</th>
-                        <th>Created at</th>
+                        <th>UserID</th>
+                        <th>User Type</th>
+                        <th>User Name</th>
                         <th>Operation</th>
+                        <th>Date</th>
                     </tr>
                     <?php
                         FetchTableData();
@@ -107,25 +139,22 @@
                 </tbody>
             </table>
         </div>
-    </div>
-    <?php
-        $cur_page = empty($_GET['page-nr']) ? 1 : $_GET['page-nr'];
-    ?>
-    <div class="navigation">
-        <p>Showing page <?php echo $cur_page." of " . $num_pages?></p>
-        <div class='page-buttons'>
-            <!-- First page -->
-            <a href="?page-nr=1">First</a>
-            
-            <a href="?page-nr=<?php echo $cur_page == 1 ? 1 : ($cur_page-1)?>">Prev</a>
-            <a href="?page-nr=<?php echo $cur_page == $num_pages ? $num_pages : ($cur_page+1)?>">Next</a>
+        <?php
+            $cur_page = empty($_GET['page-nr']) ? 1 : $_GET['page-nr'];
+        ?>
+        <div class="navigation">
+            <p>Showing page <?php echo $cur_page." of " . $num_pages?></p>
+            <div class='page-buttons'>
+                <!-- First page -->
+                <a href="?page-nr=1">First</a>
+                
+                <a href="?page-nr=<?php echo $cur_page == 1 ? 1 : ($cur_page-1)?>">Prev</a>
+                <a href="?page-nr=<?php echo $cur_page == $num_pages ? $num_pages : ($cur_page+1)?>">Next</a>
 
-            <!-- Last page -->
-            <a href="?page-nr=<?php echo $num_pages?>">Last</a>
+                <!-- Last page -->
+                <a href="?page-nr=<?php echo $num_pages?>">Last</a>
+            </div>
         </div>
-    </div>
-    <!-- View Panel -->
-    <div class="view" id="view">
     </div>
 </body>
 </html>

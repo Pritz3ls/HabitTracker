@@ -51,7 +51,10 @@ body{
 /* Specific */
 /* Events */
 .profile{
-   background-color:#1F2E2C;
+    background-image:linear-gradient(
+        to right,
+        var(--primarycolor), var(--backgroundcolor)
+    );
     color: var(--secondarycolor);
     display: flex;
     flex-direction: column;
@@ -76,8 +79,8 @@ body{
 
 /* Progress */
 .progress{
-    background-color:#1F2E2C;
-    color: white;
+    background-color:var(--backgroundcolor);
+    color: var(--secondarycolor);
     user-select: none;
 }
 .progress{
@@ -116,7 +119,7 @@ body{
 
 /* Today Habits / TODO */
 .todo{
-    background-color: #1F2E2C;
+    background-color: var(--secondarycolor);
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -129,7 +132,7 @@ body{
     font-weight: bolder;
 }
 .todo .wrapper p{
-    color: var(--secondarycolor);
+    color: var(--backgroundcolor);
     margin: 0;
 }
 .todo .habitcon{

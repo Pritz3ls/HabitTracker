@@ -1,11 +1,10 @@
 <?php
-    // Redirect user to login page if the current session ID is empty or null
-    if(empty($_SESSION['currentUserID'])){
-        Header("Location: index.php");
-        exit;
-    }
+    include 'db.php';
 
     // Handles user inputs
+    if(isset($_POST['fetch_board'])){
+        Fetch_Board();
+    }
     if(isset($_POST['create-board'])){
         CreateBoard();
     }
@@ -58,6 +57,119 @@
         $board_id = $_POST['board_id'];
         $query = "UPDATE habit_board SET deleted_at = CURRENT_TIMESTAMP WHERE id = $board_id";
         $executedQuery = mysqli_query($conn, $query);
+    }
+    function Fetch_Board(){
+        global $conn;
+        $user_id = $_SESSION['currentUserID'];
+        $query = "SELECT * FROM habit_board WHERE user_id = {$user_id} AND deleted_at IS NULL";
+        $executed_query = mysqli_query($conn, $query);
+        // Habit Boards
+        while($row = mysqli_fetch_assoc($executed_query)){
+            $board_id = $row['id'];
+            // Habit Maker
+            ?>
+            <div class="habit-category-container">
+                <div class="board-detail">
+                    <form method="post">
+                        <input type="hidden" name="board_id" value="<?php echo $board_id?>">
+                        <input type="text" class="rename-board" name="rename_board" id='<?php echo $board_id?>' value="<?php echo $row['board_name']?>">
+                    </form>
+                    <form method="post">
+                        <input type="hidden" name="board_id" value="<?php echo $board_id?>">
+                        <button type="submit" name="delete_board"><i class="material-icons">delete</i></button>
+                    </form>
+                </div>
+
+                <div class="habit-maker">
+                    <!-- Habit Maker Container -->
+                    <form action="" method="post" class="habit-maker">
+                        <input type="number" name="board_id" value='<?php echo $board_id?>' hidden>
+                        <label for="name" method="post">Name</label>
+                        <div class="habit-name-submit">
+                            <input type="text" name="name" placeholder="Habit name" required>
+                            <button type="submit" name="create-habit">
+                                <i class="material-icons">check</i>
+                            </button>
+                        </div>
+
+                        <div class="habit-option-wrapper">
+                            <div class="repetition-type-container">
+                                <select name="repitition_type" id="repitition_type">
+                                    <option disabled selected hidden>Repetition Type</option>
+                                    <option value="daily">Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="custom">Custom</option>
+                                </select>  
+                            </div>
+                            
+                            <!-- Custom Format -->
+                            <div id="custom_repitition_value" style="display:none;">
+                                <input type="number" name="custom_interval_value" placeholder="Every # days" min="1" max="999">
+                            </div>
+
+                            <!-- Weekly Format -->
+                            <div id="dayofweek" style="display:none;">
+                                <select name="dayofweek">
+                                    <option disabled selected hidden>Day Of Week</option>
+                                    <option value="sunday">Sunday</option>
+                                    <option value="monday">Monday</option>
+                                    <option value="tuesday">Tuesday</option>
+                                    <option value="wednesday">Wednesday</option>
+                                    <option value="thursday">Thursday</option>
+                                    <option value="friday">Friday</option>
+                                    <option value="saturday">Saturday</option>
+                                </select>  
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <?php
+                // Habits
+                // Retrieve the current User ID that logged in
+                $query = "SELECT * FROM habits 
+                    LEFT JOIN habit_logs ON habit_logs.log_id = habits.id
+                    WHERE board_id = {$board_id} AND deleted_at IS NULL";
+                $view_habits = mysqli_query($conn, $query);
+                echo '<div class="habits-container">';
+                    // Control
+                    if(!$view_habits){return;}
+                    while($row = mysqli_fetch_assoc($view_habits)){
+                        echo '<form action="" method="post" class="habit">';
+                            $habit_id = $row['id'];
+                            $habit_name = $row['habit_name'];
+                            $repetition_type = $row['repetition_type'];
+                            $custom_interval_value = $row['custom_interval_value'];
+                            $dayofweek = $row['dayofweek'];
+                            $last_completion = $row['last_completion'];
+                            $status = $row['status'];
+                            // Start Button
+                                echo '<div class="habit-details">';
+                                    echo "<p><b>{$habit_name}</b></p>";
+                                    if($repetition_type == 'custom'){
+                                        echo "<p>{$repetition_type} | Every {$custom_interval_value} days</p>";
+                                    }else if($repetition_type == 'weekly'){
+                                        echo "<p>{$repetition_type} | {$dayofweek}</p>";
+                                    }else{
+                                        echo "<p>{$repetition_type}</p>";
+                                    }
+                                echo '</div>';
+                                echo '<div class="habit-control">';
+                                    echo '<button type="submit" name = "start_habit">';
+                                        if($status == "started"){
+                                            echo '<i class="material-icons">stop_circle</i>';
+                                        }else{
+                                            echo '<i class="material-icons">play_circle</i>';
+                                        }
+                                    echo '</button>';
+                                    echo '<button type="submit" name = "delete_habit"><i class="material-icons">delete</i></button>';
+                                    echo '<input type="hidden" name = "habit_id" value='.$habit_id.'>';
+                                echo '</div>';
+                        echo "</form>";
+                    };
+                echo '</div>';
+            echo '</div>';
+        }
     }
 
     // Habit Level

@@ -5,6 +5,10 @@ const navbar = document.getElementById("navbar");
 function burgir(){
     navbar.classList.toggle("show");
 }
+function showSubMenu(id, ob){
+    ob.children[0].innerHTML = ob.children[0].innerHTML == "keyboard_arrow_down" ? "keyboard_arrow_up" : "keyboard_arrow_down";
+    document.getElementById(id).classList.toggle("show-submenu");
+}
 
 window.onclick = (event) =>{
     if(!event.target.matches('.burgir')){

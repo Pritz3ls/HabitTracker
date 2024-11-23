@@ -33,6 +33,13 @@
         $executedQuery = mysqli_query($conn, $query);
     }
 
+    function LogActivity_GenerateReport($id){
+        global $conn;
+        $message = GenerateActivityMessage('report-generate');
+        $query = "INSERT INTO activity_logs(user_id, operation) VALUES($id, '$message')";
+        $executedQuery = mysqli_query($conn, $query);
+    }
+
     function GenerateActivityMessage($type){
         date_default_timezone_set("Asia/Manila");
         $date = date("h:i:s A");
@@ -43,6 +50,7 @@
             case 'update-info': return "Updated user information at $date";
             case 'deactivation': return "Deactivated account at $date";
             case 'deactivation-admin': return "Deactivated user account at $date, account name: ";
+            case 'report-generate': return "Generated a report at $date";
         }
     }
 ?>

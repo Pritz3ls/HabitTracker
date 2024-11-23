@@ -14,6 +14,7 @@ CREATE TABLE habit_board(
     id INT AUTO_INCREMENT PRIMARY KEY,
     board_name VARCHAR(150) DEFAULT 'New Board',
     user_id INT NOT NULL,
+    deleted_at DATETIME DEFAULT NULL,
         FOREIGN KEY (user_id) REFERENCES users(id)
 );
 

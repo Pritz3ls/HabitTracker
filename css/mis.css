@@ -5,6 +5,10 @@ body{
     overflow: hidden;
 }
 
+*{
+    font-family: inherit;
+}
+
 .container{
     padding: 30px;
 }
@@ -36,6 +40,10 @@ body{
     padding: 5px;
     border-radius: 5px;
     flex-grow: 1;
+}
+
+input,select{
+    cursor: pointer;
 }
 
 
