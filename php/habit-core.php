@@ -9,6 +9,13 @@
     if(isset($_POST['create-board'])){
         CreateBoard();
     }
+    if(isset($_POST['rename_board'])){
+        RenameBoard();
+    }
+    if(isset($_POST['delete_board'])){
+        ArchiveBoard();
+    }
+
     if(isset($_POST['create-habit'])){
         CreateHabit();
     }
@@ -38,8 +45,19 @@
             echo "Error!";
         }
     }
-    function ArchiveBoard(){
+    function RenameBoard(){
+        global $conn;
+        $board_id = $_POST['board_id'];
+        $new_boardname = $_POST['rename_board'];
 
+        $query = "UPDATE habit_board SET board_name = '$new_boardname' WHERE id = $board_id";
+        $executedQuery = mysqli_query($conn, $query);
+    }
+    function ArchiveBoard(){
+        global $conn;
+        $board_id = $_POST['board_id'];
+        $query = "UPDATE habit_board SET deleted_at = CURRENT_TIMESTAMP WHERE id = $board_id";
+        $executedQuery = mysqli_query($conn, $query);
     }
 
     // Habit Level
@@ -49,7 +67,6 @@
         // Fetch all necessary details
         $name = $_POST['name'];
         $board_id = $_POST['board_id'];
-        echo $board_id;
 
         if(empty($_POST['repitition_type']) || empty($name)){
             echo '<script>alert("Invalid inputs, Try again.")</script>';

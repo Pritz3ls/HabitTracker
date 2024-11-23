@@ -18,6 +18,7 @@
     <script defer src="js/motivation.js"></script>
     <script defer src="js/spinner.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
+    <script defer src="js/habit-core-ajax.js"></script>
 
     <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>">
@@ -80,7 +81,7 @@
     <div class="board-wrapper">
         <?php
             $user_id = $_SESSION['currentUserID'];
-            $query = "SELECT * FROM habit_board WHERE user_id = {$user_id}";
+            $query = "SELECT * FROM habit_board WHERE user_id = {$user_id} AND deleted_at IS NULL";
             $executed_query = mysqli_query($conn, $query);
             // Habit Boards
             while($row = mysqli_fetch_assoc($executed_query)){
@@ -88,7 +89,17 @@
                 // Habit Maker
                 ?>
                 <div class="habit-category-container">
-                    <p class='board-name'><?php echo $row['board_name']?></p>
+                    <div class="board-detail">
+                        <form method="post">
+                            <input type="hidden" name="board_id" value="<?php echo $board_id?>">
+                            <input type="text" class="rename-board" name="rename_board" id='<?php echo $board_id?>' value="<?php echo $row['board_name']?>">
+                        </form>
+                        <form method="post">
+                            <input type="hidden" name="board_id" value="<?php echo $board_id?>">
+                            <button type="submit" name="delete_board"><i class="material-icons">delete</i></button>
+                        </form>
+                    </div>
+
                     <div class="habit-maker">
                         <!-- Habit Maker Container -->
                         <form action="" method="post" class="habit-maker">

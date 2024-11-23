@@ -24,15 +24,49 @@ body{
     flex-direction: row;
     margin: 10px 10px;
     gap: 5px;
+    height: 100%;
 
     overflow-x: auto;
 }
 
+.board-detail{
+    display: flex;
+    justify-content: space-between;
+}
+.board-detail button{
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    color: var(--buttonSecondary);
+    opacity: 0%;
+    transition: all 0.3s;
+}
+.board-detail:hover + .board-detail button, .board-detail button:hover{
+    opacity: 100%;
+    transition: all 0.3s;
+} 
+.board-detail input[type=text]{
+    box-sizing: border-box;
+    font-family: inherit;
+    font-weight: bolder;
+
+    cursor: text;
+
+    border: none;
+    margin: 5px 0px;
+    /* flex-grow: 5; */
+}
+.board-detail input[type=text]:focus{
+    border: none;
+    outline: none;
+}
+
+/* .habit-details:hover + .habit-control, .habit-control:hover */
 .habit-category-container{
     height: 80vh;
-    width: 250px;
+    min-width: 150px;
     padding: 5px;
-
+    
     background-color: var(--secondarycolor);
     color: var(--backgroundcolor);
     border-radius: 2px;
@@ -44,10 +78,6 @@ body{
     background-color: var(--primarycolor);
     border-radius: 4px;
     padding: 2px;
-}
-.board-name{
-    line-height: 0px;
-    font-weight: 600;
 }
 .habit-maker select{
     font-family: 'Poppins', sans-serif;
@@ -149,7 +179,7 @@ input[type="number"]{
 }
 /* Create New Board */
 .create-new-category{
-    width: 250px;
+    min-width: 250px;
     height: fit-content;
     padding: 5px;
     line-height: 5px;
@@ -157,16 +187,22 @@ input[type="number"]{
     background-color: var(--secondarycolor);
     color: var(--backgroundcolor);
     border-radius: 2px;
-}
-.create-new-category div{
     display: flex;
+}
+.create-new-category .category div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center ;
 }
 .create-new-category p{
     font-weight: 600;
 }
 .create-new-category input[type="text"]{
-    width: 100%;
+    flex-grow: 5;
+    height: 30px;
     box-sizing: border-box;
+
     border: 1px solid var(--secondaryaccentcolor);
     font-family: 'Poppins', sans-serif;
     border-radius: 3px 0 0 3px;
