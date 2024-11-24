@@ -86,6 +86,7 @@
                     <option value="" hidden selected>Sort by</option>
                     <option value="user_name">Username</option>
                     <option value="created_at">Account Creation</option>
+                    <option value="user_type">Account Type</option>
                 </select>
             </div>
             <input name="filter" type="submit" value="Filter">
@@ -96,6 +97,7 @@
                 <tbody>
                     <tr>
                         <th>ID</th>
+                        <th>Account Type</th>
                         <th>Username</th>
                         <th>Phonenumber</th>
                         <th>Created at</th>
