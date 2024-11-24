@@ -48,12 +48,14 @@
         $executed_table_query = mysqli_query($conn, GetQuery(true));
         while ($data = mysqli_fetch_assoc($executed_table_query)){
             $id = $data['id'];
+            $type = $data['user_type'];
             $name = $data['user_name'];
             $phone = $data['phone_number'];
             $date = $data['created_at'];
 
             echo '<tr>';
                 echo "<td>{$id}</td>";
+                echo "<td>{$type}</td>";
                 echo "<td>{$name}</td>";
                 echo "<td>{$phone}</td>";
                 echo "<td>{$date}</td>";
@@ -158,7 +160,7 @@
         global $rows_per_page;
         global $start;
 
-        $query = "SELECT * FROM users WHERE user_type = 'client' AND deleted_at IS NULL";
+        $query = "SELECT * FROM users WHERE deleted_at IS NULL";
 
         // Filter name
         if(!empty($_SESSION['mis_user_name'])){
