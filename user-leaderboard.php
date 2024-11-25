@@ -61,7 +61,7 @@
     </div>
     
     <!-- Leaderboard table -->
-    <h1 class="leaderboard-tag"><b>LEARDERBOARD</b></h1>
+    <h1 class="leaderboard-tag"><b>LEADERBOARD</b></h1>
     <table>
         <thead>
             <th>Rank</th>
