@@ -35,40 +35,70 @@
             return;
         }
 
-        /*  ## INTEGRATION ##
-            SMS Authentication goes here
-            Send an OTP request to phone number
-        */
-
-        // Update the users password
-        $update_pass_query = "UPDATE `users` SET password='{$new_password}'
-        WHERE email = '{$email}'";
-        // Execute the query
-        $update = mysqli_query($conn, $update_pass_query);
-        
-        // Check if the execution is unsuccesful?
-        if(!$update){
-            echo "Update unsuccessful!" . mysqli_connect_error($conn);
-            return;    
-        }
-        
-        // Create a query, that selects the user type
-        $client_type_query = "SELECT id,user_type FROM users WHERE email = '{$email}'";
-        // Execute query
-        $client_type = mysqli_query($conn, $client_type_query);
+        // Save the current password
+        $_SESSION['newPass'] = $confirm_password;
 
         // Fetch all the rows from executed query
-        $row = mysqli_fetch_assoc($client_type);
+        $row = mysqli_fetch_assoc($user);
+        if($row['prefer_2FA'] == 'true'){
+            Header('Location: otp-password-recover.php');
+            $_SESSION['tempVerifyUser'] = $row['id'];
+            return;
+        }else{
+            VerifyUser('false', $row['id']);
+            return;
+        }
+    }
+    if(isset($_POST['verify'])){
+        VerifyUser('true');
+    }
+    // Handles Verification
+    function VerifyUser($tfa = 'false', $id = 0){
+        global $conn;
+        if($tfa = 'true'){
+            $otpinput = $_POST['otpinput'];
+            $sentOTP = $_SESSION['tempOTP'];
+            if($sentOTP != $otpinput){
+                // echo "<script>alert('Wrong OTP!')</script>";
+                echo $_SESSION['newPass'];
+                return;
+            }
+        }
+        // If the user undergo a verification, then remove the temporary index
+        if(!empty($_SESSION['tempVerifyUser'])){
+            // Save the current user ID
+            $_SESSION['currentUserID'] = $_SESSION['tempVerifyUser'];
+            $id = $_SESSION['tempVerifyUser'];
+            
+            unset($_SESSION['tempOTP']);
+            unset($_SESSION['tempVerifyUser']);
+        }else{
+            // Save the current user ID
+            $_SESSION['currentUserID'] = $id;
+        }
 
-        // Save the current user ID
-        $_SESSION['currentUserID'] = $row['id'];
+        // Updates the password
+        $new_password = $_SESSION['newPass'];
+        $update_pass_query = "UPDATE users SET password='{$new_password}'
+        WHERE id = $id";
+        // Execute the query
+        $update = mysqli_query($conn, $update_pass_query);
+        if(!$update){
+            echo "error".$update_pass_query;
+            return;
+        }
+        
+        // Log the activity
+        LogActivity_PasswordRecovery($id);
 
-        LogActivity_PasswordRecovery($row['id']);
+        $fetch_user_type = "SELECT user_type FROM users WHERE id = $id";
+        $user_found = mysqli_query($conn, $fetch_user_type);
+        $row = mysqli_fetch_assoc($user_found);
 
         // Divert the user to their respective pages
-        // Two users are expected, Client and Admin
+        // Two users are expected, Client and Admin    
         if($row['user_type'] == 'client'){
-            Header('Location: user-dashboard.php');  
+            Header('Location: user-dashboard.php');
             exit;
         }else{ /* Admin */
             Header('Location: admin-dashboard.php');  

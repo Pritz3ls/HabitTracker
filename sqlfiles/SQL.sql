@@ -8,6 +8,7 @@ CREATE TABLE users (
     deleted_at DATETIME,
     user_xp INT DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    prefer_2FA ENUM('true', 'false') DEFAULT 'false'
 );
 
 CREATE TABLE habit_board(
