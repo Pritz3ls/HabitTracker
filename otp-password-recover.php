@@ -1,7 +1,7 @@
 <?php
     require "php/db.php";
     include "php.utils/activity-logging.php";
-    include "php/user-authentication.php";
+    include "php/update-pass.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

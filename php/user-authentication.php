@@ -6,6 +6,9 @@
     if(isset($_POST['create'])){
         User_SignUp();
     }
+    if(isset($_POST['verify'])){
+        VerifyUser('true');
+    }
 
     // Handles Login
     function User_Login(){
@@ -45,20 +48,13 @@
 
         // Fetch all the rows from executed query
         $row = mysqli_fetch_assoc($user_found);
-        
-        // Save the current user ID
-        $_SESSION['currentUserID'] = $row['id'];
-
-        LogActivity_Signin($row['id']);
-
-        // Divert the user to their respective pages
-        // Two users are expected, Client and Admin    
-        if($row['user_type'] == 'client'){
-            Header('Location: user-dashboard.php');  
-            exit;
-        }else{ /* Admin */
-            Header('Location: admin-dashboard.php');  
-            exit;
+        if($row['prefer_2FA'] == 'true'){
+            Header('Location: otp-authentication.php');
+            $_SESSION['tempVerifyUser'] = $row['id'];
+            return;
+        }else{
+            VerifyUser('false', $row['id']);
+            return;
         }
     }
 
@@ -124,8 +120,45 @@
         Header('Location: habit-main.php');
     }
     
-    // Handles Logout
-    function User_Logout(){
+    // Handles Verification
+    function VerifyUser($tfa = 'false', $id = 0){
+        global $conn;
+        if($tfa = 'true'){
+            $otpinput = $_POST['otpinput'];
+            $sentOTP = $_SESSION['tempOTP'];
+            if($sentOTP != $otpinput){
+                echo "<script>alert('Wrong OTP!')</script>";
+                return;
+            }
+        }
+        // If the user undergo a verification, then remove the temporary index
+        if(!empty($_SESSION['tempVerifyUser'])){
+            // Save the current user ID
+            $_SESSION['currentUserID'] = $_SESSION['tempVerifyUser'];
+            $id = $_SESSION['tempVerifyUser'];
+            
+            unset($_SESSION['tempOTP']);
+            unset($_SESSION['tempVerifyUser']);
+        }else{
+            // Save the current user ID
+            $_SESSION['currentUserID'] = $id;
+        }
         
+        // Log the activity
+        LogActivity_Signin($id);
+
+        $fetch_user_type = "SELECT user_type FROM users WHERE id = $id";
+        $user_found = mysqli_query($conn, $fetch_user_type);
+        $row = mysqli_fetch_assoc($user_found);
+
+        // Divert the user to their respective pages
+        // Two users are expected, Client and Admin    
+        if($row['user_type'] == 'client'){
+            Header('Location: user-dashboard.php');
+            exit;
+        }else{ /* Admin */
+            Header('Location: admin-dashboard.php');  
+            exit;
+        }
     }
 ?>

@@ -14,8 +14,8 @@
     <!-- Load  -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script defer src="js/spinner.js"></script>
-    <script defer src="js/showpassword.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
+    <script defer src="js/showpassword.js"></script>
 
     <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/forgotpass.css?v=<?php echo time(); ?>">
