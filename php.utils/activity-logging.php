@@ -40,6 +40,29 @@
         $executedQuery = mysqli_query($conn, $query);
     }
 
+    // Habit Board Level
+    function LogActivity_HabitBoard($id, $state){
+        switch ($state) {
+            case 'create':$message = GenerateActivityMessage('board-create');break;
+            case 'rename':$message = GenerateActivityMessage('board-rename');break;
+            case 'delete':$message = GenerateActivityMessage('board-delete');break;
+        }
+        global $conn;
+        $query = "INSERT INTO activity_logs(user_id, operation) VALUES($id, '$message')";
+        $executedQuery = mysqli_query($conn, $query);
+    }
+
+    // Habit Level
+    function LogActivity_Habit($id, $state){
+        switch ($state) {
+            case 'create':$message = GenerateActivityMessage('habit-create');break;
+            case 'delete':$message = GenerateActivityMessage('habit-delete');break;
+        }
+        global $conn;
+        $query = "INSERT INTO activity_logs(user_id, operation) VALUES($id, '$message')";
+        $executedQuery = mysqli_query($conn, $query);
+    }
+
     function GenerateActivityMessage($type){
         date_default_timezone_set("Asia/Manila");
         $date = date("h:i:s A");
@@ -51,6 +74,13 @@
             case 'deactivation': return "Deactivated account at $date";
             case 'deactivation-admin': return "Deactivated user account at $date, account name: ";
             case 'report-generate': return "Generated a report at $date";
+            // Habit Board
+            case 'board-create': return "Created a habit board at $date";
+            case 'board-rename': return "Rename a habit board at $date";
+            case 'board-delete': return "Deleted a habit board at $date";
+            // Habit
+            case 'habit-create': return "Created a habit at $date";
+            case 'habit-delete': return "Delete a habit at $date";
         }
     }
 ?>

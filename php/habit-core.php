@@ -44,6 +44,7 @@
         if(!$executedQuery){
             echo "Error!";
         }
+        LogActivity_HabitBoard($_SESSION['currentUserID'], 'create');
     }
     function RenameBoard(){
         global $conn;
@@ -52,12 +53,14 @@
 
         $query = "UPDATE habit_board SET board_name = '$new_boardname' WHERE id = $board_id";
         $executedQuery = mysqli_query($conn, $query);
+        LogActivity_HabitBoard($_SESSION['currentUserID'], 'rename');
     }
     function ArchiveBoard(){
         global $conn;
         $board_id = $_POST['board_id'];
         $query = "UPDATE habit_board SET deleted_at = CURRENT_TIMESTAMP WHERE id = $board_id";
         $executedQuery = mysqli_query($conn, $query);
+        LogActivity_HabitBoard($_SESSION['currentUserID'], 'delete');
     }
 
     // Habit Level
@@ -119,6 +122,7 @@
             return;
         }
         echo '<script>alert("Habit Data added")</script>';
+        LogActivity_Habit($_SESSION['currentUserID'], 'create');
     }
     // Handles Habit Progression
     function ProgressHabit(){
@@ -202,6 +206,7 @@
             echo "Something went wrong!" . mysqli_connect_error($conn);
             return;
         }
+        LogActivity_Habit($_SESSION['currentUserID'], 'delete');
     }
 
     // Habit Utils
