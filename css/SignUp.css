@@ -58,7 +58,7 @@ label {
     color:var(--secondarycolor);
 }
 
-input[type="text"], input[type="password"], select {
+input[type="text"], input[type="password"], input[type="email"], select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;

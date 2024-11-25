@@ -24,8 +24,8 @@
             <img src="resource/application-icon.png" alt="">
             habere
         </a>
-        <a href="">CONTACT</a>
-        <a href="">ABOUT</a>
+        <a href=""></a>
+        <a href=""></a>
         <a href="login.php">SIGN IN</a>
     </nav>
 
@@ -40,5 +40,5 @@
         </p>
         <button onclick="location.href='signup.php'">Get Started</button>
     </div>
-</body>
+</body> 
 </html>

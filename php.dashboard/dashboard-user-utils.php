@@ -39,7 +39,7 @@
             JOIN habit_board ON users.id = habit_board.user_id
             JOIN habits ON habit_board.id = habits.board_id
             JOIN habit_logs ON habits.id = habit_logs.habit_id
-            WHERE users.id = $curID AND habits.deleted_at IS NULL";
+            WHERE users.id = $curID";
 
         $executed_query = mysqli_query($conn, $query);
         $data = mysqli_fetch_assoc($executed_query);

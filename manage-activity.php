@@ -99,7 +99,12 @@
                     <option value="signed in">Sign In</option>
                     <option value="signed out">Sign Out</option>
                     <option value="update">Updates</option>
+                    <option value="recovered">Password Recwovery</option>
                     <option value="deac">Deactivation</option>
+                    <!-- Habit Level -->
+                    <option value="board">Habit Board</option>
+                    <option value="habit">Habit</option>
+                    <!-- Misc -->
                     <option value="generate">Generate Reports</option>
                 </select>
                 <!-- <div class="dropdown-wrapper">

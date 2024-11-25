@@ -87,25 +87,25 @@
         // Handles User Sign up
         // Fetch all required information
         $username = $_POST['username'];
-        $phonenumber = '+63'.ltrim($_POST['phonenumber'], '0');
+        $email = $_POST['email'];
         $password = $_POST['password'];
 
         // For debugging purpose
         // $user_type = $_POST['user_type'];
         
-        // Validation of Phone Number
-        // If phone number is used, throw an error
-        $phone_validation_query = "SELECT COUNT(*) phone_valid FROM `users` WHERE phone_number = '{$phonenumber}'";
+        // Validation of Email Address
+        // If email address is used, throw an error
+        $phone_validation_query = "SELECT COUNT(*) email_valid FROM `users` WHERE email = '{$email}'";
         $user_valid = mysqli_query($conn, $phone_validation_query);
         
         $row = mysqli_fetch_assoc($user_valid);
-        if($row['phone_valid'] == 1){
-            echo "<div class='error-message'><h3>Phone number is already used.</h3></div>";
+        if($row['email_valid'] == 1){
+            echo "<div class='error-message'><h3>This email is already used.</h3></div>";
             return;
         }
 
-        $query = "INSERT INTO users(user_name, phone_number, password)
-        VALUES('{$username}','{$phonenumber}','{$password}')";
+        $query = "INSERT INTO users(user_name, email, password)
+        VALUES('{$username}','{$email}','{$password}')";
 
         $add_data = mysqli_query($conn, $query);
 
@@ -116,7 +116,7 @@
         }
 
         // Save the current User ID
-        $fetch_id_query = "SELECT id FROM `users` WHERE phone_number = '{$phonenumber}'";
+        $fetch_id_query = "SELECT id FROM `users` WHERE email = '{$email}'";
         $fetch_id = mysqli_query($conn, $fetch_id_query);
         $fetch = mysqli_fetch_assoc($fetch_id);
         $_SESSION['currentUserID'] = $fetch['id'];

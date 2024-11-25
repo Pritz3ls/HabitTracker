@@ -35,8 +35,8 @@
             <input type="text" name="username" placeholder="Enter Username" required>
         </div>
         <div>
-            <label for="phonenumber" method="post">Phone Number</label>
-            <input type="text" name="phonenumber" pattern="[09][0-9]{10}" placeholder="+63 Phone Number" required>
+            <label for="email" method="post">Email</label>
+            <input type="email" name="email" placeholder="Enter Email Address" required>
         </div>
         <div>
             <label for="password" method="post">Password</label>

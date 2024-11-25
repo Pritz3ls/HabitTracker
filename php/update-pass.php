@@ -1,7 +1,7 @@
 <?php    
     // Update password of the user
     if(isset($_POST['forgotPass'])){
-        $phonenumber = $_POST['phonenumber'];
+        $email = $_POST['email'];
         $new_password = $_POST['new_password'];
         $confirm_password = $_POST['confirm_password'];
         $password_strength = (int)$_POST['strIndex'];
@@ -19,7 +19,7 @@
             return;
         }
         
-        $user_query = "SELECT * FROM `users` WHERE phone_number = '{$phonenumber}'";
+        $user_query = "SELECT * FROM `users` WHERE email = '{$email}'";
         // Execute the query
         $user = mysqli_query($conn, $user_query);
 
@@ -42,7 +42,7 @@
 
         // Update the users password
         $update_pass_query = "UPDATE `users` SET password='{$new_password}'
-        WHERE phone_number = '{$phonenumber}'";
+        WHERE email = '{$email}'";
         // Execute the query
         $update = mysqli_query($conn, $update_pass_query);
         
@@ -53,7 +53,7 @@
         }
         
         // Create a query, that selects the user type
-        $client_type_query = "SELECT id,user_type FROM users WHERE phone_number = '{$phonenumber}'";
+        $client_type_query = "SELECT id,user_type FROM users WHERE email = '{$email}'";
         // Execute query
         $client_type = mysqli_query($conn, $client_type_query);
 
@@ -63,15 +63,15 @@
         // Save the current user ID
         $_SESSION['currentUserID'] = $row['id'];
 
+        LogActivity_PasswordRecovery($row['id']);
+
         // Divert the user to their respective pages
         // Two users are expected, Client and Admin
         if($row['user_type'] == 'client'){
-            /* Client */
-            Header('Location: testHabit.php');  
+            Header('Location: user-dashboard.php');  
             exit;
-        }else{
-            /* Admin */
-            Header('Location: testDashboard-Admin.php');  
+        }else{ /* Admin */
+            Header('Location: admin-dashboard.php');  
             exit;
         }
     }
