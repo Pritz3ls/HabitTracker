@@ -34,10 +34,10 @@ body{
     justify-content: space-between;
 }
 .board-detail button{
-    background-color: transparent;
+    background-color: var(--error);
     cursor: pointer;
     border: none;
-    color: var(--buttonSecondary);
+    color: var(--greyscaledcolor);
     opacity: 0%;
     transition: all 0.3s;
 }
