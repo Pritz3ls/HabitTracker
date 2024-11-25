@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/habit.css?v=<?php echo time(); ?>">
-    <title>habere | Main</title>
+    <title>habere | My Habits</title>
 </head>
 <!-- save this for later onload="notif()" -->
 <body>

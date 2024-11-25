@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/forgotpass.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/pass-strength.css?v=<?php echo time(); ?>">
-    <title>habere | Change Password</title>
+    <title>habere | Password Recovery</title>
 </head>
 <body>
     <!-- Spinner -->
@@ -31,8 +31,8 @@
     <form action="" method="post" autocomplete="off">
         <h3>FORGOT PASSWORD</h3>
         <div>
-            <label for="phonenumber" method="post">Phone Number</label>
-            <input type="text" name="phonenumber" pattern="[09][0-9]{10}" placeholder="+63 Phone Number" required>
+            <label for="email" method="post">Email</label>
+            <input type="email" name="email" placeholder="Enter Email Address" required>
         </div>
         <div>
             <label for="new_password" method="post">New Password</label>

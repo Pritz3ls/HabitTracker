@@ -2,7 +2,7 @@ CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR(250) NOT NULL,
     password VARCHAR(250) NOT NULL,
-    phone_number VARCHAR(250) NOT NULL,
+    email VARCHAR(250) NOT NULL,
     user_type ENUM('client','admin') DEFAULT 'client',
     -- Log for users
     deleted_at DATETIME,
