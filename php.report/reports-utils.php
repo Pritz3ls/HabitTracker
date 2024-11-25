@@ -8,7 +8,6 @@
         $query = "
             SELECT COUNT(*) AS totalregisteredUsers FROM users
             WHERE created_at <= '$val'
-            AND user_type = 'client'
         ";
         $executed_query = mysqli_query($conn, $query);
         $data = mysqli_fetch_assoc($executed_query);
@@ -27,7 +26,6 @@
                 SUM(deleted_at IS NULL) AS totalActiveUsers
             FROM users
             WHERE created_at <= '$val'
-            AND user_type = 'client'
         ";
         $executed_query = mysqli_query($conn, $query);
         $data = mysqli_fetch_assoc($executed_query);

@@ -44,6 +44,13 @@
         $records = mysqli_num_rows($executed_record_query);
         $num_pages = ceil($records / $rows_per_page);
         
+        if(mysqli_num_rows($executed_record_query) <= 0){
+            ?><tr>
+                    <td colspan="6" style="text-align:center">No Records</td>
+            </tr><?php
+            return;
+        }
+
         $executed_table_query = mysqli_query($conn, GetQuery(true));
         while ($data = mysqli_fetch_assoc($executed_table_query)){
             $id = $data['activity_log_id'];
