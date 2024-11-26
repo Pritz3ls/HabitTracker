@@ -22,7 +22,7 @@
     function Fetch_ReportsPreferences(){
         global $conn;
         global $curID;
-        $query = "SELECT board_name FROM habit_board WHERE user_id = $curID";
+        $query = "SELECT board_name FROM habit_board WHERE user_id = $curID AND deleted_at IS NULL";
         $executedQuery = mysqli_query($conn, $query);
 
         // There are no boards

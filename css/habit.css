@@ -37,11 +37,14 @@ body{
     cursor: pointer;
     border: none;
     color: var(--greyscaledcolor);
+    opacity: 25%;
+    background-color: transparent;
     transition: all 0.3s;
 }
 .board-detail:hover + .board-detail button, .board-detail button:hover{
     color:var(--error);
-    transition: all 0.3s;
+    opacity: 100%;
+    transition: all 0.5s;
 } 
 .board-detail input[type=text]{
     box-sizing: border-box;
