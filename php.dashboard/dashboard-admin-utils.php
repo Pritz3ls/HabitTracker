@@ -210,16 +210,17 @@
     }
 
     // Graphs
-    function Fetch_GraphCustomData($table_name, $period){
+    function Fetch_GraphCustomData($date){
         global $conn;
-        $month = date('n');
-        $val = $month - $period;
         // $period -= ;
-        $query = "SELECT COUNT(*) AS custom FROM {$table_name} 
-            WHERE MONTH(created_at) = $val";
-        $executed_query = mysqli_query($conn, $query);
-        $data = mysqli_fetch_assoc($executed_query);
-        return $data['custom'];
+        $query = "
+        SELECT 
+            (SELECT COUNT(*) FROM habits WHERE DATE_FORMAT(created_at, '%Y-%m') = DATE_FORMAT('$date', '%Y-%m')) AS total_habits,
+            (SELECT COUNT(*) FROM habit_logs WHERE DATE_FORMAT(created_at, '%Y-%m') = DATE_FORMAT('$date', '%Y-%m')) AS total_completed_habits,
+            (SELECT COUNT(*) FROM users WHERE DATE_FORMAT(created_at, '%Y-%m') = DATE_FORMAT('$date', '%Y-%m')) AS registered_users
+        ";
+        $data = mysqli_query($conn, $query);
+        return $data;
     }
 
     // Fetch Username

@@ -7,9 +7,9 @@ CREATE TABLE users (
     -- Log for users
     deleted_at DATETIME,
     user_xp INT DEFAULT 0,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     prefer_2FA ENUM('true', 'false') DEFAULT 'false'
-);
+)
 
 CREATE TABLE habit_board(
     id INT AUTO_INCREMENT PRIMARY KEY,

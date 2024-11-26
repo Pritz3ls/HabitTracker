@@ -11,12 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="resource/application-icon.png" type="image/png">
     <script defer src="js/navbar.js"></script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script> 
-    
     <!-- i will disconnect the style for the admin, as i have plans for the look -->
     <!-- <link rel="stylesheet" href="css/dashboard-admin.css">  -->
-
+    
     <!-- Load  -->
+    <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js "></script>
     <script defer src="js/spinner.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -172,89 +171,11 @@
                     </div>
                 </div>
                 <div class="container">
-                    <div id="lineChart" class="graph">
-                    </div>
+                    <canvas id="myChart" class="chart"></canvas>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        google.charts.load('current',{packages:['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-        // drawChart.apply(null, args);
-        // Your Function
-        function drawChart(){
-            // Set Data
-            var data = new google.visualization.DataTable();
-            data.addColumn('date', 'Date');
-            data.addColumn('number', 'Registered Users');
-            // data.addColumn('number', 'Active Users');
-            data.addColumn('number', 'Habits');
-            data.addColumn('number', 'Complete Habits');
-            
-            <?php
-                $year = date('Y');
-                $month = date('n')-1;
-                $day = date('d');
-            ?>
-            // Add Data to the graph
-            data.addRows([
-                <?php
-                    for ($i=0; $i < 6; $i++) { 
-                        $regUsers = Fetch_GraphCustomData('users',$i);
-                        // $activeUsers = Fetch_GraphCustomData('users',$i,true);
-                        $habits = Fetch_GraphCustomData('habits',$i);
-                        $comHabits = Fetch_GraphCustomData('habit_logs',$i);
-
-                        echo "[new Date($year,$month-$i,1),{$regUsers},{$habits},{$comHabits}],";
-                    }
-                ?>
-            ]);
-                
-
-            var options = {
-                curveType: 'function',
-                pointSize: 2,
-                backgroundColor: { fill:'transparent' },
-                fontName: 'Poppins',
-                style: {
-                    borderRadius: "25px",
-                },
-                // Legend
-                legend: {
-                    position: 'top',
-                    alignment: 'center',
-                    textStyle:{
-                        bold: true,
-                    }
-                },
-                // Axis
-                vAxis: { 
-                    format: '',
-                    gridlines: {
-                        color: 'none'
-                    },
-                    viewWindow:{
-                        min:0
-                    },
-                    textStyle:{
-                        bold: true,
-                    }
-                },
-                hAxis: {
-                    format: 'MMMM',
-                    gridlines: {color: 'none'},
-                    baselineColor: 'none',
-                    textStyle:{
-                        bold: true,
-                    }
-                },
-                height: 250,
-            };
-            // Draw Chart
-            const chart = new google.visualization.LineChart(document.getElementById('lineChart'));
-            chart.draw(data, options);
-        }
-    </script> 
+    <script src="js/admin-graph-chart.js"></script>
 </body>
 </html>

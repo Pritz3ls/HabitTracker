@@ -69,26 +69,29 @@ h1{
     flex-direction: row;
     gap: 15px;
     height: fit-content;
+    box-sizing: border-box;
 }
 /* Statistics Boxes Items */
 .item{
-    width: 225px;
-    height: 225px;
+    width: 200px;
+    height: 200px;
     padding: 5px;
     /* flex-grow: 1; */
     
     background-color: var(--secondaryaccentcolor);
     border-radius: 20px;
 }
+.item p, .item h1{
+    margin: 0;
+}
 .content{
-    height: 100%;   
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     user-select: none;
 }
 .item .head{
-    line-height: 2px;
     font-weight: bold;
     text-align: center;
 }
@@ -111,9 +114,12 @@ h1{
     margin: 0;
 }
 
-.container .graph{
+.graph{
+}
+.container .chart{
     flex-grow: 5;
-    height: fit-content;
+    padding: 10px;
+    height: 250px;
     border-radius: 25px;
     background-color: var(--secondaryaccentcolor);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5) inset;

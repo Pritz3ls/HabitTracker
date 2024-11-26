@@ -56,7 +56,8 @@
             FROM users
             JOIN habit_board ON users.id = habit_board.user_id
             JOIN habits ON habit_board.id = habits.board_id
-            WHERE users.id = $curID AND habits.deleted_at IS NULL
+            WHERE users.id = $curID 
+            AND habits.deleted_at IS NULL AND habit_board.deleted_at IS NULL
         ";
 
         $executed_query = mysqli_query($conn, $query);
@@ -73,7 +74,7 @@
             JOIN habit_board ON users.id = habit_board.user_id
             JOIN habits ON habit_board.id = habits.board_id
             WHERE users.id = $curID  -- Filter by specific user ID
-            AND habits.deleted_at IS NULL
+            AND habits.deleted_at IS NULL AND habit_board.deleted_at IS NULL
             AND (
                 -- Daily habits: Include all, as they repeat every day
                 habits.repetition_type = 'daily'
@@ -118,26 +119,5 @@
             </div>
             <?php
         }
-    }
-
-    // Graphs
-    function Fetch_GraphCustomData($period){
-        global $conn;
-        global $curID;
-        $month = date('n');
-        $val = $month - $period;
-        // echo $val;
-        $query = "
-            SELECT COUNT(habits.id) AS completed_habits
-            FROM users
-            JOIN habit_board ON users.id = habit_board.user_id
-            JOIN habits ON habit_board.id = habits.board_id
-            JOIN habit_logs ON habits.id = habit_logs.habit_id
-            WHERE users.id = $curID AND
-            MONTH(habits.created_at) = $val
-        ";
-        $executed_query = mysqli_query($conn, $query);
-        $data = mysqli_fetch_assoc($executed_query);
-        return $data['completed_habits'];
     }
 ?>
