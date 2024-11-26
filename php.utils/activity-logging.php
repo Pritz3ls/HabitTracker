@@ -28,7 +28,6 @@
     function LogActivity_UpdateInformation($id){
         global $conn;
         $message = GenerateActivityMessage('update-info');
-        echo $message;
         $query = "INSERT INTO activity_logs(user_id, operation) VALUES($id, '$message')";
         $executedQuery = mysqli_query($conn, $query);
     }
@@ -36,7 +35,6 @@
     function LogActivity_PasswordRecovery($id){
         global $conn;
         $message = GenerateActivityMessage('password-recover');
-        echo $message;
         $query = "INSERT INTO activity_logs(user_id, operation) VALUES($id, '$message')";
         $executedQuery = mysqli_query($conn, $query);
     }

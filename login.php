@@ -61,7 +61,7 @@
             <a href="signup.php" class="auth-link">Don't have an account? SignUp</a>
         </div>
         <div class="button-container">
-            <a href="index.php" class="auth-link">Back</a>
+            <a class="auth-link" href="javascript:history.back()">Back</a>
         </div>
         </form>
 </body>

@@ -65,26 +65,26 @@ input[type="text"]{
     transition: all 0.3s ease;
 }
 
-.password-input{
-    display: flex;
-    flex-direction: row;
-    gap: 2px;
-}
-.password-input input[type="password"]{
-    flex-grow: 5;
-}
-.password-input button{
-    width: 15%;
+input[type='submit']{
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 0.75rem;
+    
+    background-color: #5ac051;
+    color: #fff;
     border: none;
     border-radius: 5px;
+    font-weight: bold;
+    
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+input[type='submit']:hover{
+    background-color: #2d3d30;
     transition: all 0.3s;
 }
-.password-input button:hover{
-    background-color: var(--hyperlinks);
-    color: var(--secondarycolor);
-    transition: all 0.3s;
-}
-
 
 input[type="text"]:focus,
 input[type="password"]:focus {

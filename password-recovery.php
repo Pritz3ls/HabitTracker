@@ -56,7 +56,7 @@
         </div>
         <input type="submit" value="Continue" name="forgotPass">
         <div class="button-container">
-            <a href="login.php" class="back-button">Back</a>
+            <a class="auth-link" href="javascript:history.back()">Back</a>
         </div>
     </form>
 </body>

@@ -127,7 +127,7 @@
             $otpinput = $_POST['otpinput'];
             $sentOTP = $_SESSION['tempOTP'];
             if($sentOTP != $otpinput){
-                echo "<script>alert('Wrong OTP!')</script>";
+                echo "<div class='error-message'><h3>Incorrect OTP Code!</h3></div>";
                 return;
             }
         }
@@ -136,7 +136,6 @@
             // Save the current user ID
             $_SESSION['currentUserID'] = $_SESSION['tempVerifyUser'];
             $id = $_SESSION['tempVerifyUser'];
-            
             unset($_SESSION['tempOTP']);
             unset($_SESSION['tempVerifyUser']);
         }else{

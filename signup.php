@@ -71,7 +71,7 @@
             <a href="login.php">Already have an account? Login</a>
         </div>
         <div class="links">
-            <a href="index.php" class="auth-link">Back</a>
+            <a class="auth-link" href="javascript:history.back()">Back</a>
         </div>
     </form>
     <script>
