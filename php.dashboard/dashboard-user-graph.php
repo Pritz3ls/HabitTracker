@@ -10,7 +10,7 @@
         JOIN habits ON habit_board.id = habits.board_id
         JOIN habit_logs ON habits.id = habit_logs.habit_id
         AND users.id = $curID
-        GROUP BY date ASC
+        GROUP BY date DESC
         LIMIT 7
     ";
     $executed_query = mysqli_query($conn, $query);
@@ -18,5 +18,7 @@
     while($row = mysqli_fetch_assoc($executed_query)){
         array_push($data, $row);
     }
-    echo json_encode($data);
+    
+    $modifedDate = array_reverse($data);
+    echo json_encode($modifedDate);
 ?>

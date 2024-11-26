@@ -153,7 +153,7 @@
     // Active Users
     function Fetch_Total_ActiveUsers(){
         global $conn;
-        $query = "SELECT COUNT(*) AS total FROM users WHERE user_type = 'client' AND deleted_at IS NULL";
+        $query = "SELECT COUNT(*) AS total FROM users WHERE deleted_at IS NULL";
         $executed_query = mysqli_query($conn, $query);
         $data = mysqli_fetch_assoc($executed_query);
         return number_format_short($data['total']);

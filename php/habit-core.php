@@ -1,3 +1,4 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php
     // Redirect user to login page if the current session ID is empty or null
     if(empty($_SESSION['currentUserID'])){
@@ -34,7 +35,7 @@
         $userId = $_SESSION['currentUserID'];
         $board_name = $_POST['board_name'];
         if(empty($board_name)){
-            echo "<script>alert('Invalid inputs!')</script>";
+            echo "<body><script>Swal.fire('Invalid Inputs!', '', 'error');</script></body>";
             return;
         }
 
@@ -72,7 +73,8 @@
         $board_id = $_POST['board_id'];
 
         if(empty($_POST['repitition_type']) || empty($name)){
-            echo '<script>alert("Invalid inputs, Try again.")</script>';
+            echo "<body><script>Swal.fire('Invalid Inputs!', '', 'error');</script></body>";
+            // echo '<script>alert("Invalid inputs, Try again.")</script>';
             return;
         }
         
@@ -87,7 +89,7 @@
             case 'weekly':
                 # code...
                 if(empty($_POST['dayofweek'])) {
-                    echo '<script>alert("Weekday not specified.")</script>';
+                    echo "<body><script>Swal.fire('Weekday not specified!', '', 'error');</script></body>";
                     return;
                 }
                 $dayofweek = $_POST['dayofweek'];
@@ -99,7 +101,7 @@
                 # code...
                 $custom_interval_value = $_POST['custom_interval_value'];
                 if($custom_interval_value <= 0) {
-                    echo '<script>alert("Days not specified.")</script>';
+                    echo "<body><script>Swal.fire('Days not specified!', '', 'error');</script></body>";
                     return;
                 }
                 $query = 
@@ -121,7 +123,7 @@
             echo "Something went wrong";
             return;
         }
-        echo '<script>alert("Habit Data added")</script>';
+        echo "<body><script>Swal.fire('Habit Added!', '', 'success');</script></body>";
         LogActivity_Habit($_SESSION['currentUserID'], 'create');
     }
     // Handles Habit Progression
@@ -156,7 +158,7 @@
                 // If not, then return the block
                 if(!isCompleteValid($repetition_type, $correctInterval, $weekday)) return;
 
-                echo '<script>alert("Habit Started!")</script>';
+                echo "<body><script>Swal.fire('Habit Started!', '', 'success');</script></body>";
                 
                 // Record the User starting the habit
                 $update_query = "UPDATE habits 
@@ -167,7 +169,7 @@
                 // Stop the code here
                 return;
             }else{
-                echo '<script>alert("Habit Completed!")</script>';
+                echo "<body><script>Swal.fire('Habit Completed!', '', 'success');</script></body>";
 
                 // Update the habit last completion to current date and habit status
                 $update_query = "UPDATE habits 
@@ -206,6 +208,7 @@
             echo "Something went wrong!" . mysqli_connect_error($conn);
             return;
         }
+        echo "<body><script>Swal.fire('Deleted Habit!', '', 'success');</script></body>";
         LogActivity_Habit($_SESSION['currentUserID'], 'delete');
     }
 
@@ -237,7 +240,7 @@
             case 'daily':
                 # Daily format
                 if($currentDate < $correctInterval){
-                    echo '<script>alert("Try again tomorrow")</script>';
+                    echo "<body><script>Swal.fire('Try again tomorrow.', '', 'warning');</script></body>";
                     return false;
                 }
             break;
@@ -246,18 +249,18 @@
                 if($currentDate >= $correctInterval){
                     $currentDay = (int)date('w');
                     if($currentDay < $weekday){
-                        echo '<script>alert("Try again on '.getWeekDayString($weekday).'.")</script>';
+                        echo "<body><script>Swal.fire('Try again on ".getWeekDayString($weekday).".', '', 'warning');</script></body>";
                         return false;
                     }
                 }else{
-                    echo '<script>alert("Try again next week")</script>';
+                    echo "<body><script>Swal.fire('Try again next week.', '', 'warning');</script></body>";
                     return false;
                 }
             break;
             default:
                 # Monthly, and Custom
                 if($currentDate < $correctInterval){
-                    echo '<script>alert("Try again some time")</script>';
+                    echo "<body><script>Swal.fire('Try again some time.', '', 'warning');</script></body>";
                     return false;
                 }
             break;

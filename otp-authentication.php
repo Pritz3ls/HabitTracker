@@ -28,8 +28,15 @@
     
     <form action="" method="post" autocomplete="off">
         <div>
+            <?php
+                $tempid = $_SESSION['tempVerifyUser'];
+                $query = "SELECT email FROM users WHERE id = $tempid";
+                $ex = mysqli_query($conn, $query);
+                $data = mysqli_fetch_assoc($ex);
+                $email = $data['email'];
+            ?>
             <h3>OTP Verification</h3>
-            <p>A One-Time Password has been sent to <?php echo 'sample.email@gmail.com'?></p>
+            <p>A One-Time Password has been sent to <?php echo $email?></p>
         </div>
         <div class="otp-container">
             <input type="text" name="otpinput" inputmode="numeric" maxlength="6" placeholder="______"required>
