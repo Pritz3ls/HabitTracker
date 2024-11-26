@@ -3,7 +3,6 @@ function requestOTP(resend = false){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function(){
         otpSent = this.response;
-        console.log(otpSent);
     }
     xhttp.open("POST", "php.otp/sendmail.php",true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
