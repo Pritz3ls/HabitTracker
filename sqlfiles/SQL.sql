@@ -32,7 +32,7 @@ CREATE TABLE habits (
     -- Log for habits
     deleted_at DATETIME,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    	FOREIGN KEY (board_id) REFERENCES habit_board(id),
+    	FOREIGN KEY (board_id) REFERENCES habit_board(id)
 );
 
 CREATE TABLE habit_logs(

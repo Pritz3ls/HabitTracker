@@ -33,16 +33,14 @@ body{
     display: flex;
     justify-content: space-between;
 }
-.board-detail button{
-    background-color: transparent;
+.board-detail button{ 
     cursor: pointer;
     border: none;
-    color: var(--buttonSecondary);
-    opacity: 0%;
+    color: var(--greyscaledcolor);
     transition: all 0.3s;
 }
 .board-detail:hover + .board-detail button, .board-detail button:hover{
-    opacity: 100%;
+    color:var(--error);
     transition: all 0.3s;
 } 
 .board-detail input[type=text]{

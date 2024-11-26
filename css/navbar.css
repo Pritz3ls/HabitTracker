@@ -126,24 +126,7 @@
     display: block;
 }
 
-.dropdown button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-}
-.dropdown button i {
-    font-size: 24px; /* Adjust size specifically for the 'Manage' icon */
-    margin-right: 8px; /* Optional spacing */
-    vertical-align: middle;
-} 
-.dropdown-options a i {
-    font-size: 20px; /* Adjust the size as needed */
-    margin-right: 8px; /* Add spacing between icon and text */
-    vertical-align: middle;
-}
+
 
 /* Logout */
 input[type='button']{
