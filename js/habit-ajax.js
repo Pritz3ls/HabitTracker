@@ -22,9 +22,6 @@ function Confirm_ArchiveBoard(id){
 }
 function ArchiveBoard(id){
     const xhttp = new XMLHttpRequest();
-    xhttp.onload = function(){
-        console.log(this.responseText);
-    }
     xhttp.open("POST", "php/habit-core-ajax.php",true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("delete_board=true&board_id="+id);

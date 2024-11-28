@@ -93,12 +93,12 @@
         </div>
         <!-- Notifacition Settings -->
         <div class="wrapper notif">
-            <h4>Notification Settings</h4>
+            <h4>Preferences</h4>
             <form action="" method="post">
                 <div class="items">
                     <!-- Head -->
                     <div class="item">
-                        <p>Customize Notifications</p>
+                        <p>Customize Preferences</p>
                     </div>
     
                     <!-- Performance Reports -->

@@ -166,7 +166,7 @@
         global $rows_per_page;
         global $start;
 
-        $query = "SELECT * FROM users WHERE deleted_at IS NULL";
+        $query = "SELECT * FROM users WHERE deleted_at IS NULL AND user_type = 'client'";
 
         // Filter name
         if(!empty($_SESSION['mis_user_name'])){

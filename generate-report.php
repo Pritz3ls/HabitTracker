@@ -61,10 +61,6 @@
                 <i class="material-icons">summarize</i>
                 <p>Generate Report</p>
             </a>
-            <a href="admin-account-settings.php">
-                <i class="material-icons">settings</i>
-                <p>Settings</p>
-            </a>
             <a href="php/user-logout.php">
                 <i class="material-icons">logout</i>
                 <p>Logout</p>

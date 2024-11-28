@@ -9,7 +9,12 @@ function ConfirmDeactivation(id){
     }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-            Swal.fire("Saved!", "", "success");
+            Swal.fire({
+                title: "Deactivated User!",
+                icon: "success",
+            }).then(function(){
+                location.reload();
+            });
             DeactivateUser(id);
         }
     });
@@ -17,9 +22,6 @@ function ConfirmDeactivation(id){
 function DeactivateUser(id){
     const xhttp = new XMLHttpRequest();
     xhttp.open("POST", "php.mis/mis-ajax-deactivate-user.php",true);
-    xhttp.onload = function(){
-        console.log(this.responseText);
-    }
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("id=" + id);
 }
