@@ -2,6 +2,7 @@ let otpSent;
 function authOTP(resend = false){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function(){
+        console.log(this.response);
         otpSent = this.response;
     }
     xhttp.open("POST", "php.otp/sendmail.php",true);
@@ -13,6 +14,7 @@ function authOTP(resend = false){
 function verifyEmail(resend = false){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function(){
+        console.log(this.response);
         otpSent = this.response;
     }
     xhttp.open("POST", "php.otp/sendmail.php",true);

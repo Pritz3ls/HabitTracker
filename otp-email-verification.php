@@ -21,14 +21,13 @@
     <link rel="stylesheet" href="css/otpauth.css">
     <title>habere | Email Verification</title>
 </head>
-<body>
+<body onload='verifyEmail()'>
     <!-- Spinner -->
     <div id="loading" class="loading">
         <div class="spinner"></div>
     </div>
     
     <div class="container">
-        <h2>sa</h2>
         <form action="" method="post" autocomplete="off">
             <div>
                 <?php
@@ -49,8 +48,5 @@
             </div>
         </form>
     </div>
-    <script>
-        window.onload = verifyEmail();
-    </script>
 </body>
 </html>
