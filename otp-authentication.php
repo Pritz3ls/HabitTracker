@@ -26,7 +26,6 @@
     <div id="loading" class="loading">
         <div class="spinner"></div>
     </div>
-    
     <div class="container">
         <form action="" method="post" autocomplete="off">
             <div>

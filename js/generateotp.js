@@ -1,4 +1,5 @@
 let otpSent;
+
 function authOTP(resend = false){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function(){
