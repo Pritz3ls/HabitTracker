@@ -14,15 +14,17 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    overflow: hidden;
+}
 
+.container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 0;
+    width: 100%;
+    height: 100vh;
 }
-
 form {
     background-color: rgba(17, 25, 40, 0.5); /* Make it more transparent */
     padding: 20px;
@@ -35,7 +37,6 @@ form {
     backdrop-filter: blur(20px) saturate(150%); /* Increased blur and saturation */
     -webkit-backdrop-filter: blur(20px) saturate(150%); /* For Safari */
     border: 1px solid rgba(255, 255, 255, 0.2); /* Adjust border for a more glassy look */
-    margin-top: 20px;
 }
 
 h3{

@@ -16,6 +16,11 @@
     // Handles Login
     function User_Login(){
         global $conn;
+
+        // Unset the previous login details
+        unset($_SESSION['tempOTP']);
+        unset($_SESSION['tempVerifyUser']);
+
         // Fetch CAPTCHA input from the user and the generated CAPTCHA value
         $enteredCaptcha = $_POST['captchaInput'];
         $generatedCaptcha = $_POST['hiddenCaptcha'];
