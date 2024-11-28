@@ -3,115 +3,269 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    margin: 5;
+    height: 100vh; 
+    overflow-y: auto; 
+    margin: 0;
     padding: 0;
-    overflow: hidden;
-    
     background: linear-gradient(
-        to left,
-        rgba(18,32,25,0),
-        rgba(18,32,25,1)
-    ), url("../resource/landing-01.jpg");
+            to left, 
+            rgba(18, 32, 25, 0), 
+            rgba(18, 32, 25, 1)
+        ), 
+        url("../resource/landing-01.jpg")no-repeat; /* Added fixed */
     background-size: cover;
 }
 
 /* Navbar styling */
-nav{
+nav {
     color: var(--secondarycolor);
     border-radius: 0 0 5px 5px;
     gap: 50px;
     font-size: 15px;
-
     display: flex;
     align-items: center;
     justify-content: end;
 }
 
-nav a:has(img){
+nav a:has(img) {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
 }
-nav img{
+
+nav img {
     width: 50px;
     height: 50px;
 }
-nav a:first-child{
+
+nav a:first-child {
     margin-right: auto;
 }
 
-nav a:nth-child(n-4){
+nav a:nth-child(n-4) {
     color: var(--secondarycolor);
     text-decoration: none;
     font-weight: bolder;
     transition: all 0.3s ease;
 }
 
-nav a:nth-child(n+4), button{
-    color: var(--secondarycolor); 
-    background-color: var(--primarycolor); 
-    font-weight: bold; 
-
-    padding: 5px 20px; 
-    border-radius: 25px; 
+nav a:nth-child(n+2), button {
+    color: var(--secondarycolor);
+    background-color: var(--primarycolor);
+    font-weight: bold;
+    padding: 5px 20px;
+    border-radius: 25px;
     border: 1px solid var(--primarycolor);
-
-    cursor: pointer; /* Pointer cursor to indicate it's clickable */
+    cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     text-decoration: none;
 }
 
 /* Hover effect */
-nav a:nth-child(n+4):hover,button:hover{
-    background-color: var(--transparent); 
+nav a:nth-child(n+2):hover, button:hover {
+    background-color: var(--transparent);
     border: 1px solid var(--primarycolor);
 }
-nav a:nth-child(n-4):hover{
+
+nav a:nth-child(n-2):hover {
     color: var(--primarycolor);
     transform: translateY(2px);
 }
 
-
 /* Welcome Section styling */
-.container{
+.container {
     margin: 20px;
     height: 90vh;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    
     color: var(--secondarycolor);
 }
+
 .container h1 {
     color: var(--primarycolor);
     line-height: 5px;
     font-size: 3em;
 }
+
 .content {
-    height: 1500px; /* Make the content  scrollable  */
+    height: 1500px; /* Make the content scrollable */
 }
-/* CREATOR DESIGN*/
-/* .creators {
+
+/* about habere content */
+.about-habere h2 {
+    color: var(--primarycolor);
+    text-align: center; 
+    font-size: 2em;
+}
+
+.about-habere p {
+    color: var(--secondarycolor);
+    font-size:large;
+    text-align: justify; 
+    margin: 0 auto; 
+    max-width: 600px; 
+    line-height: 1.6; 
+}
+.about-habere {
+    margin-bottom: 40px; /* Adjust this value to increase or decrease the gap */
+}
+
+.features {
+    margin-top: 40px; /* Alternatively, you can adjust the top margin here */
+}
+
+/* Features for card */
+.features {
+    text-align: center;
+    padding: 20px;
+    
+    min-height: 100vh; 
+    margin: 0; 
+    position: relative;
+    background-size: cover; 
+    background-position: center; 
+}
+
+/* Features Card Layout */
+
+.feature-cards {
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+}
+
+.card-container {
+    flex: 1; 
+    min-width: 200px; 
+    max-width: 250px; 
+    margin: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+.card {
+    position: relative;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 40px;
+    background: rgba( 18, 32, 35, 0.65 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 1.5px );
+    -webkit-backdrop-filter: blur( 1.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: var(--primarycolor);
+    width: 250px;
+    height: 250px; 
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-align: center; 
+}
+
+.card h3,
+.card i {
+    transition: opacity 0.3s ease; 
+    font-size: 1.6em; 
+}
+
+.card i {
+    font-size: 2.5em; 
+}
+
+.card .feature-description {
+    opacity: 0; 
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -80%); 
+    font-size: 1.2em; 
+    font-weight: bold; 
+    color: var(--secondarycolor);
+    transition: opacity 0.3s ease; 
+    visibility: hidden; 
+    width: 80%; 
+    text-align: center; 
+}
+
+.card-container:hover .card h3,
+.card-container:hover .card i {
+    opacity: 0; /* Hide title and icon */
+}
+
+.card-container:hover .card .feature-description {
+    opacity: 1; /* Show description */
+    visibility: visible; /* Make description visible on hover */
+}
+
+.features h2{
+    font-size: 2em;
+    color: var(--secondarycolor);
+}
+
+.features p {
+    font-size: 2em;
+    color: var(--secondarycolor);
+    
+}
+/* Initial state for fade-in animation */
+.card-container {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Fade-in from right for even cards */
+.card-container:nth-child(even) {
+    transform: translateX(50px);
+}
+
+/* When visible */
+.card-container.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* CREATOR DESIGN*/
+.creators {
+    min-height: 300px;
+    padding: 20px; 
+    margin-bottom: 40px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+}
+
+.creators-title {
+    font-size: 3em; 
+    margin-bottom: 20px; 
+    color: var(--secondarycolor);
+}
+
+.creators-container {
+    display: flex; 
+    justify-content: center; 
+    gap: 50px; 
 }
 
 .creator {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 250px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
 }
 
 .creator img {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     margin-bottom: 20px;
     object-fit: cover;
@@ -125,6 +279,40 @@ nav a:nth-child(n-4):hover{
 
 .creator p {
     font-size: 16px;
-} */
+} 
 
 
+/* Footer */
+.footer {
+    background-color: var(--backgroundcolor);
+    color: var(--primarycolor);
+    text-align: center;
+    padding: 10px 0; /* Increased padding for better spacing */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.footer-content {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.social-icons {
+    display: flex; 
+    gap: 10px; 
+}
+
+.social-icons a {
+    text-decoration: none; 
+    color: var(--primarycolor); 
+    font-size: 16px; 
+}
+
+.social-icons a:hover {
+    color: var(--greyscaledcolor); 
+}
