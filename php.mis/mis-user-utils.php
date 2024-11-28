@@ -46,18 +46,24 @@
         $num_pages = ceil($records / $rows_per_page);
         
         $executed_table_query = mysqli_query($conn, GetQuery(true));
+        if(mysqli_num_rows($executed_record_query) <= 0){
+            ?><tr>
+                    <td colspan="6" style="text-align:center">No Records</td>
+            </tr><?php
+            return;
+        }
         while ($data = mysqli_fetch_assoc($executed_table_query)){
             $id = $data['id'];
             $type = $data['user_type'];
             $name = $data['user_name'];
-            $phone = $data['phone_number'];
+            $email = $data['email'];
             $date = $data['created_at'];
 
             echo '<tr>';
                 echo "<td>{$id}</td>";
                 echo "<td>{$type}</td>";
                 echo "<td>{$name}</td>";
-                echo "<td>{$phone}</td>";
+                echo "<td>{$email}</td>";
                 echo "<td>{$date}</td>";
                 ?>
                     <td><button type='button' onClick="ConfirmDeactivation(<?php echo $id?>)">Deactivate</button></td>
@@ -160,7 +166,7 @@
         global $rows_per_page;
         global $start;
 
-        $query = "SELECT * FROM users WHERE deleted_at IS NULL";
+        $query = "SELECT * FROM users WHERE deleted_at IS NULL AND user_type = 'client'";
 
         // Filter name
         if(!empty($_SESSION['mis_user_name'])){

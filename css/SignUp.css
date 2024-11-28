@@ -183,7 +183,7 @@ a:hover {
     z-index: 1000; /* Ensure it stays on top of other elements */
     top: 5%;
   
-    animation: fadeout 3s;
+    animation: fadeout 5s;
     animation-fill-mode: forwards;
 }
 

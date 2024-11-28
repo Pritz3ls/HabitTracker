@@ -9,5 +9,6 @@
     --buttonSecondary:#e90b0b;
     --hyperlinks:#007bff;
     --error:#e90b0b;
-    --transparent: rgba(0,0,0,0)
+    --transparent: rgba(0,0,0,0);
+    --popupbackground: rgba(18,32,35,0.5);
 }

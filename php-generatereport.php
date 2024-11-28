@@ -116,6 +116,9 @@
             $pdf->SetFont('Arial', '', 12);
             $pdf->SetTextColor(18, 32, 35);
             $mod = date_create($min);
+            // Offset
+            $mod = date_modify($mod, "+1 day");
+
             for ($i=0; $i <= $interval; $i++) { 
                 $regUsers = Fetch_RegisteredUsersByMonth($mod);
                 $actUsers = Fetch_ActiveUsersByMonth($mod);
@@ -155,6 +158,9 @@
             $pdf->SetFont('Arial', '', 12);
             $pdf->SetTextColor(18, 32, 35);
             $mod = date_create($min);
+            // Offset
+            $mod = date_modify($mod, "+1 day");
+
             for ($i=0; $i <= $interval; $i++) { 
                 $habits = Fetch_TotalsByMonth('habits',$mod);
                 $comHabits = Fetch_TotalsByMonth('habit_logs',$mod);

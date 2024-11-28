@@ -145,7 +145,7 @@ body{
     justify-content: space-between;
     background-color: var(--secondarycolor);
     
-    margin: 10px;
+    margin: 2px 5px;
     padding: 15px;
 
     transition: all 0.3s;

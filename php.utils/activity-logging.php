@@ -1,4 +1,12 @@
 <?php
+    function LogActivity_Signup($id){
+        global $conn;
+        $message = GenerateActivityMessage('signup');
+
+        $query = "INSERT INTO activity_logs(user_id, operation) VALUES($id, '$message')";
+        $executedQuery = mysqli_query($conn, $query);
+    }
+
     function LogActivity_Signin($id){
         global $conn;
         $message = GenerateActivityMessage('signin');
@@ -28,7 +36,6 @@
     function LogActivity_UpdateInformation($id){
         global $conn;
         $message = GenerateActivityMessage('update-info');
-        echo $message;
         $query = "INSERT INTO activity_logs(user_id, operation) VALUES($id, '$message')";
         $executedQuery = mysqli_query($conn, $query);
     }
@@ -36,7 +43,6 @@
     function LogActivity_PasswordRecovery($id){
         global $conn;
         $message = GenerateActivityMessage('password-recover');
-        echo $message;
         $query = "INSERT INTO activity_logs(user_id, operation) VALUES($id, '$message')";
         $executedQuery = mysqli_query($conn, $query);
     }
@@ -76,6 +82,7 @@
         $date = date("h:i:s A");
         switch ($type){
             // User Authentication
+            case 'signup': return "Created an account at $date";
             case 'signin': return "User signed in at $date";
             case 'signout': return "User signed out at $date";
             case 'forgot': return "User changed password at $date";

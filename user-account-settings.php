@@ -87,38 +87,39 @@
                     </button>
                 </div>
                 <div>
-                    <button type="button" class="submit" onclick='ConfirmChanges()'>Update</button>
+                    <button type="button" class="submit" onclick='ConfirmInfoChanges()'>Update</button>
                 </div>
             </form>
         </div>
         <!-- Notifacition Settings -->
         <div class="wrapper notif">
-            <h4>Notification Settings</h4>
-            <div class="items">
-                <!-- Head -->
-                <div class="item">
-                    <p>Customize Notifications</p>
-                </div>
-
-                <!-- Performance Reports -->
-                <div class="item">
-                    <h4>Reports</h4>
-                    <p>Receive Reports on how you perform this month, include or exclude what reports you want to receive.</p>
-                    <?php echo Fetch_Preferences()?>                    
-                </div>
-
-                </div>
-                <!-- 2FA -->
-                <div class="item">
-                    <h4>Two Factor Authentication</h4>
-                    <p>Enable Two Factor Authentication, receive a 6 digit code from your mobile phone number.</p>
-                    <p class="warning">(Warning: This would put your account at risk)</p>
-                    <div>
-                        <input type="checkbox" name="enable2FA" id="">
-                        <label for="enable2FA">Enable 2FA</label>
+            <h4>Preferences</h4>
+            <form action="" method="post">
+                <div class="items">
+                    <!-- Head -->
+                    <div class="item">
+                        <p>Customize Preferences</p>
+                    </div>
+    
+                    <!-- Performance Reports -->
+                    <div class="item">
+                        <h4>Reports</h4>
+                        <p>Receive Reports on how you perform this month, include or exclude what reports you want to receive.</p>
+                        <?php echo Fetch_ReportsPreferences()?>                    
+                    </div>
+    
+                    </div>
+                    <!-- 2FA -->
+                    <div class="item">
+                        <h4>Two Factor Authentication</h4>
+                        <p>Enable Two Factor Authentication, receive a 6 digit code from your email address.</p>
+                        <div>
+                            <input type="checkbox" name="enable2FA" id=""<?php echo Fetch_2FA() == 'true' ? 'checked' : ''?> onchange="Preferences(this)">
+                            <label for="enable2FA">Enable 2FA</label>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </body>

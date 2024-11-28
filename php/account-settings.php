@@ -19,10 +19,10 @@
         $data = mysqli_fetch_assoc($executedQuery);
         return $data['password'];
     }
-    function Fetch_Preferences(){
+    function Fetch_ReportsPreferences(){
         global $conn;
         global $curID;
-        $query = "SELECT board_name FROM habit_board WHERE user_id = $curID";
+        $query = "SELECT board_name FROM habit_board WHERE user_id = $curID AND deleted_at IS NULL";
         $executedQuery = mysqli_query($conn, $query);
 
         // There are no boards
@@ -42,5 +42,13 @@
                 </div>
             <?php
         }
+    }
+    function Fetch_2FA(){
+        global $conn;
+        global $curID;
+        $query = "SELECT prefer_2FA FROM users WHERE id = $curID";
+        $executedQuery = mysqli_query($conn, $query);
+        $data = mysqli_fetch_assoc($executedQuery);
+        return $data['prefer_2FA'];
     }
 ?>

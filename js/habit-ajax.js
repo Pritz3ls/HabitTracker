@@ -1,27 +1,28 @@
-function ConfirmDeactivation(id){
+// Load Habits
+function Confirm_ArchiveBoard(id){
     Swal.fire({
-        title: "Do you want to deactivate this user?",
-        icon: "warning",
+        title: "Do you want to delete this board?",
+        icon: "question",
         showCancelButton: true,
         confirmButtonText: "Confirm",
-        confirmButtonColor: "#e90b0b",
+        confirmButtonColor: "#3085d6",
         reverseButtons: true
     }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
             Swal.fire({
-                title: "Deactivated User!",
+                title: "Deleted Board!",
                 icon: "success",
             }).then(function(){
                 location.reload();
             });
-            DeactivateUser(id);
+            ArchiveBoard(id);
         }
     });
 }
-function DeactivateUser(id){
+function ArchiveBoard(id){
     const xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "php.mis/mis-ajax-deactivate-user.php",true);
+    xhttp.open("POST", "php/habit-core-ajax.php",true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("id=" + id);
+    xhttp.send("delete_board=true&board_id="+id);
 }

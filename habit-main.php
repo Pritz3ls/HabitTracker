@@ -12,10 +12,11 @@
     <script defer src="js/habit-dropdown.js"></script>
     <script defer src="js/navbar.js"></script>
 
-    <!-- Load  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <script defer src="js/motivation.js"></script>
+    <script src="js/habit-ajax.js"></script>
+    
+    <script src="js/motivation.js"></script>
     <script defer src="js/spinner.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
 
@@ -94,7 +95,7 @@
                         </form>
                         <form method="post">
                             <input type="hidden" name="board_id" value="<?php echo $board_id?>">
-                            <button type="submit" name="delete_board"><i class="material-icons">delete</i></button>
+                            <button type="button" name="delete_board" onclick="Confirm_ArchiveBoard(<?php echo $board_id?>)"><i class="material-icons">delete</i></button>
                         </form>
                     </div>
 
@@ -123,7 +124,7 @@
                                 
                                 <!-- Custom Format -->
                                 <div id="custom_repitition_value" style="display:none;">
-                                    <input type="number" name="custom_interval_value" placeholder="Every # days" min="1" max="999">
+                                    <input type="number" name="custom_interval_value" placeholder="# days" min="1" oninput="validity.valid||(value='');">
                                 </div>
 
                                 <!-- Weekly Format -->
@@ -147,23 +148,25 @@
                     // Retrieve the current User ID that logged in
                     $query = "SELECT * FROM habits 
                         LEFT JOIN habit_logs ON habit_logs.log_id = habits.id
-                        WHERE board_id = {$board_id} AND deleted_at IS NULL";
+                        WHERE board_id = {$board_id} AND deleted_at IS NULL ORDER BY status = 'started' DESC";
                     $view_habits = mysqli_query($conn, $query);
                     echo '<div class="habits-container">';
                         // Control
                         if(!$view_habits){return;}
                         while($row = mysqli_fetch_assoc($view_habits)){
-                            echo '<form action="" method="post" class="habit">';
-                                $habit_id = $row['id'];
-                                $habit_name = $row['habit_name'];
-                                $repetition_type = $row['repetition_type'];
-                                $custom_interval_value = $row['custom_interval_value'];
-                                $dayofweek = $row['dayofweek'];
-                                $last_completion = $row['last_completion'];
-                                $status = $row['status'];
+                            $habit_id = $row['id'];
+                            $habit_name = $row['habit_name'];
+                            $repetition_type = $row['repetition_type'];
+                            $custom_interval_value = $row['custom_interval_value'];
+                            $dayofweek = $row['dayofweek'];
+                            $last_completion = $row['last_completion'];
+                            $status = $row['status'];
+
+                            $active = $status == 'started' ? 'active-habit':'';
+                            echo "<form action='' method='post' class='habit $active'>";
                                 // Start Button
                                     echo '<div class="habit-details">';
-                                        echo "<p><b>{$habit_name}</b></p>";
+                                        echo "<p><b>$habit_name</b>"."</p>";
                                         if($repetition_type == 'custom'){
                                             echo "<p>{$repetition_type} | Every {$custom_interval_value} days</p>";
                                         }else if($repetition_type == 'weekly'){

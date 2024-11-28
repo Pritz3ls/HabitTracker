@@ -13,8 +13,8 @@
     <script defer src="js/navbar.js"></script>
 
     <!-- Load  -->
+    <script src=" https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js "></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="js/motivation.js"></script>
 
     <script defer src="js/spinner.js"></script>
@@ -90,7 +90,7 @@
                 <!-- Progress -->
                 <div class="wrapper square progress">
                     <div class="note">
-                        <p>Total Habits, <?php echo Fetch_Total_Habits()?></p>
+                        <p>Total Habits, <?php echo Fetch_Total_Habits();?></p>
                     </div>
                     
                     <div class="total">
@@ -101,9 +101,8 @@
             </div>
             <!-- Graph -->
             <div class="container fgrow">
-                <div class="wrapper graph">
-                    <div id="linechart" class="chart">
-                    </div>
+                <div class="wrapper graph dircolumn">
+                    <canvas id="myChart" class="chart"></canvas>
                 </div>
             </div>
         </div>
@@ -116,87 +115,6 @@
             </div>
         </div>
     </div>
-    <script>
-        google.charts.load('current',{packages:['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart(){
-            // Set Data
-            var data = new google.visualization.DataTable();
-            data.addColumn('date', 'Date');
-            data.addColumn('number', 'Completed Habits');
-            // data.addColumn('number', 'Active Users');
-            // data.addColumn('number', 'Habits');
-            // data.addColumn('number', 'Complete Habits');
-            
-            <?php
-                $year = date('Y');
-                $month = date('n')-1;
-                $day = date('d');
-            ?>
-            // Add Data to the graph
-            data.addRows([
-                <?php
-                    for ($i=0; $i < 6; $i++){ 
-                        $completedhabits = Fetch_GraphCustomData($i);
-                        // $activeUsers = Fetch_GraphCustomData('users',$i,true);
-
-                        echo "[new Date($year,$month-$i,1),{$completedhabits}],";
-                    }
-                ?>
-            ]);
-
-            var options = {
-                curveType: 'function',
-                pointSize: 2,
-                backgroundColor: { fill:'transparent' },
-                fontName: 'Poppins',
-                style: {
-                    borderRadius: "25px",
-                },
-                // Legend
-                legend: {
-                    position: 'top',
-                    alignment: 'center',
-                    textStyle:{
-                        bold: true,
-                    }
-                },
-                // Axis
-                vAxis: { 
-                    format: '',
-                    gridlines: {
-                        color: 'none'
-                    },
-                    viewWindow:{
-                        min:0
-                    },
-                    textStyle:{
-                        bold: true,
-                    }
-                },
-                hAxis: {
-                    format: 'MMMM',
-                    gridlines: {color: 'none'},
-                    baselineColor: 'none',
-                    textStyle:{
-                        bold: true,
-                    }
-                },
-                chartArea: {
-                    left: "5%",
-                    top: "10%",
-                    right: "5%",
-                    bottom: "10%",
-                },
-            };
-            // Draw Chart
-            const chart = new google.visualization.LineChart(document.getElementById('linechart'));
-            chart.draw(data, options);
-        }
-        window.onresize = resizeChart;
-        function resizeChart(){
-            drawChart();
-        }
-    </script>
+    <script src="js/user-graph-chart.js"></script>
 </body>
 </html>

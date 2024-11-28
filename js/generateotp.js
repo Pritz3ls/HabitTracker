@@ -1,13 +1,26 @@
 let otpSent;
-function requestOTP(resend = false){
+
+function authOTP(resend = false){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function(){
+        console.log(this.response);
         otpSent = this.response;
-        console.log(otpSent);
     }
     xhttp.open("POST", "php.otp/sendmail.php",true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("otp=" + generateOTP()+"&resend="+resend);
+    xhttp.send("otp=" + generateOTP()+"&auth=true&resend="+resend);
+
+    Swal.fire('OTP Sent!', '', 'success');
+}
+function verifyEmail(resend = false){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function(){
+        console.log(this.response);
+        otpSent = this.response;
+    }
+    xhttp.open("POST", "php.otp/sendmail.php",true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("otp=" + generateOTP()+"&verify=true&resend="+resend);
 }
 
 function generateOTP() {

@@ -9,7 +9,7 @@
     // Registered Users
     function Fetch_Total_RegisteredUsers(){
         global $conn;
-        $query = "SELECT COUNT(*) AS totalregisteredUsers FROM users WHERE user_type = 'client'";
+        $query = "SELECT COUNT(*) AS totalregisteredUsers FROM users";
         $executed_query = mysqli_query($conn, $query);
         $data = mysqli_fetch_assoc($executed_query);
         return number_format_short($data['totalregisteredUsers']);
@@ -20,7 +20,6 @@
             "SET @current_read = (
                 SELECT COUNT(*) FROM users
                 WHERE created_at >= DATE_SUB(CURRENT_DATE, INTERVAL 1 WEEK)
-                AND user_type = 'client'
             )"
         );
         $previous = mysqli_query($conn,
@@ -28,7 +27,6 @@
                 SELECT COUNT(*) FROM users
                 WHERE created_at BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 2 WEEK)
                 AND DATE_SUB(CURRENT_DATE, INTERVAL 1 WEEK)
-                AND user_type = 'client'
             )"
         );
         $query = "
@@ -60,7 +58,7 @@
     // Habits
     function Fetch_Total_Habits(){
         global $conn;
-        $query = "SELECT COUNT(*) AS total FROM habits habits WHERE deleted_at IS NULL";
+        $query = "SELECT COUNT(*) AS total FROM habits habits";
         $executed_query = mysqli_query($conn, $query);
         $data = mysqli_fetch_assoc($executed_query);
         return number_format_short($data['total']);
@@ -155,7 +153,7 @@
     // Active Users
     function Fetch_Total_ActiveUsers(){
         global $conn;
-        $query = "SELECT COUNT(*) AS total FROM users WHERE user_type = 'client' AND deleted_at IS NULL";
+        $query = "SELECT COUNT(*) AS total FROM users WHERE deleted_at IS NULL";
         $executed_query = mysqli_query($conn, $query);
         $data = mysqli_fetch_assoc($executed_query);
         return number_format_short($data['total']);
@@ -166,7 +164,6 @@
             "SET @active_users = (
                 SELECT COUNT(*) FROM users
                 WHERE deleted_at >= DATE_SUB(CURRENT_DATE, INTERVAL 1 WEEK)
-                AND user_type = 'client'
             );"
         );
         $previous = mysqli_query($conn,
@@ -174,7 +171,6 @@
                 SELECT COUNT(*) FROM users
                 WHERE deleted_at BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL 2 WEEK) 
                 AND DATE_SUB(CURRENT_DATE, INTERVAL 1 WEEK)
-                AND user_type = 'client'
             );"
         );
         $query = "
@@ -214,16 +210,17 @@
     }
 
     // Graphs
-    function Fetch_GraphCustomData($table_name, $period){
+    function Fetch_GraphCustomData($date){
         global $conn;
-        $month = date('n');
-        $val = $month - $period;
         // $period -= ;
-        $query = "SELECT COUNT(*) AS custom FROM {$table_name} 
-            WHERE MONTH(created_at) = $val";
-        $executed_query = mysqli_query($conn, $query);
-        $data = mysqli_fetch_assoc($executed_query);
-        return $data['custom'];
+        $query = "
+        SELECT 
+            (SELECT COUNT(*) FROM habits WHERE DATE_FORMAT(created_at, '%Y-%m') = DATE_FORMAT('$date', '%Y-%m')) AS total_habits,
+            (SELECT COUNT(*) FROM habit_logs WHERE DATE_FORMAT(created_at, '%Y-%m') = DATE_FORMAT('$date', '%Y-%m')) AS total_completed_habits,
+            (SELECT COUNT(*) FROM users WHERE DATE_FORMAT(created_at, '%Y-%m') = DATE_FORMAT('$date', '%Y-%m')) AS registered_users
+        ";
+        $data = mysqli_query($conn, $query);
+        return $data;
     }
 
     // Fetch Username

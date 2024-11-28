@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import 'palette.css';
 
+*{
+    font-family: 'Poppins', sans-serif;
+}
 body{
     overflow: hidden;
-    font-family: 'Poppins', sans-serif;
     background-color: var(--backgroundcolor);
     color: var(--secondarycolor);
     margin: 0;
@@ -30,23 +32,36 @@ body{
 }
 
 .board-detail{
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+.board-detail form{
+    margin: 0;
 }
 .board-detail button{ 
     cursor: pointer;
     border: none;
     color: var(--greyscaledcolor);
+    opacity: 25%;
+    background-color: transparent;
     transition: all 0.3s;
 }
 .board-detail:hover + .board-detail button, .board-detail button:hover{
     color:var(--error);
-    transition: all 0.3s;
+    opacity: 100%;
+    transition: all 0.5s;
 } 
-.board-detail input[type=text]{
-    box-sizing: border-box;
+.board-detail input[type='text']{
     font-family: inherit;
-    font-weight: bolder;
+    box-sizing: border-box;
+    width: 100%;
+    font-weight: 600;
+    font-size: 1em;
+
+    width: 100%;
+    box-sizing: border-box;
 
     cursor: text;
 
@@ -62,7 +77,8 @@ body{
 /* .habit-details:hover + .habit-control, .habit-control:hover */
 .habit-category-container{
     height: 80vh;
-    min-width: 150px;
+    min-width: 250px;
+    max-width: 250px;
     padding: 5px;
     
     background-color: var(--secondarycolor);
@@ -77,6 +93,9 @@ body{
     border-radius: 4px;
     padding: 2px;
 }
+.habit-maker form{
+    margin-bottom: 0;
+}
 .habit-maker select{
     font-family: 'Poppins', sans-serif;
     color: var(--backgroundcolor);
@@ -90,7 +109,6 @@ body{
 .habit-name-submit input[type="text"]{
     width: 100%;
     border: 1px solid var(--secondaryaccentcolor);
-    font-family: 'Poppins', sans-serif;
     border-radius: 3px 0 0 3px;
 }
 .habit-name-submit button{
@@ -103,16 +121,25 @@ body{
 .habit-option-wrapper{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 2px;
-    width: 100%;
-    padding: 2px 0 2px 0;
-}
-input{
     box-sizing: border-box;
+    width: 100%;
+    height: 27px;
+    margin: 5px 0;
 }
-input[type="number"]{
-    width: 9em;
+.habit-option-wrapper input[type="number"]{
+    height: 27px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: var(--secondaryaccentcolor);
+    border-radius: 2px;
+    border: 1px solid var(--secondaryaccentcolor);
 }
+.habit-option-wrapper select{
+    height: 27px;
+}
+
 .name-submit{
     display: flex;
     flex-direction: row;
@@ -140,6 +167,9 @@ input[type="number"]{
     border-radius: 2px;
     cursor:help;
 }
+.active-habit{
+}
+
 .habit-details{
     width: 100%;
     padding-left: 5px;
@@ -178,14 +208,18 @@ input[type="number"]{
 /* Create New Board */
 .create-new-category{
     min-width: 250px;
+    max-width: 250px;
+
     height: fit-content;
     padding: 5px;
-    line-height: 5px;
 
     background-color: var(--secondarycolor);
     color: var(--backgroundcolor);
     border-radius: 2px;
     display: flex;
+}
+.create-new-category form{
+    margin-bottom: 2px;
 }
 .create-new-category .category div{
     display: flex;
@@ -194,12 +228,17 @@ input[type="number"]{
     justify-content: center ;
 }
 .create-new-category p{
+    display: flex;
+    align-items: center;
+    height: 37px;
     font-weight: 600;
+    margin: 0;
 }
 .create-new-category input[type="text"]{
     flex-grow: 5;
     height: 30px;
     box-sizing: border-box;
+    width: 100%;
 
     border: 1px solid var(--secondaryaccentcolor);
     font-family: 'Poppins', sans-serif;

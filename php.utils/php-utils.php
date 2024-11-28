@@ -33,4 +33,12 @@
     
         return $n_format . $suffix;
     }
+
+    function GetUserJoinDate($id){
+        global $conn;
+        $query = "SELECT DATE(created_at) AS joinDate FROM users WHERE id = $id";
+        $executed_query = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($executed_query);
+        return $row['joinDate'];
+    }
 ?>
