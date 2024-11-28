@@ -1,7 +1,7 @@
 <?php
     require "php/db.php";
     include "php.utils/activity-logging.php";
-    include "php/update-pass.php";
+    include "php/user-authentication.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,9 +18,9 @@
 
     <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/otpauth.css">
-    <title>habere | Password Recovery</title>
+    <title>habere | Email Verification</title>
 </head>
-<body onload="requestOTP()">
+<body onload="verifyEmail()">
     <!-- Spinner -->
     <div id="loading" class="loading">
         <div class="spinner"></div>
@@ -29,24 +29,20 @@
     <form action="" method="post" autocomplete="off">
         <div>
             <?php
-                $tempid = $_SESSION['tempVerifyUser'];
-                $query = "SELECT email FROM users WHERE id = $tempid";
-                $ex = mysqli_query($conn, $query);
-                $data = mysqli_fetch_assoc($ex);
-                $email = $data['email'];
+                $tempEmail = $_SESSION['temp_email'];
             ?>
-            <h3>OTP Verification</h3>
-            <p>A One-Time Password has been sent to <?php echo $email?></p>
+            <h3>Email Verification</h3>
+            <p>A One-Time Password has been sent to <?php echo $tempEmail?></p>
         </div>
         <div class="otp-container">
             <input type="text" name="otpinput" inputmode="numeric" maxlength="6" placeholder="______"required>
         </div>
         <div>
-            <input type="submit" value="Validate" name="verify">
+            <input type="submit" value="Validate" name="verify-email">
         </div>
         <div>
-            <button type="button" class="resend" onclick="requestOTP(true)">Resend One-Time Password</button>
-            <a href="javascript:history.back()">Back</a>
+            <button type="button" class="resend" onclick="verifyEmail()">Resend One-Time Password</button>
+            <a href="signup.php">Back</a>
         </div>
     </form>
 </body>

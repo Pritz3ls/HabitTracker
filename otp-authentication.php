@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/otpauth.css">
-    <title>habere | Verification</title>
+    <title>habere | User Authentication</title>
 </head>
 <body onload="requestOTP()">
     <!-- Spinner -->
@@ -42,7 +42,7 @@
             <input type="text" name="otpinput" inputmode="numeric" maxlength="6" placeholder="______"required>
         </div>
         <div>
-            <input type="submit" value="Validate" name="verify">
+            <input type="submit" value="Validate" name="user-auth">
         </div>
         <div>
             <button type="button" class="resend" onclick="requestOTP(true)">Resend One-Time Password</button>

@@ -6,7 +6,16 @@ function requestOTP(resend = false){
     }
     xhttp.open("POST", "php.otp/sendmail.php",true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("otp=" + generateOTP()+"&resend="+resend);
+    xhttp.send("otp=" + generateOTP()+"&auth=true&resend="+resend);
+}
+function verifyEmail(resend = false){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function(){
+        otpSent = this.response;
+    }
+    xhttp.open("POST", "php.otp/sendmail.php",true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("otp=" + generateOTP()+"&verify=true&resend="+resend);
 }
 
 function generateOTP() {
