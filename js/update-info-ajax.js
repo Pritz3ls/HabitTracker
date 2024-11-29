@@ -74,6 +74,19 @@ function UpdateInfo(){
     let msg = "update_info=yes&username="+name+"&pass="+pass;
     xhttp.send(msg);
 }
+function UpdateReportPreferences(element, id){
+    console.log(element.checked ? 'true' : 'false', id);
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function(){
+        console.log(this.responseText);
+    }
+    xhttp.open("POST", "./php/update-account-ajax.php",true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var value = element.checked ? "true" : "false";
+    var message = "boardReport=true&board_id="+id+"&value="+value;
+    console.log(message);   
+    xhttp.send(message);
+}
 function Confirm2FA(value){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function(){

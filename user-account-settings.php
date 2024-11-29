@@ -103,7 +103,7 @@
     
                     <!-- Performance Reports -->
                     <div class="item">
-                        <h4>Reports</h4>
+                        <h4>Receive Reports</h4>
                         <p>Receive Reports on how you perform this month, include or exclude what reports you want to receive.</p>
                         <?php echo Fetch_ReportsPreferences()?>                    
                     </div>

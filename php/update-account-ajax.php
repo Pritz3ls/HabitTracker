@@ -9,6 +9,11 @@
         $pass = $_POST['pass'];
         UpdateInformation($name, $pass);
     }
+    if(isset($_POST['boardReport'])){
+        $id = $_POST['board_id'];
+        $value = $_POST['value'];
+        UpdateBoardPreferences($id, $value);
+    }
     if(isset($_POST['otpVerify'])){
         $t2fapref = $_POST['t2fapref'];
         OTPVerificationPopup($t2fapref);
@@ -17,6 +22,15 @@
         global $curID;
         global $conn;
         $query = "UPDATE users SET user_name = '$name', password = '$pass' WHERE id = $curID;";
+        $executedQuery = mysqli_query($conn, $query);
+        
+        $curID = $_SESSION['currentUserID'];
+        LogActivity_UpdateInformation($curID);
+    }
+    function UpdateBoardPreferences($id,$value){
+        global $curID;
+        global $conn;
+        $query = "UPDATE habit_board SET receive_report = '$value' WHERE id = $id AND user_id = $curID;";
         $executedQuery = mysqli_query($conn, $query);
         
         $curID = $_SESSION['currentUserID'];

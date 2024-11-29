@@ -1,3 +1,4 @@
+<script src="./js/update-info-ajax.js"></script>
 <?php  
     // Replace this with the current ID
     global $curID;
@@ -22,7 +23,7 @@
     function Fetch_ReportsPreferences(){
         global $conn;
         global $curID;
-        $query = "SELECT board_name FROM habit_board WHERE user_id = $curID AND deleted_at IS NULL";
+        $query = "SELECT id, board_name, receive_report FROM habit_board WHERE user_id = $curID AND deleted_at IS NULL";
         $executedQuery = mysqli_query($conn, $query);
 
         // There are no boards
@@ -37,7 +38,7 @@
         while ($row = mysqli_fetch_assoc($executedQuery)){
             ?>
                 <div class="preference">
-                    <input type="checkbox" name="<?php echo $row['board_name']?>" checked>
+                    <input type="checkbox" onclick="UpdateReportPreferences(this, <?php echo $row['id']?>)" name="<?php echo $row['board_name']?>" <?php echo $row['receive_report'] == 'true' ? 'checked' : '' ?>>
                     <label for="<?php echo $row['board_name']?>"><?php echo $row['board_name']?></label>
                 </div>
             <?php
