@@ -16,6 +16,7 @@ CREATE TABLE habit_board(
     board_name VARCHAR(150) DEFAULT 'New Board',
     user_id INT NOT NULL,
     deleted_at DATETIME DEFAULT NULL,
+    receive_report ENUM('true', 'false') DEFAULT 'false',
         FOREIGN KEY (user_id) REFERENCES users(id)
 );
 

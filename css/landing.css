@@ -1,30 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import 'palette.css';
 
-body {
+*{
     font-family: 'Poppins', sans-serif;
-    height: 100vh; 
-    overflow-y: auto; 
+}
+
+body {
+    background-color: var(--backgroundcolor);
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
-    background: linear-gradient(
-            to left, 
-            rgba(18, 32, 25, 0), 
-            rgba(18, 32, 25, 1)
-        ), 
-        url("../resource/landing-01.jpg")no-repeat; /* Added fixed */
-    background-size: cover;
 }
 
 /* Navbar styling */
 nav {
     color: var(--secondarycolor);
-    border-radius: 0 0 5px 5px;
-    gap: 50px;
+    background-color: rgba(18, 32, 35, 0.5);
+    backdrop-filter: blur(10px);
     font-size: 15px;
+    z-index: 5;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: end;
+    gap: 50px;
 }
 
 nav a:has(img) {
@@ -32,6 +34,7 @@ nav a:has(img) {
     flex-direction: row;
     align-items: center;
     gap: 10px;
+    flex-grow: 5;
 }
 
 nav img {
@@ -50,38 +53,52 @@ nav a:nth-child(n-4) {
     transition: all 0.3s ease;
 }
 
-nav a:nth-child(n+2), button {
-    color: var(--secondarycolor);
-    background-color: var(--primarycolor);
-    font-weight: bold;
-    padding: 5px 20px;
-    border-radius: 25px;
+nav a:nth-child(n+4), button {
+    color: var(--secondarycolor); 
+    background-color: var(--primarycolor); 
+    font-weight: bold; 
+
+    padding: 5px 20px; 
+    border-radius: 25px; 
     border: 1px solid var(--primarycolor);
-    cursor: pointer;
+
+    cursor: pointer; /* Pointer cursor to indicate it's clickable */
     transition: background-color 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
+    text-decoration: none
 }
 
 /* Hover effect */
-nav a:nth-child(n+2):hover, button:hover {
+nav a:nth-child(n+4):hover, button:hover {
     background-color: var(--transparent);
     border: 1px solid var(--primarycolor);
 }
 
-nav a:nth-child(n-2):hover {
+nav a:nth-child(n-4):hover {
     color: var(--primarycolor);
     transform: translateY(2px);
 }
 
+
 /* Welcome Section styling */
-.container {
-    margin: 20px;
-    height: 90vh;
+.container{
+    overflow-y: auto;
+}
+
+.welcome{
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
     color: var(--secondarycolor);
+    background: linear-gradient(
+        to bottom, 
+        rgba(18, 32, 35, 0) 10%, 
+        rgba(18, 32, 35, 1) 90%
+    ), 
+    url("../resource/landing-01.jpg")no-repeat; /* Added fixed */
+    background-size: cover;
+    padding: 0 30px;
 }
 
 .container h1 {
@@ -121,8 +138,6 @@ nav a:nth-child(n-2):hover {
 .features {
     text-align: center;
     padding: 20px;
-    
-    min-height: 100vh; 
     margin: 0; 
     position: relative;
     background-size: cover; 
@@ -151,28 +166,30 @@ nav a:nth-child(n-2):hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+
     background: rgba( 18, 32, 35, 0.65 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 1.5px );
     -webkit-backdrop-filter: blur( 1.5px );
-    border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     color: var(--primarycolor);
+    
     width: 250px;
     height: 250px; 
     border-radius: 10px;
     box-sizing: border-box;
+
     padding: 20px;
     overflow: hidden;
-    transition: transform 0.3s ease;
     text-align: center; 
+    transition: transform 0.3s ease;
 }
 
 .card h3,
 .card i {
     transition: opacity 0.3s ease; 
-    font-size: 1.6em; 
+    font-size: 1.5em; 
 }
 
 .card i {
@@ -206,11 +223,11 @@ nav a:nth-child(n-2):hover {
 
 .features h2{
     font-size: 2em;
-    color: var(--secondarycolor);
+    color: var(--primarycolor);
 }
 
 .features p {
-    font-size: 2em;
+    font-size: 20px;
     color: var(--secondarycolor);
     
 }
@@ -218,7 +235,8 @@ nav a:nth-child(n-2):hover {
 .card-container {
     opacity: 0;
     transform: translateX(-50px);
-    transition: opacity 1s ease, transform 1s ease;
+    user-select: none;
+    transition: all 1s ease;
 }
 
 /* Fade-in from right for even cards */
@@ -245,10 +263,16 @@ nav a:nth-child(n-2):hover {
     text-align: center; 
 }
 
-.creators-title {
-    font-size: 3em; 
+.creators-title{
+    font-size: 2em;
     margin-bottom: 20px; 
     color: var(--secondarycolor);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.creators-title h2:last-child{
+    color: var(--primarycolor);
 }
 
 .creators-container {
@@ -266,19 +290,21 @@ nav a:nth-child(n-2):hover {
 .creator img {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
+    border-radius: 2px 2px 25px 2px;
     margin-bottom: 20px;
     object-fit: cover;
 }
 
 .creator h2 {
     font-size: 22px;
-    margin-bottom: 10px;
+    margin: 0;
     color: var(--primarycolor);
 }
 
 .creator p {
     font-size: 16px;
+    margin: 0;
+    color: var(--secondarycolor);
 } 
 
 
