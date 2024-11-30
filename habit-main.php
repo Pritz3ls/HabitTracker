@@ -12,10 +12,6 @@
     <script defer src="js/habit-dropdown.js"></script>
     <script defer src="js/navbar.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="js/habit-ajax.js"></script>
-    
     <script src="js/motivation.js"></script>
     <script defer src="js/spinner.js"></script>
     <link rel="stylesheet" href="css/spinner.css">
@@ -23,6 +19,10 @@
     <link rel="stylesheet" href="css/palette.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/habit.css?v=<?php echo time(); ?>">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="js/habit-ajax.js"></script>
     <title>habere | My Habits</title>
 </head>
 <!-- save this for later onload="notif()" -->

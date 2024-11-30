@@ -1,4 +1,14 @@
 <?php
+    // Fetchh Username
+    function Fetch_Username(){
+        global $conn;
+        global $curID;
+        $query = "SELECT user_name FROM users WHERE id = $curID";
+        $executedQuery = mysqli_query($conn, $query);
+        $data = mysqli_fetch_assoc($executedQuery);
+        return $data['user_name'];
+    }
+    
     // Registered Users
     function Fetch_RegisteredUsersByMonth($period){
         global $conn;

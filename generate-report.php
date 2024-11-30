@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/spinner.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
-    <link rel="stylesheet" href="css/navbar.css?v=<?php echo time(); ?>"> 
+    <link rel="stylesheet" href="css/navbar.css"> 
     <link rel="stylesheet" href="css/palette.css">
     <link rel="stylesheet" href="css/generatereport.css">
 </head>

@@ -140,9 +140,13 @@
             $_SESSION['currentUserID'] = $id;
         }
 
+        
         $fetch_user_type = "SELECT user_type FROM users WHERE id = $id";
         $user_found = mysqli_query($conn, $fetch_user_type);
         $row = mysqli_fetch_assoc($user_found);
+
+        // Log the activity
+        LogActivity_Signin($id);
 
         // Divert the user to their respective pages
         // Two users are expected, Client and Admin    

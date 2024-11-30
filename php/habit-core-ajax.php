@@ -1,6 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php
     include 'db.php';
+    include "../php.utils/activity-logging.php";
 
     // Handles user inputs
     if(isset($_POST['fetch_board'])){
@@ -58,6 +59,8 @@
         $board_id = $_POST['board_id'];
         $query = "UPDATE habit_board SET deleted_at = CURRENT_TIMESTAMP WHERE id = $board_id";
         $executedQuery = mysqli_query($conn, $query);
+        // Log the activity
+        LogActivity_HabitBoard($_SESSION['currentUserID'], 'delete');
     }
     function Fetch_Board(){
         global $conn;

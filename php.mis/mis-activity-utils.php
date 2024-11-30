@@ -45,7 +45,7 @@
         $num_pages = ceil($records / $rows_per_page);
         
         if(mysqli_num_rows($executed_record_query) <= 0){
-            ?><tr>
+            ?><tr>  
                     <td colspan="6" style="text-align:center">No Records</td>
             </tr><?php
             return;
@@ -86,7 +86,6 @@
             log_date, users.user_name as admin_name, users.user_type as user_type
             FROM activity_logs
             INNER JOIN users ON activity_logs.user_id = users.id ";
-
         // Filter date
         if(!empty($_SESSION['mis_act_date_min'])){
             $min = $_SESSION['mis_act_date_min'];

@@ -2,7 +2,6 @@
     // Include FPDF library
     require 'php.report/fpdf/fpdf.php';
     require 'php.report/reports-utils.php';
-    include 'php/account-settings.php';
     include 'php.utils/activity-logging.php';
 
     global $curID;
@@ -14,7 +13,7 @@
 
         $username = Fetch_Username();
 
-        LogActivity_GenerateReport($curID);
+        // LogActivity_GenerateReport($curID);
         GenerateReport($username, $min, $max);
     }
 
@@ -179,7 +178,7 @@
             $pdf->Ln(10);
         }
 
-        $conn->close();
+        // $conn->close();
         // Output PDF
         $pdf->Output('I',"Habere System Report ($generatedDate)");
     }

@@ -28,9 +28,6 @@
         $message = GenerateActivityMessage('deactivation-admin').$name;
         $query = "INSERT INTO activity_logs(user_id, operation) VALUES($id, '$message')";
         $executedQuery = mysqli_query($conn, $query);
-        if(!$executedQuery){
-            echo 'error';
-        }
     }
 
     function LogActivity_UpdateInformation($id){
