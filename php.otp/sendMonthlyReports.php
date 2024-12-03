@@ -133,7 +133,7 @@
         $otpmail->clearAddresses();
         
         // Prevent Overload, delay emails by 1 seconds
-        sleep(1);
+        sleep(5);
     }
 
     echo 'Monthly Report Sent to all users!';
