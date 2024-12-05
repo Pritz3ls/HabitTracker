@@ -96,7 +96,7 @@
                         <th>ID</th>
                         <th>Account Type</th>
                         <th>Username</th>
-                        <th>Phonenumber</th>
+                        <th>Email</th>
                         <th>Created at</th>
                         <th>Operation</th>
                     </tr>
